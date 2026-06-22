@@ -1,0 +1,13 @@
+name: fraud-review
+title: "Fraud Review"
+description: "Internal Fraud Review for SP ACH/banking changes — Gateway ACH comparison, domain and website checks, BEC scoring; auto-posts private Freshdesk notes only; never contacts service providers."
+category: operations
+agents:
+  - cursor
+  - claude-code
+author: "LNemechek"
+version: "2.4.0"
+tags: [fraud-review, ach, banking, bec, fraud, freshdesk, gateway, domain-verification, vixxo]
+status: draft
+requires_mcp: [freshdesk, gateway]
+source: vixxo

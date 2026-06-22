@@ -1,0 +1,21 @@
+# Quick client defaults — use when art omits letter acrylic #s.
+# Smartsheet CDR only when this table and art both lack specs.
+
+sally-beauty:
+  standards_sheet: "4309901242224516"
+  letter_sets:
+    SB30RB:
+      sally: "#2793"
+      beauty: "#2447"
+      beauty_note: "70/30 black perf vinyl on #2447 (day reads black)"
+    SB30WR:
+      faces: "#7328"
+    SB36WR:
+      faces: "#7328"
+  raceway_default: "match sign-band fascia or pocket (site-specific; not SW 7100 by default)"
+
+cosmoprof:
+  standards_attachment: "CosmoProf Standards Channel letters Green Blue 5.2024.pdf"
+  letters: "2648 blue Plex"
+  logo: "3M #3630-136 translucent vinyl on clear acrylic"
+  raceway_default: "match building (site-specific; may be custom SW mix)"

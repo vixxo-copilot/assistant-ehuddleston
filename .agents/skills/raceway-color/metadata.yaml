@@ -1,0 +1,15 @@
+name: raceway-color
+title: "Raceway Color"
+description: "Raceway and field paint from surveys, art, and photos — SW, BM, Pantone with hex color swatches in output."
+category: operations
+agents:
+  - cursor
+  - claude-code
+author: "Emi Odella"
+version: "1.6.1"
+tags: [signs, paint, color, raceway, fascia, channel-letters, sherwin-williams, benjamin-moore, pantone, operations]
+status: approved
+requires_mcp: [smartsheet]
+source: vixxo
+provenance: user
+created_at: "2026-06-17T00:00:00.000Z"

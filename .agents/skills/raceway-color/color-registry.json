@@ -1,0 +1,374 @@
+{
+  "version": "1.0",
+  "paint_product": "SW Pro Industrial DTM Acrylic",
+  "raceway_rule": "Paint raceway to match the surface it mounts on (fascia band, pocket, beam, canopy) — same code and sheen.",
+  "tier_labels": {
+    "1": "Default / most common — check here first",
+    "2": "Frequent on surveys",
+    "3": "Specialty — banded fascia, regional, beam mount, brick"
+  },
+  "letter_faces": [
+    {
+      "code": "#2793",
+      "name": "Translucent red",
+      "tier": 1,
+      "transmission": "~25%",
+      "use": "SALLY word face on SB30RB split-color sets",
+      "client": "sally-beauty"
+    },
+    {
+      "code": "#2447",
+      "name": "Milky translucent white",
+      "tier": 1,
+      "transmission": "~47-55%",
+      "use": "BEAUTY word base + 70/30 black perf vinyl (day reads black)",
+      "client": "sally-beauty"
+    },
+    {
+      "code": "#7328",
+      "name": "Translucent white",
+      "tier": 1,
+      "transmission": "~8%",
+      "use": "All-white Sally sets (SB30WR, SB36WR)",
+      "client": "sally-beauty"
+    },
+    {
+      "code": "#2648",
+      "name": "Blue Plex",
+      "tier": 1,
+      "use": "CosmoProf channel letter faces",
+      "client": "cosmoprof"
+    },
+    {
+      "code": "#2025",
+      "name": "Opaque black",
+      "tier": 2,
+      "use": "Solid black letter faces (other brands)"
+    }
+  ],
+  "vinyl_and_films": [
+    {
+      "code": "3M #3630-136",
+      "name": "Translucent vinyl",
+      "tier": 1,
+      "use": "CosmoProf logo on clear acrylic",
+      "client": "cosmoprof"
+    }
+  ],
+  "field_paint": {
+    "sherwin_williams": [
+      {
+        "code": "SW 7100",
+        "number": "7100",
+        "name": "Arcade White",
+        "hex": "F3EEE7",
+        "rgb": [243, 238, 231],
+        "tier": 1,
+        "use": "Default US white fascia and raceway",
+        "aliases": ["Arcade White", "7100"],
+        "confusable": "SW 7647 Crushed Ice — not Fractured Ice"
+      },
+      {
+        "code": "SW 6099",
+        "number": "6099",
+        "name": "Sand Dollar",
+        "hex": "D7C5B3",
+        "rgb": [215, 197, 179],
+        "tier": 1,
+        "use": "Primary SW substitute for PMS 482 C",
+        "aliases": ["Sand Dollar", "6099"]
+      },
+      {
+        "code": "SW 6091",
+        "number": "6091",
+        "name": "Reliable White",
+        "hex": "E8E4DA",
+        "rgb": [232, 228, 218],
+        "tier": 2,
+        "use": "Raceway + patch area on cream/off-white buildings",
+        "aliases": ["Reliable White", "6091"]
+      },
+      {
+        "code": "SW 7008",
+        "number": "7008",
+        "name": "Alabaster",
+        "hex": "EDEAE0",
+        "rgb": [237, 234, 224],
+        "tier": 2,
+        "use": "Fascia + raceway on warm white stucco/EIFS",
+        "aliases": ["Alabaster", "7008"]
+      },
+      {
+        "code": "SW 7011",
+        "number": "7011",
+        "name": "Natural Choice",
+        "hex": "E4DED2",
+        "rgb": [228, 222, 210],
+        "tier": 2,
+        "use": "Off-white stucco fascia",
+        "aliases": ["Natural Choice", "7011"]
+      },
+      {
+        "code": "SW 7570",
+        "number": "7570",
+        "name": "Egret White",
+        "hex": "DFD9CD",
+        "rgb": [223, 217, 205],
+        "tier": 2,
+        "use": "Common off-white fascia",
+        "aliases": ["Egret White", "7570"]
+      },
+      {
+        "code": "SW 7723",
+        "number": "7723",
+        "name": "Colony Buff",
+        "hex": "DDC6AB",
+        "rgb": [221, 198, 171],
+        "tier": 2,
+        "use": "Primary SW substitute for PMS 4685 C; Canadian stucco",
+        "aliases": ["Colony Buff", "7723"]
+      },
+      {
+        "code": "SW 7647",
+        "number": "7647",
+        "name": "Crushed Ice",
+        "hex": "D6D3CA",
+        "rgb": [214, 211, 202],
+        "tier": 3,
+        "use": "Center cream band on multi-band fascias",
+        "aliases": ["Crushed Ice", "7647"]
+      },
+      {
+        "code": "SW 2823",
+        "number": "2823",
+        "name": "Classic Sand",
+        "hex": "D6BDA3",
+        "rgb": [214, 189, 163],
+        "tier": 3,
+        "use": "Tan upper/lower fascia bands + raceway on banded sites",
+        "aliases": ["Classic Sand", "2823"]
+      },
+      {
+        "code": "SW 7669",
+        "number": "7669",
+        "name": "Mooring Buoy",
+        "hex": "8EA0AA",
+        "rgb": [142, 160, 170],
+        "tier": 3,
+        "use": "Blue-gray wall/fascia match (storage / panel buildings)",
+        "aliases": ["Mooring Buoy", "7669"]
+      },
+      {
+        "code": "SW 2802",
+        "number": "2802",
+        "name": "Rookwood Red",
+        "hex": "7A4841",
+        "rgb": [122, 72, 65],
+        "tier": 3,
+        "use": "Red brick fascia pocket match",
+        "aliases": ["Rookwood Red", "2802"]
+      },
+      {
+        "code": "SW 2804",
+        "number": "2804",
+        "name": "Rookwood Brick",
+        "hex": "824C42",
+        "rgb": [130, 76, 66],
+        "tier": 3,
+        "use": "Red brick fascia pocket match (alternate)",
+        "aliases": ["Rookwood Brick", "2804"]
+      },
+      {
+        "code": "SW 9094",
+        "number": "9094",
+        "name": "Playa Arenosa",
+        "hex": "DCC7B3",
+        "rgb": [220, 199, 179],
+        "tier": 3,
+        "use": "Alternate SW match for PMS 482 C",
+        "aliases": ["Playa Arenosa", "9094"]
+      },
+      {
+        "code": "SW 2859",
+        "number": "2859",
+        "name": "Beige",
+        "hex": "DFC8B5",
+        "rgb": [223, 200, 181],
+        "tier": 3,
+        "use": "Alternate SW match for PMS 482 C",
+        "aliases": ["Beige", "2859"]
+      },
+      {
+        "code": "SW 7513",
+        "number": "7513",
+        "name": "Sanderling",
+        "hex": "DACCB5",
+        "rgb": [218, 204, 181],
+        "tier": 3,
+        "use": "Warm neutral fascia",
+        "aliases": ["Sanderling", "7513"]
+      },
+      {
+        "code": "SW 7634",
+        "number": "7634",
+        "name": "Pediment",
+        "hex": "D2CBBF",
+        "rgb": [210, 203, 191],
+        "tier": 3,
+        "use": "Warm gray-beige fascia",
+        "aliases": ["Pediment", "7634"]
+      },
+      {
+        "code": "SW 6866",
+        "number": "6866",
+        "name": "Real Red",
+        "hex": "BF2D32",
+        "rgb": [191, 45, 50],
+        "tier": 3,
+        "use": "SW substitute for PMS 185 C (brush-out)",
+        "aliases": ["Real Red", "6866"]
+      }
+    ],
+    "benjamin_moore": [
+      {
+        "code": "BM Iron Mountain 2134-30",
+        "number": "2134-30",
+        "name": "Iron Mountain",
+        "hex": "443D46",
+        "rgb": [68, 61, 70],
+        "tier": 2,
+        "use": "Dark charcoal beam mount — raceway matches beam, not stucco below",
+        "aliases": ["Iron Mountain", "2134-30", "2134-30"]
+      }
+    ],
+    "pantone": [
+      {
+        "code": "PMS 482 C",
+        "number": "482",
+        "suffix": "C",
+        "name": "Warm light beige",
+        "hex": "D7C5B3",
+        "tier": 1,
+        "use": "Survey-specified fascia/raceway (e.g. Cary) — NOT red",
+        "sw_substitute": "SW 6099 Sand Dollar",
+        "aliases": ["482 C", "482C", "Pantone 482 C"]
+      },
+      {
+        "code": "PMS 4685 C",
+        "number": "4685",
+        "suffix": "C",
+        "name": "Warm tan buff",
+        "hex": "E0C6AD",
+        "tier": 2,
+        "use": "Canadian / stucco fascia (Halifax)",
+        "sw_substitute": "SW 7723 Colony Buff",
+        "aliases": ["4685 C", "4685C", "Pantone 4685 C"]
+      },
+      {
+        "code": "PMS 474 C",
+        "number": "474",
+        "suffix": "C",
+        "name": "Dusty rose-tan",
+        "tier": 3,
+        "use": "Wall color on SP elevation packages",
+        "aliases": ["474 C", "474C"]
+      },
+      {
+        "code": "PMS 7403 U",
+        "number": "7403",
+        "suffix": "U",
+        "name": "Golden ochre",
+        "tier": 3,
+        "use": "Stucco wall match via chip photo (uncoated U, not glossy C)",
+        "aliases": ["7403 U", "7403U", "Pantone 7403 U"]
+      },
+      {
+        "code": "PMS 185 C",
+        "number": "185",
+        "suffix": "C",
+        "name": "Red",
+        "tier": 3,
+        "use": "Brand red callouts",
+        "sw_substitute": "SW 6866 Real Red",
+        "aliases": ["185 C", "185C"]
+      }
+    ],
+    "custom": [
+      {
+        "code": "EAST END CANOPY MATCH",
+        "tier": 2,
+        "use": "Custom SW mix — reorder by label + formula, not catalog SW #",
+        "client": "cosmoprof"
+      },
+      {
+        "code": "CUSTOM SHER-COLOR MATCH",
+        "tier": 3,
+        "use": "Site-specific SW blend — reorder by label"
+      }
+    ]
+  },
+  "non_paint": {
+    "returns": "Pre-painted black aluminum (.050) — factory, not site paint",
+    "trim_cap": "Black vinyl/aluminum cap",
+    "letter_faces": "Acrylic stock # — not wall paint"
+  },
+  "part_defaults": {
+    "SB30RB": {
+      "client": "sally-beauty",
+      "letter_faces": [
+        {"element": "SALLY", "code": "#2793", "material": "3/16 red Plex"},
+        {"element": "BEAUTY", "code": "#2447", "material": "white acrylic", "overlay": "70/30 black perf vinyl"}
+      ],
+      "factory_finishes": [
+        {"component": "returns", "spec": "pre-painted black"},
+        {"component": "trim_cap", "spec": "black"}
+      ],
+      "raceway_note": "Match sign-band fascia or pocket (site-specific)"
+    },
+    "SB30WR": {
+      "client": "sally-beauty",
+      "letter_faces": [{"element": "all words", "code": "#7328", "material": "3/16 white Plex"}],
+      "factory_finishes": [
+        {"component": "returns", "spec": "pre-painted black"},
+        {"component": "trim_cap", "spec": "black"}
+      ],
+      "raceway_note": "Match sign-band fascia or pocket (site-specific)"
+    },
+    "SB36WR": {
+      "client": "sally-beauty",
+      "letter_faces": [{"element": "all words", "code": "#7328", "material": "3/16 white Plex"}],
+      "factory_finishes": [
+        {"component": "returns", "spec": "pre-painted black"},
+        {"component": "trim_cap", "spec": "black"}
+      ]
+    }
+  },
+  "client_defaults": {
+    "cosmoprof": {
+      "letter_faces": [{"element": "letters", "code": "#2648", "material": "blue Plex"}],
+      "films_vinyl": [{"element": "logo", "code": "3M #3630-136", "spec": "translucent vinyl on clear acrylic"}],
+      "raceway_note": "Match building — may be custom SW mix"
+    }
+  },
+  "sign_components": [
+    "letter_faces",
+    "films_vinyl",
+    "factory_finishes",
+    "field_paint_fascia",
+    "field_paint_raceway",
+    "field_paint_wall",
+    "field_paint_pocket",
+    "field_paint_beam",
+    "field_paint_canopy",
+    "field_paint_cabinet",
+    "field_paint_pylon"
+  ],
+  "pms_to_sw": {
+    "482 C": ["SW 6099 Sand Dollar", "SW 9094 Playa Arenosa", "SW 2859 Beige"],
+    "482C": ["SW 6099 Sand Dollar", "SW 9094 Playa Arenosa", "SW 2859 Beige"],
+    "4685 C": ["SW 7723 Colony Buff"],
+    "4685C": ["SW 7723 Colony Buff"],
+    "185 C": ["SW 6866 Real Red"],
+    "185C": ["SW 6866 Real Red"]
+  }
+}
