@@ -253,16 +253,18 @@ def blog_post_body_widget(html: str) -> dict[str, Any]:
     }
 
 
-def sync_blog_post_widgets(post_id: str, html: str) -> dict[str, Any]:
+def sync_blog_post_widgets(
+    post_id: str, html: str, featured_image: str | None = None
+) -> dict[str, Any]:
     """Ensure postBody and the post_body widget stay in sync for the blog editor UI."""
     draft = hubspot_request("GET", f"{BLOG_API}/{post_id}/draft")
     widgets = dict(draft.get("widgets") or {})
     widgets["post_body"] = blog_post_body_widget(html)
-    return hubspot_request(
-        "PATCH",
-        f"{BLOG_API}/{post_id}",
-        {"postBody": html, "widgets": widgets, "state": "DRAFT"},
-    )
+    payload: dict[str, Any] = {"postBody": html, "widgets": widgets, "state": "DRAFT"}
+    if featured_image:
+        payload["featuredImage"] = featured_image
+        payload["useFeaturedImage"] = True
+    return hubspot_request("PATCH", f"{BLOG_API}/{post_id}", payload)
 
 
 def blog_editor_url(portal_id: str, post_id: str, cfg: dict | None = None) -> str:
@@ -480,12 +482,12 @@ TRADE_HERO_IMAGES: dict[str, str] = {
 # Only verified Vixxo CDN URLs — never hardcoded third-party photo IDs (IDs drift to wrong subjects)
 TOPIC_IMAGE_KEYWORDS: tuple[tuple[tuple[str, ...], str, str], ...] = (
     (
-        ("frozen", "freeze", "burst", "pipe", "plumb", "drain", "sewer", "backflow", "leak"),
+        ("frozen", "freeze", "burst", "pipe", "plumb", "plumbing", "plumber", "drain", "sewer", "backflow", "leak"),
         PLUMBING_HERO_IMAGE,
         "plumbing_vixxo",
     ),
     (
-        ("refriger", "grocery", "cooler", "cold chain", "walk-in", "compressor", "hvac", "rooftop"),
+        ("refriger", "refrigeration", "grocery", "cooler", "cold chain", "walk-in", "compressor", "hvac", "rooftop"),
         DEFAULT_BLOG_HERO_IMAGE,
         "hvac_vixxo",
     ),
@@ -493,11 +495,11 @@ TOPIC_IMAGE_KEYWORDS: tuple[tuple[tuple[str, ...], str, str], ...] = (
 
 TRADE_KEYWORDS: dict[str, tuple[str, ...]] = {
     "plumbing": (
-        "plumb", "pipe", "pipes", "frozen", "freeze", "burst", "drain", "sewer",
+        "plumb", "plumbing", "plumber", "pipe", "pipes", "frozen", "freeze", "burst", "drain", "sewer",
         "water", "backflow", "restroom", "fixture", "leak",
     ),
     "hvac": (
-        "hvac", "heating", "cooling", "refriger", "rooftop", "air condition",
+        "hvac", "heating", "cooling", "refriger", "refrigeration", "rooftop", "air condition",
         "furnace", "boiler", "ventilation", "compressor",
     ),
     "electrical": (
@@ -551,8 +553,8 @@ def stock_search_queries(topic: str, visual_topic: str, trade: str) -> list[str]
     bundles: tuple[tuple[tuple[str, ...], str], ...] = (
         (("led", "lighting", "retrofit", "fixture", "lamp"), "LED lighting commercial building"),
         (("electric", "electrical", "electrician", "panel", "wiring", "breaker"), "commercial electrician light fixture installation"),
-        (("frozen", "freeze", "pipe", "plumb", "burst", "drain", "sewer"), "commercial plumber pipe repair retail"),
-        (("refriger", "cooler", "walk-in", "cold chain", "grocery"), "commercial refrigeration grocery store"),
+        (("frozen", "freeze", "pipe", "plumb", "plumbing", "plumber", "burst", "drain", "sewer"), "commercial plumber pipe repair retail"),
+        (("refriger", "refrigeration", "cooler", "walk-in", "cold chain", "grocery"), "commercial refrigeration grocery store"),
         (("seasonal", "readiness", "pre-season", "preseason", "peak summer", "summer"), "commercial HVAC pre-season rooftop inspection retail"),
         (("hvac", "rooftop", "compressor", "air condition", "ventilation"), "commercial HVAC technician rooftop retail"),
     )
@@ -1644,17 +1646,7 @@ def cmd_refresh_campaign_images(args: argparse.Namespace) -> None:
     blog_body_path = out_dir / "blog-body.html"
     blog_body_raw = blog_body_path.read_text(encoding="utf-8") if blog_body_path.is_file() else blog.get("bodyHtml", "")
     blog_body = prepend_blog_hero_image(blog_body_raw, hero_url, alt=blog.get("title", ""))
-    hubspot_request(
-        "PATCH",
-        f"{BLOG_API}/{post_id}/draft",
-        {
-            "featuredImage": hero_url,
-            "useFeaturedImage": True,
-            "postBody": blog_body,
-            "widgets": {"post_body": blog_post_body_widget(blog_body)},
-        },
-    )
-    sync_blog_post_widgets(post_id, blog_body)
+    sync_blog_post_widgets(post_id, blog_body, featured_image=hero_url)
 
     bin_dir = Path(__file__).resolve().parent
     sys.path.insert(0, str(bin_dir))
