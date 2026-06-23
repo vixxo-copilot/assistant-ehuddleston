@@ -245,16 +245,20 @@ def upload_to_hubspot(
 
     def add_field(name: str, value: str) -> None:
         parts.append(
-            f"--{boundary}\r\n"
-            f'Content-Disposition: form-data; name="{name}"\r\n\r\n'
-            f"{value}\r\n".encode()
+            (
+                f"--{boundary}\r\n"
+                f'Content-Disposition: form-data; name="{name}"\r\n\r\n'
+                f"{value}\r\n"
+            ).encode()
         )
 
     def add_file(name: str, fname: str, content: bytes, content_type: str) -> None:
         parts.append(
-            f"--{boundary}\r\n"
-            f'Content-Disposition: form-data; name="{name}"; filename="{fname}"\r\n'
-            f"Content-Type: {content_type}\r\n\r\n".encode()
+            (
+                f"--{boundary}\r\n"
+                f'Content-Disposition: form-data; name="{name}"; filename="{fname}"\r\n'
+                f"Content-Type: {content_type}\r\n\r\n"
+            ).encode()
         )
         parts.append(content)
         parts.append(b"\r\n")
