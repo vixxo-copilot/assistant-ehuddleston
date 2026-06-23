@@ -1,0 +1,13 @@
+name: hubspot-content
+title: "HubSpot FM Content Bundle"
+description: "Stages blog, email, and social FM content in HubSpot with consolidated REVIEW.md output."
+category: marketing
+agents:
+  - cursor
+  - claude-code
+author: vixxo
+version: "2.0.0"
+tags: [hubspot, content, blog, email, social, marketing, facilities-management]
+status: approved
+requires_mcp: [hubspot-content]
+source: vixxo

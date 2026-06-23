@@ -1,0 +1,41 @@
+# Copy to config.yaml (gitignored) and fill in your HubSpot portal values.
+# Find IDs in HubSpot: Settings > Website > Blog (content group ID),
+# Settings > Website > Blog > Authors, Marketing > Email > Folders.
+
+portalId: ""
+contentGroupId: ""
+blogAuthorId: ""
+
+# Optional — auto-detected from HubSpot account-info API when omitted.
+# hubspotRegion: na2
+# appBaseUrl: https://app-na2.hubspot.com
+
+email:
+  folderId: null
+  activeDomain: ""
+
+social:
+  directory: _content/social-ready
+  defaultPlatforms:
+    - linkedin
+    - facebook
+    - x
+  contentOwnerHubspotOwnerId: ""
+
+staging:
+  directory: _content/staging
+
+images:
+  breezeRequired: true
+  onePerAsset: true
+  brandGuidePath: "C:/Users/ehuddleston/OneDrive - Vixxo/Desktop/Brand Guidelines 2026.pdf"
+  styleReference: reference/images.md
+
+brandVoice:
+  memoryPaths:
+    - memory/me/identity.md
+  tone: Professional, concise, evidence-backed. VP+ retail facilities audience.
+  avoid:
+    - hype
+    - unverified claims
+    - residential HVAC framing
