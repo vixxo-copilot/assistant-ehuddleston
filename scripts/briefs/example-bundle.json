@@ -1,0 +1,32 @@
+{
+  "campaign": "hvac-pm-2026-q3",
+  "targetPublishDate": "2026-07-01",
+  "audience": "VP+ nationwide retail facilities management",
+  "topic": "Preventative HVAC maintenance ROI at multi-site scale",
+  "goal": "Drive portfolio assessment guide downloads",
+  "cta": {
+    "text": "Download the portfolio assessment guide",
+    "url": "https://example.com/hvac-pm-guide"
+  },
+  "channels": {
+    "blog": {
+      "title": "How Retail FM Leaders Scale HVAC PM Across Hundreds of Sites",
+      "primaryKeyword": "retail HVAC preventative maintenance",
+      "metaDescription": "Learn how VP+ facilities leaders reduce downtime and control HVAC spend with portfolio-wide PM programs."
+    },
+    "email": {
+      "name": "Q3 HVAC PM — Nurture — Retail FM",
+      "subjectOptions": [
+        "Scale HVAC PM without scaling headcount",
+        "What VP+ retail FM teams do differently for HVAC"
+      ],
+      "preheader": "Portfolio-wide PM playbook for multi-site retail"
+    },
+    "social": {
+      "platforms": ["linkedin"],
+      "link": "https://example.com/hvac-pm-guide"
+    }
+  },
+  "seoKeywords": ["HVAC PM", "retail facilities", "preventative maintenance"],
+  "notes": "Bundle example for scripts/hubspot-content-batch.mjs"
+}

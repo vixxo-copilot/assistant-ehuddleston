@@ -47,6 +47,24 @@
     "hubspot": {
       "url": "https://vixxonow.com/mcp/hubspot"
     },
+    "hubspot-campaign-images": {
+      "command": "bash",
+      "args": [
+        ".cursor/bin/hubspot-campaign-images/run-hubspot-campaign-images-mcp.sh"
+      ]
+    },
+    "hubspot-content": {
+      "command": "node",
+      "args": [
+        ".cursor/bin/hubspot-content/hubspot-content-mcp.mjs"
+      ]
+    },
+    "adobe-stock": {
+      "command": "bash",
+      "args": [
+        ".cursor/bin/adobe-stock-mcp/run-adobe-stock-mcp.sh"
+      ]
+    },
     "linear": {
       "url": "https://mcp.linear.app/mcp"
     },

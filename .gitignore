@@ -10,3 +10,6 @@ bin/github-mcp-server
 bin/github-mcp-server.tar.gz
 __pycache__/
 *.pyc
+_content/staging/
+.agents/skills/hubspot-content/config.yaml
+.agents/skills/hubspot-content/config.yml
