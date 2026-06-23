@@ -1842,7 +1842,8 @@ def cmd_verify_campaign_draft_status(args: argparse.Namespace) -> None:
         status = asset_draft_status(blog_id, email_id)
         results.append({"campaign": manifest.get("campaign"), **status})
 
-    all_draft = all(r.get("allDraft") for r in results if r.get("allDraft") is not None)
+    checkable = [r for r in results if r.get("allDraft") is not None]
+    all_draft = all(r.get("allDraft") for r in checkable) if checkable else False
     any_live = any(r.get("blogPublished") or r.get("emailPublished") for r in results)
 
     print(
@@ -1852,7 +1853,7 @@ def cmd_verify_campaign_draft_status(args: argparse.Namespace) -> None:
                     "This MCP never publishes, sends, or schedules. "
                     "Do not publish unless the user explicitly requests it."
                 ),
-                "allDraft": all_draft if results else True,
+                "allDraft": all_draft,
                 "anyLive": any_live,
                 "campaignCount": len(results),
                 "campaigns": results,

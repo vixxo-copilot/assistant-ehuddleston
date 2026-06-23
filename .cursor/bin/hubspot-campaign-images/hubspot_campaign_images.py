@@ -402,6 +402,8 @@ def resolve_image(prompt: str, placement: str, prefer: str = "auto") -> dict:
                 "adobe_stock_id": adobe.get("adobe_stock_id"),
                 "quality": adobe.get("quality"),
                 "license_note": adobe.get("license_note"),
+                "filename": adobe.get("filename"),
+                "file_bytes": adobe.get("file_bytes"),
                 "hubspot_upload_recommended": True,
             }
         except SystemExit:
@@ -440,6 +442,10 @@ def resolve_image(prompt: str, placement: str, prefer: str = "auto") -> dict:
 def cmd_resolve(args: argparse.Namespace) -> None:
     load_dotenv()
     out = resolve_image(args.prompt, args.placement, prefer=args.prefer)
+    file_bytes = out.pop("file_bytes", None)
+    if file_bytes is not None:
+        out["has_file_bytes"] = True
+        out["file_bytes_size"] = len(file_bytes)
     print(json.dumps(out, indent=2))
 
 
@@ -506,13 +512,20 @@ def cmd_insert_spec(args: argparse.Namespace) -> None:
 def cmd_pipeline(args: argparse.Namespace) -> None:
     load_dotenv()
     resolved = resolve_image(args.prompt, args.placement, prefer=args.prefer)
+    file_bytes = resolved.pop("file_bytes", None)
+    filename_override = resolved.pop("filename", None)
     final_url = resolved["url"]
     alt = args.alt or resolved.get("alt") or args.prompt[:125]
 
     upload_result = None
     if args.upload and resolved.get("hubspot_upload_recommended") and os.environ.get("HUBSPOT_ACCESS_TOKEN"):
-        content, ext = download_bytes(final_url)
-        filename = f"hvac-pm-2026-{args.placement}.{ext}"
+        if file_bytes is not None:
+            content = file_bytes
+            ext = Path(filename_override or "").suffix.lstrip(".") or "jpg"
+            filename = filename_override or f"hvac-pm-2026-{args.placement}.{ext}"
+        else:
+            content, ext = download_bytes(final_url)
+            filename = f"hvac-pm-2026-{args.placement}.{ext}"
         folder = args.folder or "/campaign-images/hvac-pm-2026"
         upload_result = upload_to_hubspot(content, filename, folder_path=folder)
         final_url = upload_result.get("url") or upload_result.get("defaultHostingUrl") or final_url
