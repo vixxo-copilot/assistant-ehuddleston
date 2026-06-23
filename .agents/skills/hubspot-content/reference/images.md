@@ -1,58 +1,51 @@
-# Breeze AI images (required — one per content piece)
+# Campaign images
 
-Every staged asset must include **one HubSpot Breeze AI-generated image**.
-HubSpot Breeze has **no public API** — the agent generates prompts and UI steps;
-a human completes **Generate with AI** in HubSpot.
+## Topic-matched heroes (primary — `stage_content_package`)
 
-## Per-channel requirement
+When staging a full content package, hero photography is **resolved from the user's topic** at generation time:
+
+1. **Cursor AI** (recommended) — generate hero from `visualTopic` in Cursor, save to `_content/staging/{campaign}/ai-hero-bg.png`, then `refresh-campaign-images --bg-file` (source: `cursor_ai`)
+2. **Adobe Stock** — if `ADOBE_STOCK_API_KEY` is set (best automated match)
+3. **Shutterstock preview** — if `SHUTTERSTOCK_API_TOKEN` is set
+4. **Pexels** — if `PEXELS_API_KEY` is set
+5. **Wikimedia Commons** — automatic topic search (no key; Openverse may fail on corporate networks)
+6. **Topic keyword match** — verified Vixxo CDN photo (e.g. plumbing, HVAC)
+7. **Trade fallback** — Vixxo CDN hero for the inferred trade
+
+The resolved URL is used for:
+
+- Blog featured image (1200×675 @ 150 DPI → 2500×1406 px, uploaded to File Manager)
+- Email banner background (150 DPI composite with Wix Extra Bold headline)
+- Social card background (150 DPI composite)
+
+`trade` and `visualTopic` are auto-inferred from the topic when omitted. Override only when you need sharper art direction.
+
+Staging output includes `imageSource`, `visualTopic`, and `image-resolution.json` in the campaign staging folder.
+
+## Breeze AI prompts (manual upgrade path)
+
+HubSpot Breeze has **no public API**. `stage_content_package` writes **topic-matched Breeze prompts** to `REVIEW.md` so a human can regenerate in HubSpot UI if preferred.
 
 | Channel | Breeze channel key | Where in HubSpot |
 |---|---|---|
 | Blog | `blog_featured` | Blog post editor → Featured image → Generate with AI |
 | Email | `email_header` | Marketing email editor → Header image → Generate with AI |
-| Social (each post) | `social` | Marketing → Social → Add image → Generate with AI |
+| Social | `social` | Marketing → Social → Add image → Generate with AI |
 
-## Agent workflow
+For each channel, call `hubspot_content_breeze_image_prompt` with the package `visualTopic`.
 
-For each content piece, call `hubspot_content_breeze_image_prompt` with:
-
-- `topic` — campaign visual brief (from content brief)
-- `channel` — `blog_featured`, `email_header`, or `social`
-- `audience` — optional, from brief
-
-Include returned `breezePrompt` and `breezeUiSteps` in:
-
-- Review summary for blog/email
-- Social staging pack (`breezeImage` or `imagePrompt` on each post)
-- CRM task body for social bundles
-
-Prompts follow **Vixxo Brand Guidelines 2026** imagery rules: editorial,
-authentic, bright natural light, commercial FM context, optimistic focal point.
-
-## HubSpot UI steps (all channels)
+### HubSpot UI steps
 
 1. Open the staged draft in HubSpot editor
 2. Click image area → **Select image** → **Generate with AI**
-3. Paste the `breezePrompt` from agent output
+3. Paste the `breezePrompt` from `REVIEW.md`
 4. Generate → review → **Save to files**
-5. Confirm insertion (featured image, email header, or social attachment)
+5. Confirm insertion
 
-## After Breeze generation
+## Individual channel tools
 
-If the image is saved to File Manager and you have the HubSpot CDN URL:
-
-- Blog: `hubspot_content_update_blog_draft` with `featuredImage` URL
-- Email: update draft HTML with `<img src="..." alt="...">` header
-
-If URL is not yet available, leave copy staged and flag image as **pending Breeze**
-in the review summary.
-
-## Stock images (fallback only)
-
-Use `adobe-stock` or `hubspot-campaign-images` **only** when Breeze generation
-is blocked or rejected. Default path is always Breeze AI per user requirement.
+`hubspot_content_upload_social_image` and email banner attach still accept `--trade` or `--bg-url` when staging channels separately (without the full package workflow).
 
 ## Guardrail
 
-Breeze generation does not publish content. Combined with draft-only staging,
-no asset goes live without explicit user approval.
+Image generation and draft staging do not publish content. No asset goes live without explicit user approval.

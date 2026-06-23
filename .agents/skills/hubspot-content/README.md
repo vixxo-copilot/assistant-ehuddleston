@@ -57,10 +57,16 @@ Restart Cursor after env/MCP changes.
 
 ### 4. Fonts (social image script)
 
-Place Wix Madefor Text in `.agents/skills/hubspot-content/assets/fonts/`:
+Preferred: place Wix Madefor Text in `.agents/skills/hubspot-content/assets/fonts/`:
 
-- `WixMadeforText-ExtraBold.ttf` (preferred)
-- or `WixMadeforText.ttf`
+- `WixMadeforText-ExtraBold.ttf` (required — used for all branded image headlines)
+- or `WixMadeforText.ttf` (variable; not used when ExtraBold is present)
+
+Campaign images render at **150 DPI**:
+
+- Blog featured hero: 1200×675 display → 2500×1406 px
+- Email header: 600×169 display → 1250×352 px
+- Social card: 300×300 display → 625×625 px
 
 Requires `pip install Pillow`.
 
@@ -88,17 +94,21 @@ Every run ends with `_content/social-ready/{campaign}/REVIEW.md`:
 | Email draft | HubSpot editor URL |
 | Social post | Path to `linkedin-post.txt` |
 | Social image | HubSpot CDN URL |
+| Breeze prompts | Blog, email, and optional social prompts |
 | HubSpot Social | Link to paste post manually |
 
 ## MCP tools
 
 | Tool | Purpose |
 | --- | --- |
+| `hubspot_content_get_package_brief` | **Step 1** — schema + rules for composing from a topic |
+| `hubspot_content_stage_content_package` | **Step 2** — stage full bundle (blog, email, social, images, REVIEW.md) |
 | `hubspot_content_get_config` | Validate portal IDs |
-| `hubspot_content_create_blog_draft` | Stage blog HTML draft |
-| `hubspot_content_create_email_draft` | Stage marketing email draft |
+| `hubspot_content_create_blog_draft` | Stage blog HTML draft (`body` or `bodyFile`) |
+| `hubspot_content_create_email_draft` | Stage marketing email draft (`htmlBody` or `htmlBodyFile`) |
 | `hubspot_content_stage_social_pack` | Write `{platform}-post.txt` |
-| `hubspot_content_write_review_doc` | Write consolidated `REVIEW.md` |
+| `hubspot_content_upload_social_image` | Generate 300×300 card + upload to File Manager |
+| `hubspot_content_write_review_doc` | Write consolidated `REVIEW.md` (include `visualTopic` for Breeze prompts) |
 | `hubspot_content_breeze_image_prompt` | Breeze AI prompt per channel |
 | `hubspot_content_get_staged_summary` | JSON summary of staged assets |
 

@@ -76,12 +76,156 @@ function runPython(args) {
 }
 
 const server = new Server(
-  { name: "hubspot-content", version: "1.0.0" },
+  { name: "hubspot-content", version: "2.6.0" },
   { capabilities: { tools: {} } }
 );
 
+const DRAFT_ONLY =
+  "DRAFT-ONLY: never publish, send, or schedule HubSpot assets unless the user explicitly requests it.";
+
 server.setRequestHandler(ListToolsRequestSchema, async () => ({
   tools: [
+    {
+      name: "hubspot_content_get_package_brief",
+      description:
+        "Step 1 of topic → content package workflow. Returns composition schema, brand rules, " +
+        "suggested trade/visualTopic, image-matching rules (Cursor AI -> Adobe Stock -> Wikimedia -> trade fallback), " +
+        "draft-only guardrails, and workflow steps. " + DRAFT_ONLY,
+      inputSchema: {
+        type: "object",
+        properties: {
+          topic: {
+            type: "string",
+            description:
+              "Required. Any free-form user topic prompt (e.g. 'multi-site LED lighting retrofit', " +
+              "'seasonal FM readiness before peak summer', 'emergency plumbing frozen pipes'). " +
+              "Drives copy, trade inference, visualTopic, and image search.",
+          },
+        },
+      },
+    },
+    {
+      name: "hubspot_content_stage_content_package",
+      description:
+        "Step 2 of topic → content package workflow. After Cursor composes copy, stages the full " +
+        "HubSpot draft bundle in one call: topic-matched 150 DPI blog hero (2500×1406), email draft " +
+        "(150 DPI banner + body), social .txt, 150 DPI social image (625×625), REVIEW.md, and " +
+        "campaign-links.json. trade/visualTopic auto-inferred from topic when omitted. " +
+        "For best topic-matched photos: generate a hero in Cursor from visualTopic, save to " +
+        "_content/staging/{campaign}/ai-hero-bg.png, then call hubspot_content_refresh_campaign_images " +
+        "with bgFile. " + DRAFT_ONLY,
+      inputSchema: {
+        type: "object",
+        properties: {
+          package: {
+            type: "object",
+            description: "Composed content package (see hubspot_content_get_package_brief requiredSchema)",
+            properties: {
+              topic: {
+                type: "string",
+                description:
+                  "Required. User's topic in their own words — any FM subject (HVAC, plumbing, electrical, seasonal, etc.)",
+              },
+              campaign: {
+                type: "string",
+                description: "Optional slug; auto-generated from topic if omitted",
+              },
+              targetDate: { type: "string" },
+              trade: {
+                type: "string",
+                enum: ["hvac", "plumbing", "electrical"],
+                description: "Optional — auto-inferred from topic when omitted",
+              },
+              reviewTitle: { type: "string" },
+              visualTopic: {
+                type: "string",
+                description:
+                  "Optional editorial photo brief for images. Auto-generated from topic when omitted. " +
+                  "Override for sharper art direction; used for Cursor AI hero, stock search, and Breeze prompts.",
+              },
+              breezeAudience: { type: "string" },
+              blog: { type: "object" },
+              email: { type: "object" },
+              social: { type: "object" },
+            },
+            required: ["topic", "blog", "email", "social"],
+          },
+          packageFile: {
+            type: "string",
+            description: "Repo-relative path to package.json (alternative to inline package)",
+          },
+        },
+      },
+    },
+    {
+      name: "hubspot_content_refresh_campaign_images",
+      description:
+        "Re-render and upload all campaign images at 150 DPI for existing staged blog/email drafts: " +
+        "blog featured hero (2500×1406), email banner (1250×352), social card (625×625). " +
+        "Reads package.json from _content/staging/{campaign}/; blog/email IDs from staging-manifest.json " +
+        "or explicit args. Updates REVIEW.md and image-resolution.json. " +
+        "Without bgFile: resolves background via Adobe Stock (if ADOBE_STOCK_API_KEY) -> Shutterstock -> " +
+        "Pexels -> Wikimedia -> verified Vixxo trade hero. " +
+        "With bgFile: uses a local photo (e.g. Cursor AI-generated ai-hero-bg.png) — skips stock search. " +
+        DRAFT_ONLY,
+      inputSchema: {
+        type: "object",
+        properties: {
+          campaign: {
+            type: "string",
+            description: "Campaign slug, e.g. refrigeration-pm-in-grocery-retail",
+          },
+          blogId: {
+            type: "string",
+            description: "HubSpot blog post ID (optional if staging-manifest.json exists)",
+          },
+          emailId: {
+            type: "string",
+            description: "HubSpot marketing email ID (optional if staging-manifest.json exists)",
+          },
+          bgFile: {
+            type: "string",
+            description:
+              "Repo-relative path to local background photo (e.g. _content/staging/{campaign}/ai-hero-bg.png). " +
+              "Use after generating a topic-matched hero in Cursor; sets image source to cursor_ai.",
+          },
+        },
+        required: ["campaign"],
+      },
+    },
+    {
+      name: "hubspot_content_get_campaign_links",
+      description:
+        "Return consolidated link table for a staged campaign: blog/email editor URLs, 150 DPI image " +
+        "CDN URLs (blog hero, email banner, social), social copy path, REVIEW.md path, and social UI. " +
+        "Reads campaign-links.json or assembles from staging-manifest.json + image-resolution.json.",
+      inputSchema: {
+        type: "object",
+        properties: {
+          campaign: {
+            type: "string",
+            description: "Campaign slug, e.g. emergency-plumbing-frozen-pipes-2026",
+          },
+        },
+        required: ["campaign"],
+      },
+    },
+    {
+      name: "hubspot_content_verify_campaign_draft_status",
+      description:
+        "Read-only safety check: confirm staged blog posts and marketing emails are DRAFT (not published or sent). " +
+        "Scans all campaigns in _content/staging/ or a single campaign slug. Returns allDraft, anyLive, and per-asset state. " +
+        "Does NOT publish, unpublish, send, or schedule. " + DRAFT_ONLY,
+      inputSchema: {
+        type: "object",
+        properties: {
+          campaign: {
+            type: "string",
+            description: "Optional campaign slug — omit to check all staged campaigns",
+          },
+        },
+      },
+    },
     {
       name: "hubspot_content_get_config",
       description:
@@ -92,19 +236,20 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
     {
       name: "hubspot_content_create_blog_draft",
       description:
-        "Create a DRAFT blog post via CMS Blog Posts API. Never publishes.",
+        "Create a DRAFT blog post via CMS Blog Posts API. " + DRAFT_ONLY,
       inputSchema: {
         type: "object",
         properties: {
           title: { type: "string" },
           metaDescription: { type: "string" },
-          body: { type: "string", description: "HTML post body" },
+          body: { type: "string", description: "HTML post body (use bodyFile for large HTML)" },
+          bodyFile: { type: "string", description: "Repo-relative path to HTML body file" },
           slug: { type: "string" },
           featuredImage: { type: "string", description: "HubSpot CDN URL" },
           contentGroupId: { type: "string" },
           blogAuthorId: { type: "string" },
         },
-        required: ["title", "metaDescription", "body"],
+        required: ["title", "metaDescription"],
       },
     },
     {
@@ -125,14 +270,15 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
     {
       name: "hubspot_content_create_email_draft",
       description:
-        "Create a DRAFT marketing email via Marketing Emails API. Never sends.",
+        "Create a DRAFT marketing email via Marketing Emails API. " + DRAFT_ONLY,
       inputSchema: {
         type: "object",
         properties: {
           name: { type: "string", description: "Internal email name" },
           subject: { type: "string" },
           preheader: { type: "string" },
-          htmlBody: { type: "string" },
+          htmlBody: { type: "string", description: "Use htmlBodyFile for large HTML" },
+          htmlBodyFile: { type: "string", description: "Repo-relative path to HTML body file" },
           folderId: { type: "integer" },
           activeDomain: { type: "string" },
         },
@@ -186,7 +332,8 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
     {
       name: "hubspot_content_write_review_doc",
       description:
-        "Write the consolidated REVIEW.md (blog, email, social txt, social image URLs) for a staged campaign.",
+        "Write the consolidated REVIEW.md (blog, email, 150 DPI image CDN URLs, social txt, Breeze prompts) " +
+        "for a staged campaign.",
       inputSchema: {
         type: "object",
         properties: {
@@ -194,10 +341,39 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
           title: { type: "string", description: "Human-readable campaign title for REVIEW.md header" },
           blogId: { type: "string" },
           emailId: { type: "string" },
-          socialImageUrl: { type: "string", description: "HubSpot CDN URL for 300x300 social image" },
+          socialImageUrl: { type: "string", description: "HubSpot CDN URL for 150 DPI social image" },
+          emailBannerUrl: { type: "string", description: "HubSpot CDN URL for 150 DPI email banner" },
+          blogFeaturedImageUrl: { type: "string", description: "HubSpot CDN URL for 150 DPI blog hero" },
           socialCopyPath: { type: "string", description: "Absolute or repo-relative path to .txt copy" },
+          visualTopic: {
+            type: "string",
+            description: "Visual brief — auto-generates Breeze prompts in REVIEW.md",
+          },
+          breezeAudience: { type: "string", description: "Audience for Breeze prompt generation" },
+          breezePromptsJson: {
+            type: "string",
+            description: 'JSON object with blog_featured, email_header, social prompt strings',
+          },
         },
         required: ["campaign", "blogId", "emailId", "socialImageUrl"],
+      },
+    },
+    {
+      name: "hubspot_content_upload_social_image",
+      description:
+        "Generate branded 300×300 social image at 150 DPI (625×625 px) and upload to HubSpot File Manager. " +
+        "Requires HUBSPOT_ACCESS_TOKEN with files scope.",
+      inputSchema: {
+        type: "object",
+        properties: {
+          campaign: { type: "string", description: "Campaign slug" },
+          headline: { type: "string", description: "Short headline on the 300x300 card (no subheading)" },
+          filename: { type: "string", description: "Upload filename override" },
+          folderPath: { type: "string", description: "HubSpot folder path, default /campaign-images/{campaign}" },
+          trade: { type: "string", enum: ["hvac", "plumbing", "electrical"] },
+          bgUrl: { type: "string", description: "Background photo URL override" },
+        },
+        required: ["campaign", "headline"],
       },
     },
     {
@@ -238,6 +414,47 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
   const { name, arguments: args = {} } = request.params;
 
+  if (name === "hubspot_content_get_package_brief") {
+    const pyArgs = ["get-package-brief"];
+    if (args.topic) pyArgs.push("--topic", args.topic);
+    const result = await runPython(pyArgs);
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+
+  if (name === "hubspot_content_stage_content_package") {
+    const pyArgs = ["stage-content-package"];
+    if (args.packageFile) {
+      pyArgs.push("--package-file", args.packageFile);
+    } else if (args.package) {
+      pyArgs.push("--package-json", JSON.stringify(args.package));
+    } else {
+      throw new Error("stage_content_package requires package or packageFile");
+    }
+    const result = await runPython(pyArgs);
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+
+  if (name === "hubspot_content_refresh_campaign_images") {
+    const pyArgs = ["refresh-campaign-images", "--campaign", args.campaign];
+    if (args.blogId) pyArgs.push("--blog-id", args.blogId);
+    if (args.emailId) pyArgs.push("--email-id", args.emailId);
+    if (args.bgFile) pyArgs.push("--bg-file", args.bgFile);
+    const result = await runPython(pyArgs);
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+
+  if (name === "hubspot_content_get_campaign_links") {
+    const result = await runPython(["get-campaign-links", "--campaign", args.campaign]);
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+
+  if (name === "hubspot_content_verify_campaign_draft_status") {
+    const pyArgs = ["verify-campaign-draft-status"];
+    if (args.campaign) pyArgs.push("--campaign", args.campaign);
+    const result = await runPython(pyArgs);
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+
   if (name === "hubspot_content_get_config") {
     const result = await runPython(["get-config"]);
     return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
@@ -250,9 +467,14 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       args.title,
       "--meta-description",
       args.metaDescription,
-      "--body",
-      args.body,
     ];
+    if (args.bodyFile) {
+      pyArgs.push("--body-file", args.bodyFile);
+    } else if (args.body) {
+      pyArgs.push("--body", args.body);
+    } else {
+      throw new Error("create_blog_draft requires body or bodyFile");
+    }
     if (args.slug) pyArgs.push("--slug", args.slug);
     if (args.featuredImage) pyArgs.push("--featured-image", args.featuredImage);
     if (args.contentGroupId) pyArgs.push("--content-group-id", args.contentGroupId);
@@ -274,7 +496,11 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
   if (name === "hubspot_content_create_email_draft") {
     const pyArgs = ["create-email-draft", "--name", args.name, "--subject", args.subject];
     if (args.preheader) pyArgs.push("--preheader", args.preheader);
-    if (args.htmlBody) pyArgs.push("--html-body", args.htmlBody);
+    if (args.htmlBodyFile) {
+      pyArgs.push("--html-body-file", args.htmlBodyFile);
+    } else if (args.htmlBody) {
+      pyArgs.push("--html-body", args.htmlBody);
+    }
     if (args.folderId) pyArgs.push("--folder-id", String(args.folderId));
     if (args.activeDomain) pyArgs.push("--active-domain", args.activeDomain);
     const result = await runPython(pyArgs);
@@ -320,6 +546,27 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     ];
     if (args.title) pyArgs.push("--title", args.title);
     if (args.socialCopyPath) pyArgs.push("--social-copy-path", args.socialCopyPath);
+    if (args.visualTopic) pyArgs.push("--visual-topic", args.visualTopic);
+    if (args.breezeAudience) pyArgs.push("--breeze-audience", args.breezeAudience);
+    if (args.emailBannerUrl) pyArgs.push("--email-banner-url", args.emailBannerUrl);
+    if (args.blogFeaturedImageUrl) pyArgs.push("--blog-featured-image-url", args.blogFeaturedImageUrl);
+    if (args.breezePromptsJson) pyArgs.push("--breeze-prompts-json", args.breezePromptsJson);
+    const result = await runPython(pyArgs);
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+
+  if (name === "hubspot_content_upload_social_image") {
+    const pyArgs = [
+      "upload-social-image",
+      "--campaign",
+      args.campaign,
+      "--headline",
+      args.headline,
+    ];
+    if (args.filename) pyArgs.push("--filename", args.filename);
+    if (args.folderPath) pyArgs.push("--folder-path", args.folderPath);
+    if (args.trade) pyArgs.push("--trade", args.trade);
+    if (args.bgUrl) pyArgs.push("--bg-url", args.bgUrl);
     const result = await runPython(pyArgs);
     return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
   }

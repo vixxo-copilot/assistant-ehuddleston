@@ -1,0 +1,34 @@
+{
+  "$comment": "Schema for hubspot_content_stage_content_package — Cursor composes, MCP stages.",
+  "topic": "User topic prompt (required)",
+  "campaign": "Optional slug; auto-generated from topic if omitted",
+  "targetDate": "Optional ISO date",
+  "trade": "Optional — auto-inferred from topic (hvac | plumbing | electrical)",
+  "reviewTitle": "REVIEW.md header title",
+  "visualTopic": "Optional — auto-generated from topic for topic-matched images and Breeze prompts",
+  "breezeAudience": "Optional audience clause for Breeze prompts",
+  "blog": {
+    "title": "Blog post title",
+    "metaDescription": "≤155 characters",
+    "bodyHtml": "HTML body (h2, p, ul, a — no featured image)",
+    "slug": "Optional URL slug"
+  },
+  "email": {
+    "name": "Internal HubSpot email name",
+    "subject": "Subject line",
+    "preheader": "Preview text",
+    "htmlBody": "HTML body without Hi,",
+    "bannerHeadline": "Short headline on 150 DPI email banner"
+  },
+  "social": {
+    "headline": "Short headline on 300×300 social card",
+    "posts": [
+      {
+        "platform": "linkedin",
+        "copy": "Post copy",
+        "hashtags": ["FacilitiesManagement"],
+        "link": "https://www.vixxo.com/..."
+      }
+    ]
+  }
+}
