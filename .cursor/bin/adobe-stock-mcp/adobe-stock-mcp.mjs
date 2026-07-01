@@ -117,8 +117,6 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
   if (name === "adobe_stock_search") {
     // Lightweight search via python one-liner module
-    const result = await runPython(ADOBE_PY, [args.query, "--placement", "search", "--json-only"], false);
-    // adobe_stock_client CLI doesn't have search-only - use import script
     const pySearch = `
 import json, os, sys
 sys.path.insert(0, ${JSON.stringify(__dirname)})

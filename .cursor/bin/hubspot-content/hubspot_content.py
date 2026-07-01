@@ -1639,6 +1639,14 @@ def cmd_refresh_campaign_images(args: argparse.Namespace) -> None:
     if not post_id or not email_id:
         raise SystemExit("--blog-id and --email-id required (or staging-manifest.json with IDs)")
 
+    draft_status = asset_draft_status(str(post_id), str(email_id))
+    if not draft_status.get("allDraft"):
+        raise SystemExit(
+            "Refusing to refresh campaign images: blog and email must be draft-only "
+            f"(blogPublished={draft_status.get('blogPublished')}, "
+            f"emailPublished={draft_status.get('emailPublished')})."
+        )
+
     topic = (bundle.get("topic") or "").strip()
     trade = (bundle.get("trade") or infer_trade_from_topic(topic)).strip().lower()
     email = bundle.get("email") or {}

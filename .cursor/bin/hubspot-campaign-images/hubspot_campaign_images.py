@@ -226,7 +226,7 @@ def download_bytes(url: str) -> tuple[bytes, str]:
     return content, ext.lstrip(".")
 
 
-def _hubspot_auth_token() -> str:
+def _resolve_hubspot_auth_token() -> str | None:
     import sys
 
     oauth_dir = Path(__file__).resolve().parent.parent / "hubspot-content"
@@ -241,6 +241,11 @@ def _hubspot_auth_token() -> str:
     except Exception:
         pass
     token = os.environ.get("HUBSPOT_ACCESS_TOKEN", "").strip()
+    return token or None
+
+
+def _hubspot_auth_token() -> str:
+    token = _resolve_hubspot_auth_token()
     if token:
         return token
     raise SystemExit(
@@ -540,7 +545,7 @@ def cmd_pipeline(args: argparse.Namespace) -> None:
     alt = args.alt or resolved.get("alt") or args.prompt[:125]
 
     upload_result = None
-    if args.upload and resolved.get("hubspot_upload_recommended") and os.environ.get("HUBSPOT_ACCESS_TOKEN"):
+    if args.upload and resolved.get("hubspot_upload_recommended") and _resolve_hubspot_auth_token():
         if file_bytes is not None:
             content = file_bytes
             ext = Path(filename_override or "").suffix.lstrip(".") or "jpg"
