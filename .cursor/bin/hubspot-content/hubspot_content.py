@@ -89,29 +89,20 @@ def ssl_context() -> ssl.SSLContext:
 
 
 def hubspot_token() -> str:
-    try:
-        from hubspot_oauth import get_access_token
+    from hubspot_oauth import require_oauth_session
 
-        oauth_token = get_access_token(auto_refresh=True)
-        if oauth_token:
-            return oauth_token
-    except SystemExit:
-        raise
-    except Exception:
-        pass
+    return str(require_oauth_session()["access_token"])
 
-    token = os.environ.get("HUBSPOT_ACCESS_TOKEN", "").strip()
-    if token:
-        sys.stderr.write(
-            "Warning: using HUBSPOT_ACCESS_TOKEN (private app). "
-            "HubSpot may not show you as the editor. "
-            "Run: python .cursor/bin/hubspot-content/hubspot_content.py login\n"
-        )
-        return token
-    raise SystemExit(
-        "HubSpot auth required. Run: python .cursor/bin/hubspot-content/hubspot_content.py login\n"
-        "Or set HUBSPOT_ACCESS_TOKEN (private app — not recommended for attribution)."
-    )
+
+def hubspot_editor_attribution() -> dict[str, str]:
+    """HubSpot user who will appear as created/updated-by (OAuth on this machine)."""
+    from hubspot_oauth import require_oauth_session
+
+    session = require_oauth_session()
+    return {
+        "createdUpdatedByUserId": str(session.get("userId") or ""),
+        "createdUpdatedByUserEmail": str(session.get("userEmail") or ""),
+    }
 
 
 def http_json(
@@ -966,6 +957,8 @@ def cmd_create_blog_draft(args: argparse.Namespace) -> None:
                 "editorUrl": blog_editor_url(portal_id, post_id, cfg),
                 "blogListUrl": blog_drafts_list_url(portal_id, cfg) if portal_id else None,
                 "slug": result.get("slug"),
+                "blogBylineAuthorId": str(author_id),
+                "hubspotEditorAttribution": hubspot_editor_attribution(),
                 "draftOnly": True,
             },
             indent=2,
@@ -1816,6 +1809,8 @@ def cmd_refresh_campaign_images(args: argparse.Namespace) -> None:
                 "socialImageDpi": 150,
                 "reviewPath": str(review_path.relative_to(repo_root())),
                 "campaignLinksPath": str(links_path.relative_to(repo_root())),
+                "blogBylineAuthorId": str(cfg.get("blogAuthorId") or ""),
+                "hubspotEditorAttribution": hubspot_editor_attribution(),
                 "draftOnly": True,
             },
             indent=2,

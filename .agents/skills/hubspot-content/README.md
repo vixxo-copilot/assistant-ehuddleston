@@ -74,7 +74,7 @@ Check connection:
 python .cursor/bin/hubspot-content/hubspot_content.py auth-status
 ```
 
-Legacy fallback (not recommended): `HUBSPOT_ACCESS_TOKEN` private-app token.
+Legacy fallback (not used for writes): `HUBSPOT_ACCESS_TOKEN` is **ignored** — remove it from shared `.env` files.
 
 Restart Cursor after env/MCP changes.
 

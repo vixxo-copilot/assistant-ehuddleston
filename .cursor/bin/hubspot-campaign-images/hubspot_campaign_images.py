@@ -240,18 +240,18 @@ def _resolve_hubspot_auth_token() -> str | None:
             return oauth_token
     except Exception:
         pass
-    token = os.environ.get("HUBSPOT_ACCESS_TOKEN", "").strip()
-    return token or None
+    return None
 
 
 def _hubspot_auth_token() -> str:
-    token = _resolve_hubspot_auth_token()
-    if token:
-        return token
-    raise SystemExit(
-        "HubSpot auth required for upload. Run hubspot_content login "
-        "or set HUBSPOT_ACCESS_TOKEN."
-    )
+    import sys
+
+    oauth_dir = Path(__file__).resolve().parent.parent / "hubspot-content"
+    if oauth_dir.is_dir() and str(oauth_dir) not in sys.path:
+        sys.path.insert(0, str(oauth_dir))
+    from hubspot_oauth import require_oauth_session
+
+    return str(require_oauth_session()["access_token"])
 
 
 def upload_to_hubspot(

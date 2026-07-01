@@ -129,6 +129,40 @@ def token_user_info(access_token: str) -> dict[str, Any]:
         return json.loads(resp.read().decode("utf-8"))
 
 
+def require_oauth_session() -> dict[str, Any]:
+    """OAuth access token + HubSpot user identity. Refuses shared private-app tokens."""
+    access = get_access_token(auto_refresh=True)
+    if not access:
+        if os.environ.get("HUBSPOT_ACCESS_TOKEN", "").strip():
+            raise SystemExit(
+                "HUBSPOT_ACCESS_TOKEN is set but OAuth is not connected on this machine. "
+                "Private app tokens attribute all edits to one shared account — not the person "
+                "using Cursor. Each user must run: "
+                "python .cursor/bin/hubspot-content/hubspot_content.py login"
+            )
+        raise SystemExit(
+            "HubSpot OAuth required before staging content. "
+            "Run: python .cursor/bin/hubspot-content/hubspot_content.py login"
+        )
+    stored = load_token() or {}
+    user_id = stored.get("user_id")
+    user_email = stored.get("user_email")
+    hub_id = stored.get("hub_id")
+    if not user_id or not user_email:
+        info = token_user_info(access)
+        user_id = info.get("user_id")
+        user_email = info.get("user")
+        hub_id = info.get("hub_id")
+        enriched = {**stored, "user_id": user_id, "user_email": user_email, "hub_id": hub_id}
+        save_token(enriched)
+    return {
+        "access_token": access,
+        "userId": user_id,
+        "userEmail": user_email,
+        "hubId": hub_id,
+    }
+
+
 def auth_status() -> dict[str, Any]:
     pat = os.environ.get("HUBSPOT_ACCESS_TOKEN", "").strip()
     token = load_token()
@@ -139,25 +173,31 @@ def auth_status() -> dict[str, Any]:
             os.environ.get("HUBSPOT_CLIENT_ID") and os.environ.get("HUBSPOT_CLIENT_SECRET")
         ),
         "oauthConnected": bool(access),
-        "privateAppFallback": bool(pat),
-        "recommendedAuth": "oauth",
+        "privateAppTokenPresent": bool(pat),
+        "privateAppAllowedForWrites": False,
+        "attributionPolicy": (
+            "HubSpot created/updated-by shows the OAuth user on this machine. "
+            "Blog public byline uses config blogAuthorId (e.g. Vixxo Management), never the OAuth user."
+        ),
     }
     if access:
         try:
-            info = token_user_info(access)
-            status["hubId"] = info.get("hub_id")
-            status["userId"] = info.get("user_id")
-            status["userEmail"] = info.get("user")
-            status["scopes"] = info.get("scopes")
+            session = require_oauth_session()
+            status["hubId"] = session.get("hubId")
+            status["userId"] = session.get("userId")
+            status["userEmail"] = session.get("userEmail")
+            status["readyToStage"] = True
         except Exception as exc:
             status["userLookupError"] = str(exc)[:200]
     elif pat:
-        status["warning"] = (
-            "Using HUBSPOT_ACCESS_TOKEN (private app). HubSpot may not attribute edits to your user account. "
-            "Run hubspot_content login for per-user OAuth."
+        status["readyToStage"] = False
+        status["error"] = (
+            "HUBSPOT_ACCESS_TOKEN is ignored for writes. Run login so edits attribute to you, "
+            "not a shared service account."
         )
     else:
         status["setupRequired"] = True
+        status["readyToStage"] = False
         status["loginCommand"] = "python .cursor/bin/hubspot-content/hubspot_content.py login"
     return status
 
@@ -229,11 +269,14 @@ def login(*, open_browser: bool = True) -> dict[str, Any]:
             "code": code,
         },
     )
-    path = save_token(token)
     access = str(token.get("access_token") or "")
     info: dict[str, Any] = {}
     if access:
         info = token_user_info(access)
+        token["user_id"] = info.get("user_id")
+        token["user_email"] = info.get("user")
+        token["hub_id"] = info.get("hub_id")
+    path = save_token(token)
 
     result = {
         "connected": True,
@@ -242,7 +285,10 @@ def login(*, open_browser: bool = True) -> dict[str, Any]:
         "userId": info.get("user_id"),
         "userEmail": info.get("user"),
         "scopes": info.get("scopes"),
-        "message": "HubSpot OAuth connected. API edits will attribute to this user.",
+        "message": (
+            "HubSpot OAuth connected. Created/updated-by in HubSpot will show "
+            f"{info.get('user') or 'this user'}. Blog byline stays config blogAuthorId."
+        ),
     }
     print(json.dumps(result, indent=2))
     return result

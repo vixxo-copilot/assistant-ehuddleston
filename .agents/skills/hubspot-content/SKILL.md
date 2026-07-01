@@ -81,11 +81,17 @@ Use hubspot-content — create a content package for topic: emergency plumbing s
 4. Install `WixMadeforText-ExtraBold.ttf` in `assets/fonts/` (see README)
 5. Restart Cursor MCP
 
-Before staging, call `hubspot_content_auth_status` — confirm `oauthConnected`
-and your email appear. Do not stage with a shared private-app token unless OAuth
-is unavailable.
+Before staging, call `hubspot_content_auth_status` — confirm `oauthConnected`,
+`userEmail` matches **you**, and `readyToStage` is true. If someone else uses
+this machine, they must run `login` first (or `logout` then `login` as themselves).
 
-Legacy fallback: `HUBSPOT_ACCESS_TOKEN` (private app) — poor user attribution.
+**Attribution rules (mandatory):**
+- **Blog byline** → always `blogAuthorId` from config (Vixxo Management persona)
+- **Created/updated by in HubSpot** → always the OAuth user on **this machine**
+- **Never** use a shared `HUBSPOT_ACCESS_TOKEN` for staging — it is blocked
+- **Never** set `blogAuthorId` from the OAuth user ID
+
+Each teammate runs `hubspot_content login` on their own Cursor machine.
 
 ## Guardrails
 
