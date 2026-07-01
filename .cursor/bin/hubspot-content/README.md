@@ -1,4 +1,4 @@
-# HubSpot Content MCP v2.6.0
+# HubSpot Content MCP v2.7.0
 
 Local MCP for staging blog drafts, marketing email drafts, and social copy files
 in HubSpot. **Draft-only** — no publish, send, or schedule endpoints.
@@ -29,15 +29,24 @@ whole-word matching (avoids false hits like `light` inside `daylight`).
 
 ## Setup
 
-1. Add `HUBSPOT_ACCESS_TOKEN` to `.env` (Private App scopes: `content`, optional `files`).
+1. Add to `.env`:
+   - `HUBSPOT_CLIENT_ID` + `HUBSPOT_CLIENT_SECRET` (public app — recommended)
+   - Or legacy `HUBSPOT_ACCESS_TOKEN` (private app — shared, poor attribution)
 2. Copy `.agents/skills/hubspot-content/config.example.yaml` to `config.yaml`
    and fill in `portalId`, `contentGroupId`, `blogAuthorId`.
-3. Restart Cursor MCP to load `hubspot-content` from `.cursor/mcp.json`.
+3. Connect your HubSpot user account:
+
+```bash
+python .cursor/bin/hubspot-content/hubspot_content.py login
+```
+
+4. Restart Cursor MCP to load `hubspot-content` from `.cursor/mcp.json`.
 
 On Windows the MCP runs via `node` directly (loads `.env` automatically).
 
 ## Tools
 
+- `hubspot_content_login` / `hubspot_content_auth_status` / `hubspot_content_logout` — OAuth per-user auth
 - `hubspot_content_get_package_brief` — schema + suggested trade/visualTopic for **any topic**
 - `hubspot_content_stage_content_package` — one-call full bundle staging (150 DPI images)
 - `hubspot_content_refresh_campaign_images` — re-render images; optional `bgFile` for Cursor AI heroes

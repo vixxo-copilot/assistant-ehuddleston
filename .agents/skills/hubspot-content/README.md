@@ -37,21 +37,44 @@ Install Node dependencies once:
 cd .cursor/bin/hubspot-content && npm install
 ```
 
-### 3. HubSpot credentials
+### 3. HubSpot credentials (OAuth — per user)
+
+Create a [HubSpot public app](https://developers.hubspot.com/) (Vixxo can host one app for the team):
+
+| Setting | Value |
+|---|---|
+| Redirect URI | `http://127.0.0.1:8765/callback` |
+| Scopes | `content`, `files` |
+
+Add to `.env`:
+
+```env
+HUBSPOT_CLIENT_ID=...
+HUBSPOT_CLIENT_SECRET=...
+```
+
+Copy config and fill portal IDs:
 
 ```bash
 cp .agents/skills/hubspot-content/config.example.yaml .agents/skills/hubspot-content/config.yaml
 ```
 
-Edit `config.yaml`: `portalId`, `contentGroupId`, `blogAuthorId`.
+**Each person runs once** (opens browser, signs in as themselves):
 
-Add to `.env`:
-
-```env
-HUBSPOT_ACCESS_TOKEN=pat-...
+```bash
+python .cursor/bin/hubspot-content/hubspot_content.py login
 ```
 
-Private App scopes: **`content`** (required), **`files`** (optional, for image upload).
+Token saves to `.hubspot/oauth-token.json` (gitignored). HubSpot will attribute
+blog/email edits to that user.
+
+Check connection:
+
+```bash
+python .cursor/bin/hubspot-content/hubspot_content.py auth-status
+```
+
+Legacy fallback (not recommended): `HUBSPOT_ACCESS_TOKEN` private-app token.
 
 Restart Cursor after env/MCP changes.
 
@@ -103,7 +126,10 @@ Every run ends with `_content/social-ready/{campaign}/REVIEW.md`:
 | --- | --- |
 | `hubspot_content_get_package_brief` | **Step 1** — schema + rules for composing from a topic |
 | `hubspot_content_stage_content_package` | **Step 2** — stage full bundle (blog, email, social, images, REVIEW.md) |
-| `hubspot_content_get_config` | Validate portal IDs |
+| `hubspot_content_login` | OAuth connect (browser) — per-user attribution |
+| `hubspot_content_auth_status` | Show connected HubSpot user |
+| `hubspot_content_logout` | Remove OAuth token |
+| `hubspot_content_get_config` | Validate portal IDs + auth |
 | `hubspot_content_create_blog_draft` | Stage blog HTML draft (`body` or `bodyFile`) |
 | `hubspot_content_create_email_draft` | Stage marketing email draft (`htmlBody` or `htmlBodyFile`) |
 | `hubspot_content_stage_social_pack` | Write `{platform}-post.txt` |

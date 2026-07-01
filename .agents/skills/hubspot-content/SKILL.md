@@ -69,12 +69,23 @@ Use hubspot-content — create a content package for topic: emergency plumbing s
 
 ## Setup
 
-1. `HUBSPOT_ACCESS_TOKEN` in `.env` (Private App: `content`, optional `files`)
+1. **HubSpot OAuth (recommended)** — edits show your user as creator/editor:
+   - Create a [HubSpot public app](https://developers.hubspot.com/)
+   - Redirect URI: `http://127.0.0.1:8765/callback`
+   - Scopes: `content`, `files`
+   - Add to `.env`: `HUBSPOT_CLIENT_ID`, `HUBSPOT_CLIENT_SECRET`
+   - Run once: `python .cursor/bin/hubspot-content/hubspot_content.py login`
 2. Copy [config.example.yaml](config.example.yaml) → `config.yaml` — fill
    `portalId`, `contentGroupId`, `blogAuthorId`
 3. Wire MCP in `.cursor/mcp.json` (see [README.md](README.md))
 4. Install `WixMadeforText-ExtraBold.ttf` in `assets/fonts/` (see README)
 5. Restart Cursor MCP
+
+Before staging, call `hubspot_content_auth_status` — confirm `oauthConnected`
+and your email appear. Do not stage with a shared private-app token unless OAuth
+is unavailable.
+
+Legacy fallback: `HUBSPOT_ACCESS_TOKEN` (private app) — poor user attribution.
 
 ## Guardrails
 

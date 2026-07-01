@@ -89,13 +89,29 @@ def ssl_context() -> ssl.SSLContext:
 
 
 def hubspot_token() -> str:
+    try:
+        from hubspot_oauth import get_access_token
+
+        oauth_token = get_access_token(auto_refresh=True)
+        if oauth_token:
+            return oauth_token
+    except SystemExit:
+        raise
+    except Exception:
+        pass
+
     token = os.environ.get("HUBSPOT_ACCESS_TOKEN", "").strip()
-    if not token:
-        raise SystemExit(
-            "HUBSPOT_ACCESS_TOKEN is required. Add a Private App token with "
-            "content scope (optional files) to .env."
+    if token:
+        sys.stderr.write(
+            "Warning: using HUBSPOT_ACCESS_TOKEN (private app). "
+            "HubSpot may not show you as the editor. "
+            "Run: python .cursor/bin/hubspot-content/hubspot_content.py login\n"
         )
-    return token
+        return token
+    raise SystemExit(
+        "HubSpot auth required. Run: python .cursor/bin/hubspot-content/hubspot_content.py login\n"
+        "Or set HUBSPOT_ACCESS_TOKEN (private app — not recommended for attribution)."
+    )
 
 
 def http_json(
@@ -848,19 +864,47 @@ def cmd_get_config(_args: argparse.Namespace) -> None:
         missing.append("contentGroupId")
     if not cfg.get("blogAuthorId"):
         missing.append("blogAuthorId")
+    try:
+        from hubspot_oauth import auth_status
+
+        auth = auth_status()
+    except Exception as exc:
+        auth = {"oauthConnected": False, "error": str(exc)[:200]}
     out = {
         "config": cfg,
         "configPath": str(SKILL_DIR / "config.yaml"),
-        "setupRequired": bool(missing),
+        "auth": auth,
+        "setupRequired": bool(missing) or not auth.get("oauthConnected"),
         "missingFields": missing,
         "setupInstructions": (
-            "Copy .agents/skills/hubspot-content/config.example.yaml to config.yaml "
-            "and fill portalId, contentGroupId, blogAuthorId."
-            if missing
+            "Copy config.example.yaml to config.yaml, set HUBSPOT_CLIENT_ID/SECRET in .env, "
+            "then run: python .cursor/bin/hubspot-content/hubspot_content.py login"
+            if missing or not auth.get("oauthConnected")
             else None
         ),
     }
     print(json.dumps(out, indent=2))
+
+
+def cmd_hubspot_login(_args: argparse.Namespace) -> None:
+    load_dotenv()
+    from hubspot_oauth import login
+
+    login()
+
+
+def cmd_hubspot_auth_status(_args: argparse.Namespace) -> None:
+    load_dotenv()
+    from hubspot_oauth import auth_status
+
+    print(json.dumps(auth_status(), indent=2))
+
+
+def cmd_hubspot_logout(_args: argparse.Namespace) -> None:
+    load_dotenv()
+    from hubspot_oauth import logout
+
+    print(json.dumps(logout(), indent=2))
 
 
 def cmd_create_blog_draft(args: argparse.Namespace) -> None:
@@ -1901,6 +1945,15 @@ def main() -> None:
 
     p_cfg = sub.add_parser("get-config")
     p_cfg.set_defaults(func=cmd_get_config)
+
+    p_login = sub.add_parser("login", help="Connect HubSpot via OAuth (per-user attribution)")
+    p_login.set_defaults(func=cmd_hubspot_login)
+
+    p_auth = sub.add_parser("auth-status", help="Show HubSpot OAuth connection status")
+    p_auth.set_defaults(func=cmd_hubspot_auth_status)
+
+    p_logout = sub.add_parser("logout", help="Remove stored HubSpot OAuth token")
+    p_logout.set_defaults(func=cmd_hubspot_logout)
 
     p_blog = sub.add_parser("create-blog-draft")
     p_blog.add_argument("--title", required=True)

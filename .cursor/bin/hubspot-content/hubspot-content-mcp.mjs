@@ -76,7 +76,7 @@ function runPython(args) {
 }
 
 const server = new Server(
-  { name: "hubspot-content", version: "2.6.0" },
+  { name: "hubspot-content", version: "2.7.0" },
   { capabilities: { tools: {} } }
 );
 
@@ -231,6 +231,22 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
       description:
         "Read HubSpot content config (portalId, contentGroupId, blogAuthorId, email folder). " +
         "Fails with setup instructions if required IDs are missing.",
+      inputSchema: { type: "object", properties: {} },
+    },
+    {
+      name: "hubspot_content_login",
+      description:
+        "Connect HubSpot via OAuth so blog/email edits attribute to the signed-in user (not a shared private app token). Opens browser.",
+      inputSchema: { type: "object", properties: {} },
+    },
+    {
+      name: "hubspot_content_auth_status",
+      description: "Check whether HubSpot OAuth is connected and which user account will be attributed.",
+      inputSchema: { type: "object", properties: {} },
+    },
+    {
+      name: "hubspot_content_logout",
+      description: "Remove stored HubSpot OAuth token from this machine.",
       inputSchema: { type: "object", properties: {} },
     },
     {
@@ -457,6 +473,21 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
   if (name === "hubspot_content_get_config") {
     const result = await runPython(["get-config"]);
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+
+  if (name === "hubspot_content_login") {
+    const result = await runPython(["login"]);
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+
+  if (name === "hubspot_content_auth_status") {
+    const result = await runPython(["auth-status"]);
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+
+  if (name === "hubspot_content_logout") {
+    const result = await runPython(["logout"]);
     return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
   }
 

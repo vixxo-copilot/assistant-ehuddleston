@@ -226,18 +226,36 @@ def download_bytes(url: str) -> tuple[bytes, str]:
     return content, ext.lstrip(".")
 
 
+def _hubspot_auth_token() -> str:
+    import sys
+
+    oauth_dir = Path(__file__).resolve().parent.parent / "hubspot-content"
+    if oauth_dir.is_dir() and str(oauth_dir) not in sys.path:
+        sys.path.insert(0, str(oauth_dir))
+    try:
+        from hubspot_oauth import get_access_token
+
+        oauth_token = get_access_token(auto_refresh=True)
+        if oauth_token:
+            return oauth_token
+    except Exception:
+        pass
+    token = os.environ.get("HUBSPOT_ACCESS_TOKEN", "").strip()
+    if token:
+        return token
+    raise SystemExit(
+        "HubSpot auth required for upload. Run hubspot_content login "
+        "or set HUBSPOT_ACCESS_TOKEN."
+    )
+
+
 def upload_to_hubspot(
     file_bytes: bytes,
     filename: str,
     folder_path: str = "/campaign-images",
     access: str = "PUBLIC_NOT_INDEXABLE",
 ) -> dict:
-    token = os.environ.get("HUBSPOT_ACCESS_TOKEN", "").strip()
-    if not token:
-        raise SystemExit(
-            "HUBSPOT_ACCESS_TOKEN is required for upload. "
-            "Add a Private App token with files scope to .env."
-        )
+    token = _hubspot_auth_token()
 
     boundary = "----VixxoHubSpotCampaignBoundary"
     options = json.dumps({"access": access})
