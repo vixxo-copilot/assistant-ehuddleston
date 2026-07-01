@@ -635,6 +635,19 @@ def _try_preview_bytes_for_queries(
     return None
 
 
+def _try_adobe_stock_for_queries(
+    queries: list[str], placement: str
+) -> tuple[dict[str, Any], str] | None:
+    from hubspot_campaign_images import resolve_adobe_stock  # noqa: E402
+
+    for query in queries:
+        try:
+            return resolve_adobe_stock(query, placement), query
+        except (Exception, SystemExit):
+            continue
+    return None
+
+
 def resolve_topic_hero_image(
     visual_topic: str,
     trade: str,
@@ -665,12 +678,12 @@ def resolve_topic_hero_image(
 
     if os.environ.get("ADOBE_STOCK_API_KEY", "").strip():
         try:
-            from hubspot_campaign_images import resolve_adobe_stock  # noqa: E402
-
-            adobe = resolve_adobe_stock(query, "email_header")
-            raw_source = adobe["file_bytes"]
-            source = "adobe_stock"
-            stock_meta = {"adobeStockId": adobe.get("adobe_stock_id"), "matchedRule": "adobe_stock"}
+            matched = _try_adobe_stock_for_queries(search_queries, "email_header")
+            if matched:
+                adobe, query = matched
+                raw_source = adobe["file_bytes"]
+                source = "adobe_stock"
+                stock_meta = {"adobeStockId": adobe.get("adobe_stock_id"), "matchedRule": "adobe_stock"}
         except (Exception, SystemExit) as exc:
             provider_errors["adobe"] = type(exc).__name__ + ": " + str(exc)[:120]
 
