@@ -1,0 +1,545 @@
+{
+  "targetTemplatePath": "generated_layouts/42031602960.html",
+  "migrateCandidates": [
+    {
+      "slug": "about-us",
+      "name": "About Us: Overview",
+      "state": "DRAFT",
+      "templatePath": "generated_layouts/29751443269.html",
+      "pageId": "29756389137"
+    },
+    {
+      "slug": "solutions/sign-and-lighting",
+      "name": "Solutions: Sign and Lighting",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "29841891427"
+    },
+    {
+      "slug": "solutions/24-7-service-provider-coverage",
+      "name": "Solutions: 24/7 Service Provider Coverage",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "29842861673"
+    },
+    {
+      "slug": "solutions/covid-19-business-services",
+      "name": "Solutions: COVID-19 Business Services",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "29844240040"
+    },
+    {
+      "slug": "industries/convenience",
+      "name": "Industries: Convenience",
+      "state": "DRAFT",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "29871475061"
+    },
+    {
+      "slug": "resources-blog",
+      "name": "Resources: Blog",
+      "state": "DRAFT",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "29876588428"
+    },
+    {
+      "slug": "about-us/locations",
+      "name": "About Us: Locations",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "30028454575"
+    },
+    {
+      "slug": "about-us-legal",
+      "name": "About Us: Legal",
+      "state": "DRAFT",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "30028456557"
+    },
+    {
+      "slug": "services-chart",
+      "name": "Services Chart",
+      "state": "DRAFT",
+      "templatePath": "generated_layouts/30031024117.html",
+      "pageId": "30028838239"
+    },
+    {
+      "slug": "service-providers/who-are-we-looking-for",
+      "name": "Service Providers | Who Are We Looking For",
+      "state": "DRAFT",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "30099672817"
+    },
+    {
+      "slug": "about-us/contact-us",
+      "name": "Contact Us",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "30103749162"
+    },
+    {
+      "slug": "privacy-policy",
+      "name": "Privacy Policy",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/30243385100.html",
+      "pageId": "30243643162"
+    },
+    {
+      "slug": "website-terms-of-use",
+      "name": "Website Terms of Use",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/30243385100.html",
+      "pageId": "30243666918"
+    },
+    {
+      "slug": "copyright-and-trademark-statement",
+      "name": "Copyright and Trademark Statement",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/30243385100.html",
+      "pageId": "30243667518"
+    },
+    {
+      "slug": "copyright-protection-vixxos-dmca-takedown-policy",
+      "name": "Takedown Policy DMCA",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/30243385100.html",
+      "pageId": "30243667644"
+    },
+    {
+      "slug": "service-provider-spotlight-city-maintenance-service-company",
+      "name": "Service Provider Spotlight - City Maintenance & Service Company",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/30243385100.html",
+      "pageId": "30310194581"
+    },
+    {
+      "slug": "service-provider-spotlight-big-country-restaurant-and-refrigeration-inc",
+      "name": "Service Provider Spotlight: Big Country Restaurant and Refrigeration Inc.",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "30317705444"
+    },
+    {
+      "slug": "service-provider-spotlight-american-air-hvac",
+      "name": "Service Provider Spotlight: American Air HVAC",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "30328624798"
+    },
+    {
+      "slug": "service-provider-spotlight-day-break-coffee-roasters",
+      "name": "Service Provider Spotlight: Day Break Coffee Roasters",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "30328624905"
+    },
+    {
+      "slug": "service-provider-spotlight-springbank-mechanical-systems-ltd",
+      "name": "Service Provider Spotlight: Springbank Mechanical Systems Ltd.",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "30328624987"
+    },
+    {
+      "slug": "service-provider-spotlight-starbucks-coffee-technicians-team",
+      "name": "Service Provider Spotlight: Starbucks Coffee Technicians Team",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "30328625057"
+    },
+    {
+      "slug": "careers/search-queries",
+      "name": "Search Queries",
+      "state": "DRAFT",
+      "templatePath": "generated_layouts/31284623144.html",
+      "pageId": "31149923062"
+    },
+    {
+      "slug": "hs-search-results",
+      "name": "HS Search Results",
+      "state": "DRAFT",
+      "templatePath": "generated_layouts/30243385100.html",
+      "pageId": "31291784217"
+    },
+    {
+      "slug": "jobs",
+      "name": "Jobs",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/31297616274.html",
+      "pageId": "31292987233"
+    },
+    {
+      "slug": "job-listings",
+      "name": "Job Listings",
+      "state": "DRAFT",
+      "templatePath": "generated_layouts/29647849017.html",
+      "pageId": "31297833178"
+    },
+    {
+      "slug": "facility-management/facility-management-services",
+      "name": "Facility Management Services",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "32650246042"
+    },
+    {
+      "slug": "resources/case-study-global-grocery-leader-saves-14m-in-facilities-costs",
+      "name": "C Case Study: Global Grocery Leader Saves $14M in Facilities Costs",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/30243385100.html",
+      "pageId": "37106190023"
+    },
+    {
+      "slug": "resources/case-study-grocer-saves-780k-by-applying-vixxos-analytics-and-insights",
+      "name": "C Case Study: Grocer Saves $780k by Applying Vixxo\u2019s Analytics and Insights",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/30243385100.html",
+      "pageId": "37106190047"
+    },
+    {
+      "slug": "resources/case-study-4000-stores-in-less-than-10-days",
+      "name": "C Case Study: 4,000+ Stores In Less than 10 Days",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/30243385100.html",
+      "pageId": "37118179562"
+    },
+    {
+      "slug": "resources/case-study-vixxo-updates-signage-at-3800-sites-on-time-and-on-budget",
+      "name": "C Case Study: Vixxo Updates Signage at 3,800+ Sites On Time and On Budget",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/30243385100.html",
+      "pageId": "37118179599"
+    },
+    {
+      "slug": "resources/case-study-how-a-rapid-response-sanitization-program-kept-stores-open",
+      "name": "C Case Study: How a Rapid Response Sanitization Program Kept Stores Open",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/30243385100.html",
+      "pageId": "37296120040"
+    },
+    {
+      "slug": "thank-you",
+      "name": "Thank You",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "37732630560"
+    },
+    {
+      "slug": "thank-you-ttbg",
+      "name": "Thank You - TTB Grocery",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "37776422776"
+    },
+    {
+      "slug": "thank-you-ttbc",
+      "name": "Thank You - TTB Convenience",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "37777152096"
+    },
+    {
+      "slug": "thank-you-ttbp",
+      "name": "Thank You - TTB Procurement",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "37777152792"
+    },
+    {
+      "slug": "thank-you-oem",
+      "name": "Thank You - OEM",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "37777153217"
+    },
+    {
+      "slug": "thank-you-ttbsl",
+      "name": "Thank You - TTB Sign and Lighting",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "37777226802"
+    },
+    {
+      "slug": "login-options",
+      "name": "Login",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "37788416212"
+    },
+    {
+      "slug": "solutions/commercial-lighting-services",
+      "name": "Solutions - Commercial Lighting Services",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "37912006149"
+    },
+    {
+      "slug": "solutions/exterior-services",
+      "name": "Solutions - Exterior Services",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "38454351058"
+    },
+    {
+      "slug": "resources/case-study-facilities-maintenance-pilot-program-success-at-grocery-chain",
+      "name": "C Case Study: Facilities Maintenance Pilot Program Success at Grocery Chain",
+      "state": "DRAFT",
+      "templatePath": "generated_layouts/30243385100.html",
+      "pageId": "38847106241"
+    },
+    {
+      "slug": "resources/starbucks-saves-millions-transferring-in-house-technician-team-to-vixxo",
+      "name": "C Case Study: Starbucks Saves Millions Transferring In-House Technician Team To Vixxo",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/30243385100.html",
+      "pageId": "39317247294"
+    },
+    {
+      "slug": "service-providers/service-provider-spotlight",
+      "name": "Service Provider Spotlight",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "40908480873"
+    },
+    {
+      "slug": "solutions/exterior-services-0",
+      "name": "Solutions - Landscaping",
+      "state": "DRAFT",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "40915587971"
+    },
+    {
+      "slug": "thank-you-ad-cs",
+      "name": "Thank You - Ads - Cost Savings",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "41063021479"
+    },
+    {
+      "slug": "thank-you-ad-qs",
+      "name": "Thank You - Ads - Quality Service",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "41063021675"
+    },
+    {
+      "slug": "thank-you-ad-di",
+      "name": "Thank You - Ads - Data Insights",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "41063021735"
+    },
+    {
+      "slug": "thank-you-ad-insights",
+      "name": "Thank You - Ads - Strategic Insights",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "41477748246"
+    },
+    {
+      "slug": "thank-you-ad-ops",
+      "name": "Thank You - Ads - Ops Headaches",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "41477888811"
+    },
+    {
+      "slug": "thank-you-ad-service",
+      "name": "Thank You - Ads - Service Quality",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "41477889145"
+    },
+    {
+      "slug": "thank-you-ad-cost",
+      "name": "Thank You - Ads - Cost Savings v2",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "41477889187"
+    },
+    {
+      "slug": "thank-you-ad-trusted-partner",
+      "name": "Thank You - Ads - Trusted Partner",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "41638882216"
+    },
+    {
+      "slug": "thank-you-airpods",
+      "name": "Thank You - Airpods - Procurement",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "44162086952"
+    },
+    {
+      "slug": "thank-you-fedex",
+      "name": "Thank You - FedEx",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "44223151281"
+    },
+    {
+      "slug": "resources/facilities-management-industry-insights/commercial-handyman",
+      "name": "Handyman Interactive Graphic",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "44722572184"
+    },
+    {
+      "slug": "caps-continuously-analyzed-pricing-system",
+      "name": "CAPS",
+      "state": "DRAFT",
+      "templatePath": "generated_layouts/29751443269.html",
+      "pageId": "45697480345"
+    },
+    {
+      "slug": "solutions/equipment-installation-for-manufacturers",
+      "name": "Solutions: Equipment Installation for Manufacturers",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "48229637794"
+    },
+    {
+      "slug": "resources/facilities-management-industry-insights/rfp-process",
+      "name": "RFP Interactive Graphic",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "50356971809"
+    },
+    {
+      "slug": "thank-you-ads-mfg",
+      "name": "Thank You - Mfg Campaigns",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "50812067242"
+    },
+    {
+      "slug": "system-status",
+      "name": "System Status",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "53756336468"
+    },
+    {
+      "slug": "thank-you-ads-awareness",
+      "name": "Thank You - Awareness",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "55743893092"
+    },
+    {
+      "slug": "solutions/commercial-pest-control-services",
+      "name": "Solutions - Pest Control",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "55928068139"
+    },
+    {
+      "slug": "solutions/commercial-landscaping-services",
+      "name": "Solutions - Landscaping & Snow Removal",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "55987293490"
+    },
+    {
+      "slug": "solutions/commercial-fuel-equipment-maintenance",
+      "name": "Solutions - Fuel Service",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "58822209560"
+    },
+    {
+      "slug": "facility-equipment-projects",
+      "name": "Vixxo Projects Division",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "58822293346"
+    },
+    {
+      "slug": "service-provider-spotlight-the-java-gourmet",
+      "name": "Service Provider Spotlight: The Java Gourmet",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "66429324193"
+    },
+    {
+      "slug": "facility-equipment-projects/signs-and-lighting-projects",
+      "name": "Signage and Lighting Projects",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "79981073724"
+    },
+    {
+      "slug": "service-provider-spotlight-refreshments-llc",
+      "name": "Service Provider Spotlight: Refreshments LLC",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "84146677362"
+    },
+    {
+      "slug": "resources/containing-facility-and-equipment-costs",
+      "name": "Containing Facility and Equipment Costs",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29834625857.html",
+      "pageId": "90314745236"
+    },
+    {
+      "slug": "about-us/vixxoqsi",
+      "name": "About Us: Vixxo QSI",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/29751443269.html",
+      "pageId": "182097761939"
+    },
+    {
+      "slug": "terms",
+      "name": "Terms",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/30243385100.html",
+      "pageId": "189371227770"
+    },
+    {
+      "slug": "now",
+      "name": "VixxoNow Coffee",
+      "state": "DRAFT",
+      "templatePath": "generated_layouts/29751443269.html",
+      "pageId": "207472797577"
+    },
+    {
+      "slug": "case-study-vixxo-helps-qsr-chain-achieve-consistent-quality-across-5000-locations",
+      "name": "C Case Study: Vixxo Coffee",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/30243385100.html",
+      "pageId": "326121917152"
+    },
+    {
+      "slug": "case-study-1000-work-orders-later-a-strategic-partnership",
+      "name": "C Case Study: National Retailer 1,000+ Work Orders Later",
+      "state": "PUBLISHED_OR_SCHEDULED",
+      "templatePath": "generated_layouts/30243385100.html",
+      "pageId": "329563202266"
+    }
+  ],
+  "templateCounts": {
+    "generated_layouts/42031602960.html": 8,
+    "generated_layouts/29751443269.html": 7,
+    "generated_layouts/29834625857.html": 80,
+    "generated_layouts/29906960849.html": 1,
+    "generated_layouts/30031024117.html": 1,
+    "generated_layouts/30243385100.html": 19,
+    "generated_layouts/31284623144.html": 1,
+    "generated_layouts/31297616274.html": 1,
+    "generated_layouts/29647849017.html": 1,
+    "generated_layouts/32029251086.html": 1,
+    "Vixxo Brand Refresh 2023/templates/landing-page.html": 1,
+    "@hubspot/barricade/templates/about.html": 1,
+    "CLEAN-6-1-theme child X Vixxo Facility Solutions/templates/clean-pro-home-opt-1.html": 17,
+    "CLEAN-6-1-theme child X Vixxo Facility Solutions/templates/clean-pro-case-study.html": 33,
+    "CLEAN-6-1-theme child X Vixxo Facility Solutions/templates/clean-pro-about-us.html": 1,
+    "CLEAN-6-1-theme child X Vixxo Facility Solutions/templates/clean-pro-video-library.html": 1,
+    "CLEAN-6-1-theme child X Vixxo Facility Solutions/templates/clean-pro-resources.html": 2,
+    "CLEAN-6-1-theme child X Vixxo Facility Solutions/templates/clean-pro-event.html": 1,
+    "CLEAN-6-1-theme child X Vixxo Facility Solutions/templates/clean-pro-contact-us.html": 3
+  },
+  "pageTemplates": []
+}

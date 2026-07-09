@@ -1,0 +1,13 @@
+name: hubspot-pages
+title: "HubSpot CMS Pages Migration"
+description: "Migrates HubSpot site/landing pages to a target template and creates new draft pages."
+category: marketing
+agents:
+  - cursor
+  - claude-code
+author: vixxo
+version: "1.0.0"
+tags: [hubspot, cms, pages, website, template, migration]
+status: approved
+requires_mcp: [hubspot-pages]
+source: vixxo

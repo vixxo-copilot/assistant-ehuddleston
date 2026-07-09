@@ -59,6 +59,12 @@
         ".cursor/bin/hubspot-content/hubspot-content-mcp.mjs"
       ]
     },
+    "hubspot-pages": {
+      "command": "node",
+      "args": [
+        ".cursor/bin/hubspot-pages/hubspot-pages-mcp.mjs"
+      ]
+    },
     "adobe-stock": {
       "command": "bash",
       "args": [

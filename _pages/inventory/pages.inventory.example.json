@@ -1,0 +1,30 @@
+{
+  "targetTemplatePath": "",
+  "pageType": "site-page",
+  "migrate": [
+    {
+      "slug": "about-us",
+      "notes": "Migrate About page to 2026 template"
+    },
+    {
+      "slug": "services",
+      "pageId": "",
+      "notes": "Services landing page"
+    }
+  ],
+  "create": [
+    {
+      "name": "Facilities Solutions Overview",
+      "slug": "facilities-solutions",
+      "htmlTitle": "Facilities Solutions | Vixxo",
+      "metaDescription": "Placeholder — update before publish.",
+      "notes": "New page for website refresh 2026"
+    },
+    {
+      "name": "Contact Sales",
+      "slug": "contact-sales",
+      "htmlTitle": "Contact Vixxo Sales",
+      "metaDescription": "Placeholder — update before publish."
+    }
+  ]
+}

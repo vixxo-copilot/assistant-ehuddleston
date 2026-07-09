@@ -1,0 +1,18 @@
+{
+  "answeredAt": "2026-07-08",
+  "source": "HubSpot API discovery (private app token) + plan defaults",
+  "answers": {
+    "targetTemplatePath": "CLEAN-6-1-theme child X Vixxo Facility Solutions/templates/clean-pro-home-opt-1.html",
+    "migratePages": "47 core site pages on legacy generated_layouts templates (excludes thank-you, spotlight, archived)",
+    "createPages": ["facilities-solutions", "contact-sales"],
+    "pageType": "site-page",
+    "defaultDomain": "www.vixxo.com",
+    "auth": "private-app-token (allowPrivateAppToken: true) — OAuth CLIENT_ID/SECRET not in .env",
+    "contentExpectation": "A — template swap; manual module rebuild in HubSpot editor",
+    "publishPolicy": "drafts only — no auto-publish"
+  },
+  "perPageTemplateOverrides": {
+    "caseStudyTemplate": "CLEAN-6-1-theme child X Vixxo Facility Solutions/templates/clean-pro-case-study.html",
+    "contactTemplate": "CLEAN-6-1-theme child X Vixxo Facility Solutions/templates/clean-pro-contact-us.html"
+  }
+}

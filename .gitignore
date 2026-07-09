@@ -13,4 +13,9 @@ __pycache__/
 _content/staging/
 .agents/skills/hubspot-content/config.yaml
 .agents/skills/hubspot-content/config.yml
+.agents/skills/hubspot-pages/config.yaml
+.agents/skills/hubspot-pages/config.yml
+_pages/staging/
+_pages/inventory/pages.inventory.yaml
+_pages/inventory/pages.inventory.json
 .hubspot/

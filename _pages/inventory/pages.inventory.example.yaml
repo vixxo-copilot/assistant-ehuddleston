@@ -1,0 +1,28 @@
+# HubSpot website page inventory — copy to pages.inventory.yaml and fill in.
+# Run dry-run first: hubspot_pages_run_inventory { dryRun: true }
+
+# Falls back to config.yaml when targetTemplatePath is empty.
+targetTemplatePath: ""
+pageType: site-page
+
+# Existing pages to transfer to the new template (templatePath update only).
+# After migration, open each editor URL and rebuild module content in HubSpot UI.
+migrate:
+  - slug: about-us
+    notes: "Migrate About page to 2026 template"
+  - slug: services
+    pageId: ""            # optional — use when slug lookup is ambiguous
+    templatePath: ""      # optional per-page override
+    notes: "Services landing page"
+
+# New pages to create as DRAFT (content added in HubSpot editor after creation).
+create:
+  - name: "Facilities Solutions Overview"
+    slug: facilities-solutions
+    htmlTitle: "Facilities Solutions | Vixxo"
+    metaDescription: "Placeholder — update before publish."
+    notes: "New page for website refresh 2026"
+  - name: "Contact Sales"
+    slug: contact-sales
+    htmlTitle: "Contact Vixxo Sales"
+    metaDescription: "Placeholder — update before publish."

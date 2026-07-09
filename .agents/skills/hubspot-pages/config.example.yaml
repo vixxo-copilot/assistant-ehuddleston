@@ -1,0 +1,26 @@
+# Copy to config.yaml (gitignored) and fill in your HubSpot portal values.
+# Find portalId (Hub ID) in HubSpot Settings > Account & Billing.
+# Find targetTemplatePath in Design Manager > template > Copy path (remove leading slash).
+
+portalId: "7718689"
+hubspotRegion: na1
+
+# Required — the new website template all migrated/created pages should use.
+# Example: vixxo-2026-theme/templates/standard-page.html
+targetTemplatePath: ""
+
+# Optional per-page-kind templates for hubspot-page-content staging.
+caseStudyTemplatePath: "CLEAN-6-1-theme child X Vixxo Facility Solutions/templates/clean-pro-case-study.html"
+contactTemplatePath: "CLEAN-6-1-theme child X Vixxo Facility Solutions/templates/clean-pro-contact-us.html"
+
+defaultPageType: site-page
+defaultDomain: ""
+
+# Optional — override app URL when portal uses na2 shard
+appBaseUrl: https://app-na2.hubspot.com
+
+# Allow private app token when OAuth is unavailable (prefer OAuth for attribution)
+allowPrivateAppToken: false
+
+inventory:
+  defaultPath: _pages/inventory/pages.inventory.yaml
