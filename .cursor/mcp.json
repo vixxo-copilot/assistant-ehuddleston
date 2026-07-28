@@ -92,6 +92,9 @@
     "powerbi-prod": {
       "url": "https://vixxonow.com/mcp/powerbi"
     },
+    "profound": {
+      "url": "https://mcp.tryprofound.com/mcp"
+    },
     "salesforce": {
       "args": [
         "-y",

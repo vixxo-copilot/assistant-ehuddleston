@@ -77,6 +77,28 @@ Note on Vixxo tenant conditional-access: if the Vixxo tenant blocks device-code 
 
 Prerequisite: `@salesforce/cli` installed globally (`npm install -g @salesforce/cli`) or via the macOS installer. Epic 5 Story 5.3 may install the CLI automatically in a later iteration; for now, install manually.
 
+## Profound
+
+**Purpose:** AEO visibility reports, sentiment and citation analytics, raw data
+access, and Profound agent workflows for the Vixxo website revamp program.
+
+**Transport:** remote URL (HTTP).
+
+**Auth:** OAuth 2.1 interactive via Cursor's MCP UI on first connect (recommended).
+Open Cursor Settings → Tools & MCPs → `profound` → Connect and sign in with your
+Profound account.
+
+**Optional:** long-lived Bearer token (API key) for enterprise setups that cannot
+use per-user OAuth — see `https://docs.tryprofound.com/mcp/authentication`.
+
+**Required env vars:**
+
+- None for OAuth. Optional: `PROFOUND_API_KEY` if your client uses Bearer auth
+  instead of the interactive OAuth flow.
+
+**Wiring link:** `https://docs.tryprofound.com/mcp/connect` (endpoint
+`https://mcp.tryprofound.com/mcp`).
+
 ## Gong
 
 **Purpose:** Call recordings, transcripts, deal intelligence.
