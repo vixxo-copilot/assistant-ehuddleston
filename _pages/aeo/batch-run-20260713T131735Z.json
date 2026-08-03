@@ -1,0 +1,397 @@
+{
+  "startedAt": "2026-07-13T13:17:35.099065+00:00",
+  "workbook": "C:\\Users\\ehuddleston\\source\\assistant-ehuddleston\\_pages\\aeo\\Vixxo-AEO-Website-Revamp-Status.xlsx",
+  "dryRun": false,
+  "limit": null,
+  "processed": [
+    {
+      "status": "skipped",
+      "row": 36,
+      "pageName": "Contact Us",
+      "slug": "about-us/contact-us",
+      "notes": "Clone already has verified AEO content.",
+      "content_confirmed": true
+    }
+  ],
+  "failed": [
+    {
+      "row": 37,
+      "pageName": "About Us: Locations",
+      "slug": "about-us/locations",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 38,
+      "pageName": "About Us: Vixxo QSI",
+      "slug": "about-us/vixxoqsi",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 39,
+      "pageName": "C Case Study: National Retailer 1,000+ Work Orders Later",
+      "slug": "case-study-1000-work-orders-later-a-strategic-partnership",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 40,
+      "pageName": "C Case Study: Vixxo Coffee",
+      "slug": "case-study-vixxo-helps-qsr-chain-achieve-consistent-quality-across-5000-locations",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 41,
+      "pageName": "Copyright and Trademark Statement",
+      "slug": "copyright-and-trademark-statement",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 42,
+      "pageName": "Takedown Policy DMCA",
+      "slug": "copyright-protection-vixxos-dmca-takedown-policy",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 43,
+      "pageName": "Vixxo Projects Division",
+      "slug": "facility-equipment-projects",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 44,
+      "pageName": "Signage and Lighting Projects",
+      "slug": "facility-equipment-projects/signs-and-lighting-projects",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 45,
+      "pageName": "Facility Management Solutions",
+      "slug": "facility-management-solutions",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 46,
+      "pageName": "Facility Management Services",
+      "slug": "facility-management/facility-management-services",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 47,
+      "pageName": "Jobs",
+      "slug": "jobs",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 48,
+      "pageName": "Login",
+      "slug": "login-options",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 49,
+      "pageName": "Privacy Policy",
+      "slug": "privacy-policy",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 50,
+      "pageName": "C Case Study: 4,000+ Stores In Less than 10 Days",
+      "slug": "resources/case-study-4000-stores-in-less-than-10-days",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 51,
+      "pageName": "C Case Study: Global Grocery Leader Saves $14M in Facilities Costs",
+      "slug": "resources/case-study-global-grocery-leader-saves-14m-in-facilities-costs",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 52,
+      "pageName": "C Case Study: Grocer Saves $780k by Applying Vixxo\u2019s Analytics and Insights",
+      "slug": "resources/case-study-grocer-saves-780k-by-applying-vixxos-analytics-and-insights",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 53,
+      "pageName": "C Case Study: How a Rapid Response Sanitization Program Kept Stores Open",
+      "slug": "resources/case-study-how-a-rapid-response-sanitization-program-kept-stores-open",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 54,
+      "pageName": "C Case Study: Vixxo Updates Signage at 3,800+ Sites On Time and On Budget",
+      "slug": "resources/case-study-vixxo-updates-signage-at-3800-sites-on-time-and-on-budget",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 55,
+      "pageName": "Containing Facility and Equipment Costs",
+      "slug": "resources/containing-facility-and-equipment-costs",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 56,
+      "pageName": "Handyman Interactive Graphic",
+      "slug": "resources/facilities-management-industry-insights/commercial-handyman",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 57,
+      "pageName": "RFP Interactive Graphic",
+      "slug": "resources/facilities-management-industry-insights/rfp-process",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 58,
+      "pageName": "C Case Study: Starbucks Saves Millions Transferring In-House Technician Team To Vixxo",
+      "slug": "resources/starbucks-saves-millions-transferring-in-house-technician-team-to-vixxo",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 59,
+      "pageName": "Service Provider Spotlight: American Air HVAC",
+      "slug": "service-provider-spotlight-american-air-hvac",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 60,
+      "pageName": "Service Provider Spotlight: Big Country Restaurant and Refrigeration Inc.",
+      "slug": "service-provider-spotlight-big-country-restaurant-and-refrigeration-inc",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 61,
+      "pageName": "Service Provider Spotlight - City Maintenance & Service Company",
+      "slug": "service-provider-spotlight-city-maintenance-service-company",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 62,
+      "pageName": "Service Provider Spotlight: Day Break Coffee Roasters",
+      "slug": "service-provider-spotlight-day-break-coffee-roasters",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 63,
+      "pageName": "Service Provider Spotlight: Refreshments LLC",
+      "slug": "service-provider-spotlight-refreshments-llc",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 64,
+      "pageName": "Service Provider Spotlight: Springbank Mechanical Systems Ltd.",
+      "slug": "service-provider-spotlight-springbank-mechanical-systems-ltd",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 65,
+      "pageName": "Service Provider Spotlight: Starbucks Coffee Technicians Team",
+      "slug": "service-provider-spotlight-starbucks-coffee-technicians-team",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 66,
+      "pageName": "Service Provider Spotlight: The Java Gourmet",
+      "slug": "service-provider-spotlight-the-java-gourmet",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 67,
+      "pageName": "Service Provider Spotlight",
+      "slug": "service-providers/service-provider-spotlight",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 68,
+      "pageName": "Solutions: 24/7 Service Provider Coverage",
+      "slug": "solutions/24-7-service-provider-coverage",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 69,
+      "pageName": "Solutions - Fuel Service",
+      "slug": "solutions/commercial-fuel-equipment-maintenance",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 70,
+      "pageName": "Solutions - Landscaping & Snow Removal",
+      "slug": "solutions/commercial-landscaping-services",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 71,
+      "pageName": "Solutions - Commercial Lighting Services",
+      "slug": "solutions/commercial-lighting-services",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 72,
+      "pageName": "Solutions - Pest Control",
+      "slug": "solutions/commercial-pest-control-services",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 73,
+      "pageName": "Solutions: COVID-19 Business Services",
+      "slug": "solutions/covid-19-business-services",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 74,
+      "pageName": "Solutions: Equipment Installation for Manufacturers",
+      "slug": "solutions/equipment-installation-for-manufacturers",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 75,
+      "pageName": "Solutions - Exterior Services",
+      "slug": "solutions/exterior-services",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 76,
+      "pageName": "Solutions: Sign and Lighting",
+      "slug": "solutions/sign-and-lighting",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 77,
+      "pageName": "System Status",
+      "slug": "system-status",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 78,
+      "pageName": "Terms",
+      "slug": "terms",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 79,
+      "pageName": "Thank You",
+      "slug": "thank-you",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 80,
+      "pageName": "Thank You - Ads - Cost Savings v2",
+      "slug": "thank-you-ad-cost",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 81,
+      "pageName": "Thank You - Ads - Cost Savings",
+      "slug": "thank-you-ad-cs",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 82,
+      "pageName": "Thank You - Ads - Data Insights",
+      "slug": "thank-you-ad-di",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 83,
+      "pageName": "Thank You - Ads - Strategic Insights",
+      "slug": "thank-you-ad-insights",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 84,
+      "pageName": "Thank You - Ads - Ops Headaches",
+      "slug": "thank-you-ad-ops",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 85,
+      "pageName": "Thank You - Ads - Quality Service",
+      "slug": "thank-you-ad-qs",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 86,
+      "pageName": "Thank You - Ads - Service Quality",
+      "slug": "thank-you-ad-service",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 87,
+      "pageName": "Thank You - Ads - Trusted Partner",
+      "slug": "thank-you-ad-trusted-partner",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 88,
+      "pageName": "Thank You - Awareness",
+      "slug": "thank-you-ads-awareness",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 89,
+      "pageName": "Thank You - Mfg Campaigns",
+      "slug": "thank-you-ads-mfg",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 90,
+      "pageName": "Thank You - Airpods - Procurement",
+      "slug": "thank-you-airpods",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 91,
+      "pageName": "Thank You - FedEx",
+      "slug": "thank-you-fedex",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 92,
+      "pageName": "Thank You - OEM",
+      "slug": "thank-you-oem",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 93,
+      "pageName": "Thank You - TTB Convenience",
+      "slug": "thank-you-ttbc",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 94,
+      "pageName": "Thank You - TTB Grocery",
+      "slug": "thank-you-ttbg",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 95,
+      "pageName": "Thank You - TTB Procurement",
+      "slug": "thank-you-ttbp",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 96,
+      "pageName": "Thank You - TTB Sign and Lighting",
+      "slug": "thank-you-ttbsl",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 97,
+      "pageName": "Website Terms of Use",
+      "slug": "website-terms-of-use",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    },
+    {
+      "row": 98,
+      "pageName": "HN Playground",
+      "slug": "hn-playground",
+      "error": "cannot access local variable 'layout_style' where it is not associated with a value"
+    }
+  ],
+  "summary": {
+    "total": 63,
+    "succeeded": 1,
+    "failed": 62,
+    "workbook": "C:\\Users\\ehuddleston\\source\\assistant-ehuddleston\\_pages\\aeo\\Vixxo-AEO-Website-Revamp-Status.xlsx"
+  },
+  "finishedAt": "2026-07-13T13:19:04.165952+00:00"
+}

@@ -30,3 +30,21 @@
 - Report changed files and validation results.
 - Map outcomes to acceptance criteria or requested goals.
 - List follow-up risks or TODO items.
+
+## Marketing skills + Profound AEO
+
+This repo includes **49 marketing skills** (`coreyhaines31/marketingskills` in
+`.agents/skills/`) and **Profound MCP** for live AEO analytics (`profound` in
+`.cursor/mcp.json`).
+
+For any AEO, AI visibility, citation, or Vixxo page optimization work:
+
+1. Start with **`vixxo-profound-aeo`** — pull Profound signals, then route to
+   the right marketing skill(s).
+2. Page revamps on existing HubSpot pages → **`hubspot-page-aeo`** (clone draft,
+   tracker, report).
+3. Generic playbooks after Profound data is in hand → `ai-seo`, `seo-audit`,
+   `copywriting`, `content-strategy`, etc.
+
+Connect Profound before first use: Cursor → Settings → Tools & MCPs →
+`profound` → Connect.

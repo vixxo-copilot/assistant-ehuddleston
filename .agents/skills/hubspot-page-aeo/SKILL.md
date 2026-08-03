@@ -19,6 +19,10 @@ tracked in the Marketing919 Excel workbook.
 - User wants AEO + SEO work on a specific slug or tracker row
 - User references `hubspot-page-aeo`, `hubspot-page-aeo-seo`, or the revamp tracker
 
+**Start with `vixxo-profound-aeo`** when Profound MCP is available — it pulls
+visibility/citation/prompt data and routes to marketingskills before this
+workflow executes page edits.
+
 **Not for:** net-new pages from a topic (`hubspot-page-content`), bulk template
 migration (`hubspot-pages`), or blog/email bundles (`hubspot-content`).
 
@@ -190,6 +194,7 @@ explicitly says publish / approved / go live.
 
 ## Related
 
+- Profound + marketing skills: `.agents/skills/vixxo-profound-aeo/SKILL.md`
 - New page from topic: `.agents/skills/hubspot-page-content/SKILL.md`
 - Template migration: `.agents/skills/hubspot-pages/SKILL.md`
 - Voice + meta limits: `.agents/skills/hubspot-content/SKILL.md`

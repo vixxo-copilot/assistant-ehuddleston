@@ -202,6 +202,20 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
       },
     },
     {
+      name: "hubspot_pages_clone_page",
+      description:
+        "Clone a live site/landing page to draft and set internal name with — Edited YYYY-MM-DD suffix. " +
+        DRAFT_FIRST,
+      inputSchema: {
+        type: "object",
+        properties: {
+          pageId: { type: "string", description: "Live source page ID" },
+          slug: { type: "string", description: "Lookup live page by slug when pageId omitted" },
+          pageType: { type: "string", enum: ["site-page", "landing-page"], default: "site-page" },
+        },
+      },
+    },
+    {
       name: "hubspot_pages_run_inventory",
       description:
         "Process _pages/inventory/pages.inventory.yaml — batch migrate existing pages and create new drafts. " +
@@ -354,6 +368,15 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           ...(args.htmlTitle ? ["--html-title", args.htmlTitle] : []),
           ...(args.metaDescription ? ["--meta-description", args.metaDescription] : []),
           ...(args.templatePath ? ["--template-path", args.templatePath] : []),
+          "--page-type",
+          args.pageType || "site-page",
+        ]);
+        break;
+      case "hubspot_pages_clone_page":
+        result = await runPython([
+          "clone-page",
+          ...(args.pageId ? ["--page-id", args.pageId] : []),
+          ...(args.slug ? ["--slug", args.slug] : []),
           "--page-type",
           args.pageType || "site-page",
         ]);

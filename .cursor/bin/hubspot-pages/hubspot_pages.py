@@ -577,6 +577,153 @@ def cmd_update_page(args: argparse.Namespace) -> None:
     )
 
 
+def cmd_clone_page(args: argparse.Namespace) -> None:
+    """Clone a live page to draft and set a dated internal page name."""
+    cfg = load_config()
+    page_type = args.page_type
+    api = pages_api(page_type)
+
+    source_id = args.page_id
+    live_page: dict[str, Any] | None = None
+    if not source_id:
+        if not args.slug:
+            raise SystemExit("Provide --page-id or --slug.")
+        live_page = _find_page_by_slug(args.slug, page_type)
+        if not live_page:
+            raise SystemExit(f"No {page_type} found with slug '{args.slug}'.")
+        source_id = str(live_page.get("id"))
+    else:
+        fetched = hubspot_request("GET", f"{api}/{source_id}")
+        live_page = fetched if isinstance(fetched, dict) else None
+
+    cloned = hubspot_request("POST", f"{api}/{source_id}/clone", {})
+    if not isinstance(cloned, dict):
+        raise SystemExit(f"Unexpected clone response for page {source_id}")
+
+    clone_id = str(cloned.get("id") or "")
+    base_name = resolve_clone_base_name(live_page=live_page, clone_page=cloned)
+    dated_name = clone_page_title(base_name)
+    if dated_name != str(cloned.get("name") or ""):
+        updated = patch_page_name(clone_id, dated_name, page_type)
+        if isinstance(updated, dict):
+            cloned = updated
+
+    summary = _page_summary(cloned, page_type)
+    summary["editorUrl"] = editor_url(clone_id, page_type, cfg) if clone_id else None
+    print(
+        json.dumps(
+            {
+                "status": "cloned",
+                "sourcePageId": source_id,
+                "clonePageId": clone_id,
+                "previousName": live_page.get("name") if live_page else None,
+                "name": summary.get("name"),
+                "page": summary,
+                "editorUrl": summary.get("editorUrl"),
+                "nextSteps": [
+                    "Run AEO revamp on the clone draft — never publish without approval.",
+                ],
+            },
+            indent=2,
+        )
+    )
+
+
+def cmd_rename_clone_titles(args: argparse.Namespace) -> None:
+    """Batch-rename tracker clone drafts with dated internal page names."""
+    from openpyxl import load_workbook
+
+    from run_aeo_revamp_batch import DEFAULT_WORKBOOK, HEADER_ROW, extract_page_id, load_headers, resolve_live_page
+
+    workbook = Path(args.workbook).expanduser() if args.workbook else DEFAULT_WORKBOOK
+    if not workbook.is_file():
+        raise SystemExit(f"Workbook not found: {workbook}")
+
+    wb = load_workbook(workbook)
+    ws = wb["AEO Page Status"]
+    headers = load_headers(ws)
+    page_type = "site-page"
+    api = pages_api(page_type)
+    results: list[dict[str, Any]] = []
+
+    for row in range(HEADER_ROW + 1, ws.max_row + 1):
+        slug = str(ws.cell(row, headers["URL Slug"]).value or "").strip()
+        if not slug:
+            continue
+        editor_cell = (
+            str(ws.cell(row, headers["HubSpot Editor URL"]).value or "").strip()
+            if "HubSpot Editor URL" in headers
+            else ""
+        )
+        clone_id = extract_page_id(editor_cell)
+        if not clone_id:
+            continue
+        if args.page_id and clone_id != args.page_id:
+            continue
+
+        try:
+            clone_page = hubspot_request("GET", f"{api}/{clone_id}")
+            if not isinstance(clone_page, dict):
+                results.append(
+                    {"row": row, "slug": slug, "clonePageId": clone_id, "status": "error", "error": "fetch failed"}
+                )
+                continue
+            before_url = str(ws.cell(row, headers["Before URL"]).value or "").strip()
+            live_page = resolve_live_page(slug, before_url, page_type)
+            base_name = resolve_clone_base_name(live_page=live_page, clone_page=clone_page)
+            dated_name = clone_page_title(base_name)
+            current_name = str(clone_page.get("name") or "")
+            if current_name == dated_name:
+                results.append(
+                    {
+                        "row": row,
+                        "slug": slug,
+                        "clonePageId": clone_id,
+                        "status": "unchanged",
+                        "name": current_name,
+                    }
+                )
+                continue
+            if args.dry_run:
+                results.append(
+                    {
+                        "row": row,
+                        "slug": slug,
+                        "clonePageId": clone_id,
+                        "status": "dry-run",
+                        "before": current_name,
+                        "after": dated_name,
+                    }
+                )
+                continue
+            patch_page_name(clone_id, dated_name, page_type)
+            results.append(
+                {
+                    "row": row,
+                    "slug": slug,
+                    "clonePageId": clone_id,
+                    "status": "renamed",
+                    "before": current_name,
+                    "after": dated_name,
+                }
+            )
+        except SystemExit as exc:
+            results.append({"row": row, "slug": slug, "clonePageId": clone_id, "status": "error", "error": str(exc)})
+
+        if args.limit and len(results) >= args.limit:
+            break
+
+    summary = {
+        "workbook": str(workbook),
+        "dryRun": args.dry_run,
+        "renamed": sum(1 for r in results if r.get("status") == "renamed"),
+        "unchanged": sum(1 for r in results if r.get("status") == "unchanged"),
+        "errors": sum(1 for r in results if r.get("status") == "error"),
+        "results": results,
+    }
+    print(json.dumps(summary, indent=2))
+
+
 def cmd_publish_page(args: argparse.Namespace) -> None:
     if not args.confirm:
         raise SystemExit(
@@ -622,6 +769,69 @@ def cmd_get_page_brief(args: argparse.Namespace) -> None:
 def slugify(text: str) -> str:
     slug = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
     return slug[:80] or "page"
+
+
+# Internal HubSpot page name suffix for AEO clone drafts (editor header).
+EDITED_TITLE_SUFFIX_RE = re.compile(
+    r"\s*(?:—|-|\()\s*Edited\s+(?:\d{4}-\d{2}-\d{2}|[A-Za-z]{3,9}\s+\d{1,2},\s+\d{4})\s*\)?\s*$",
+    re.I,
+)
+HUBSPOT_CLONE_NAME_SUFFIX_RE = re.compile(r"\s*\(Clone\)\s*$", re.I)
+
+
+def strip_clone_title_suffix(name: str) -> str:
+    """Remove AEO edit-date suffix and HubSpot clone markers from a page name."""
+    text = (name or "").strip()
+    while text:
+        stripped = EDITED_TITLE_SUFFIX_RE.sub("", text).strip()
+        stripped = HUBSPOT_CLONE_NAME_SUFFIX_RE.sub("", stripped).strip()
+        if stripped == text:
+            break
+        text = stripped
+    return text
+
+
+def clone_page_title(base_name: str, edited_at: datetime | None = None) -> str:
+    """Append edit date to internal clone page name; idempotent if suffix already present."""
+    base = strip_clone_title_suffix(base_name)
+    if not base:
+        base = "Vixxo page"
+    if EDITED_TITLE_SUFFIX_RE.search((base_name or "").strip()):
+        return (base_name or "").strip()
+    dt = edited_at or datetime.now(timezone.utc)
+    return f"{base} — Edited {dt.strftime('%Y-%m-%d')}"
+
+
+def resolve_clone_base_name(
+    live_page: dict[str, Any] | None = None,
+    package: dict[str, Any] | None = None,
+    clone_page: dict[str, Any] | None = None,
+) -> str:
+    for candidate in (
+        (live_page or {}).get("name"),
+        (package or {}).get("pageName"),
+        (clone_page or {}).get("name"),
+    ):
+        if candidate:
+            cleaned = strip_clone_title_suffix(str(candidate))
+            if cleaned:
+                return cleaned
+    return "Vixxo page"
+
+
+def patch_page_name(
+    page_id: str,
+    name: str,
+    page_type: str = "site-page",
+) -> dict[str, Any]:
+    """PATCH internal HubSpot page name (draft endpoint when page is live)."""
+    api = pages_api(page_type)
+    current = hubspot_request("GET", f"{api}/{page_id}")
+    state = str(current.get("state") or current.get("currentState") or "").upper() if isinstance(current, dict) else ""
+    payload = {"name": name}
+    if state in {"PUBLISHED", "PUBLISHED_OR_SCHEDULED", "SCHEDULED"}:
+        return hubspot_request("PATCH", f"{api}/{page_id}/draft", payload)  # type: ignore[return-value]
+    return hubspot_request("PATCH", f"{api}/{page_id}", payload)  # type: ignore[return-value]
 
 
 def _list_pages_for_linking(page_type: str = "site-page", limit: int = 100) -> list[dict[str, Any]]:
@@ -899,6 +1109,22 @@ def main() -> None:
     p_update.add_argument("--template-path")
     p_update.add_argument("--page-type", default="site-page", choices=["site-page", "landing-page"])
     p_update.set_defaults(func=cmd_update_page)
+
+    p_clone = sub.add_parser("clone-page", help="Clone live page to draft with dated internal name")
+    p_clone.add_argument("--page-id")
+    p_clone.add_argument("--slug")
+    p_clone.add_argument("--page-type", default="site-page", choices=["site-page", "landing-page"])
+    p_clone.set_defaults(func=cmd_clone_page)
+
+    p_rename = sub.add_parser(
+        "rename-clone-titles",
+        help="Batch-rename tracker clone drafts with — Edited YYYY-MM-DD suffix",
+    )
+    p_rename.add_argument("--workbook", help="Path to AEO tracker workbook")
+    p_rename.add_argument("--page-id", help="Rename a single clone by HubSpot page ID")
+    p_rename.add_argument("--dry-run", action="store_true")
+    p_rename.add_argument("--limit", type=int, default=None)
+    p_rename.set_defaults(func=cmd_rename_clone_titles)
 
     p_publish = sub.add_parser("publish-page", help="Publish page — requires explicit --confirm")
     p_publish.add_argument("--page-id", required=True)

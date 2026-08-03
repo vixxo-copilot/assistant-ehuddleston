@@ -1,0 +1,698 @@
+{
+  "templatePath": "CLEAN-6-1-theme child X Vixxo Facility Solutions/templates/clean-pro-case-study.html",
+  "layoutSections": {
+    "dnd_area": {
+      "cells": [],
+      "cssClass": "",
+      "cssId": "",
+      "cssStyle": "",
+      "label": "Main section",
+      "name": "dnd_area",
+      "params": {},
+      "rowMetaData": [
+        {
+          "cssClass": "dnd-section",
+          "styles": {
+            "breakpointStyles": {
+              "default": {
+                "padding": {
+                  "bottom": {
+                    "units": "px",
+                    "value": 0
+                  },
+                  "left": {
+                    "units": "px",
+                    "value": 0
+                  },
+                  "right": {
+                    "units": "px",
+                    "value": 0
+                  },
+                  "top": {
+                    "units": "px",
+                    "value": 0
+                  }
+                }
+              }
+            },
+            "forceFullWidthSection": true
+          }
+        },
+        {
+          "cssClass": "dnd-section",
+          "styles": {
+            "breakpointStyles": {
+              "default": {
+                "padding": {
+                  "bottom": {
+                    "units": "px",
+                    "value": 0
+                  },
+                  "left": {
+                    "units": "px",
+                    "value": 0
+                  },
+                  "right": {
+                    "units": "px",
+                    "value": 0
+                  },
+                  "top": {
+                    "units": "px",
+                    "value": 0
+                  }
+                }
+              }
+            },
+            "forceFullWidthSection": true
+          }
+        },
+        {
+          "cssClass": "dnd-section",
+          "styles": {
+            "breakpointStyles": {
+              "default": {
+                "padding": {
+                  "bottom": {
+                    "units": "px",
+                    "value": 0
+                  },
+                  "left": {
+                    "units": "px",
+                    "value": 0
+                  },
+                  "right": {
+                    "units": "px",
+                    "value": 0
+                  },
+                  "top": {
+                    "units": "px",
+                    "value": 0
+                  }
+                }
+              }
+            },
+            "forceFullWidthSection": true
+          }
+        },
+        {
+          "cssClass": "dnd-section",
+          "styles": {
+            "breakpointStyles": {
+              "default": {
+                "padding": {
+                  "bottom": {
+                    "units": "px",
+                    "value": 0
+                  },
+                  "left": {
+                    "units": "px",
+                    "value": 0
+                  },
+                  "right": {
+                    "units": "px",
+                    "value": 0
+                  },
+                  "top": {
+                    "units": "px",
+                    "value": 0
+                  }
+                }
+              }
+            },
+            "forceFullWidthSection": true
+          }
+        }
+      ],
+      "rows": [
+        {
+          "0": {
+            "cells": [],
+            "cssClass": "",
+            "cssId": "",
+            "cssStyle": "",
+            "label": "Header Footer Override",
+            "name": "dnd_area-module-1",
+            "params": {
+              "child_css": {},
+              "css": {},
+              "css_class": "dnd-module",
+              "path": "../modules/CLEAN - Style - Header Footer Override",
+              "schema_version": 2,
+              "smart_objects": [],
+              "smart_type": "NOT_SMART",
+              "use_alt_nav": false,
+              "wrap_field_tag": "div"
+            },
+            "rowMetaData": [],
+            "rows": [],
+            "styles": {
+              "verticalAlignment": "MIDDLE"
+            },
+            "type": "custom_widget",
+            "w": 12,
+            "x": 0
+          }
+        },
+        {
+          "0": {
+            "cells": [],
+            "cssClass": "",
+            "cssId": "",
+            "cssStyle": "",
+            "label": "Hero Area (Magic Module - Pro)",
+            "name": "dnd_area-module-2",
+            "params": {
+              "child_css": {},
+              "col_1": {
+                "content": [
+                  {
+                    "content_mb": 25,
+                    "content_name": "Headline and Text",
+                    "rich_text": "<h1 style=\"color: #fff; text-align: center;\">Retail Facility and Equipment Maintenance</h1>\n<p style=\"color: #fff; text-align: center;\">When you partner with Vixxo, your facilities are in great hands, freeing you to focus on creating a meaningful and memorable customer experience.</p>",
+                    "type": "text"
+                  }
+                ]
+              },
+              "css": {},
+              "css_class": "dnd-module",
+              "path": "../modules/CLEAN Pro - Magic Module",
+              "schema_version": 2,
+              "smart_objects": [],
+              "smart_type": "NOT_SMART",
+              "start": {
+                "num_cols": 1
+              },
+              "style": {
+                "row": {
+                  "spacing": {
+                    "desktop": {
+                      "css": "padding-top: 200px;\npadding-bottom: 250px;\n",
+                      "margin": {
+                        "bottom": {
+                          "units": "px",
+                          "value": 50
+                        },
+                        "top": {
+                          "units": "px",
+                          "value": 50
+                        }
+                      },
+                      "padding": {
+                        "bottom": {
+                          "units": "px",
+                          "value": 150
+                        },
+                        "left": {},
+                        "right": {},
+                        "top": {
+                          "units": "px",
+                          "value": 200
+                        }
+                      }
+                    },
+                    "mobile": {
+                      "css": "padding-top: 150px;\npadding-bottom: 100px;\n",
+                      "margin": {
+                        "bottom": {
+                          "units": "px",
+                          "value": 25
+                        },
+                        "top": {
+                          "units": "px",
+                          "value": 50
+                        }
+                      },
+                      "padding": {
+                        "bottom": {
+                          "units": "px",
+                          "value": 50
+                        },
+                        "left": {},
+                        "right": {},
+                        "top": {
+                          "units": "px",
+                          "value": 100
+                        }
+                      }
+                    },
+                    "tablet": {
+                      "css": "padding-top: 200px;\npadding-bottom: 150px;\n",
+                      "margin": {
+                        "bottom": {
+                          "units": "px",
+                          "value": 25
+                        },
+                        "top": {
+                          "units": "px",
+                          "value": 50
+                        }
+                      },
+                      "padding": {
+                        "bottom": {
+                          "units": "px",
+                          "value": 25
+                        },
+                        "left": {},
+                        "right": {},
+                        "top": {
+                          "units": "px",
+                          "value": 150
+                        }
+                      }
+                    }
+                  }
+                },
+                "section": {
+                  "add_wave": {
+                    "add_wave_bottom": true,
+                    "add_wave_top": false,
+                    "bottom_wave": {
+                      "type": "opt_1"
+                    }
+                  },
+                  "bg": {
+                    "add_overlay": "color",
+                    "image": {
+                      "background_position": "TOP_CENTER",
+                      "background_size": "cover",
+                      "src": "https://7718689.fs1.hubspotusercontent-na2.net/hubfs/7718689/Website%20-%20June%202026/Solutions%20-%20June%202026/Industries%20-%20June%202026/Retail%20-%20June%202026/Retail2.jpg"
+                    },
+                    "overlay_color": {
+                      "color": "#000000",
+                      "opacity": 60
+                    },
+                    "type": "image"
+                  }
+                }
+              },
+              "wrap_field_tag": "div"
+            },
+            "rowMetaData": [],
+            "rows": [],
+            "styles": {
+              "verticalAlignment": "TOP"
+            },
+            "type": "custom_widget",
+            "w": 12,
+            "x": 0
+          }
+        },
+        {
+          "0": {
+            "cells": [],
+            "cssClass": "",
+            "cssId": "",
+            "cssStyle": "",
+            "name": "dnd_area-column-3",
+            "params": {
+              "css_class": "dnd-column"
+            },
+            "rowMetaData": [
+              {
+                "cssClass": "dnd-row"
+              }
+            ],
+            "rows": [
+              {
+                "0": {
+                  "cells": [],
+                  "cssClass": "",
+                  "cssId": "",
+                  "cssStyle": "",
+                  "label": "2 Column Layout (Magic Module - Pro)",
+                  "name": "dnd_area-module-4",
+                  "params": {
+                    "child_css": {},
+                    "col_1": {
+                      "content": [
+                        {
+                          "content_name": "Headline and Text",
+                          "rich_text": "<h4><span style=\"color: #8e992e; font-family: 'Wix Madefor Text'; font-weight: 800; font-style: normal;\">For your customers, shopping isn\u2019t just about a transaction. It's about an immersive experience with your brand. Your retail space is a significant factor in creating an overall customer experience.</span></h4>\n<p><span style=\"line-height: 115%;\">Keeping your locations up to standards that you and your customers both expect is key to driving your business.&nbsp;</span></p>\n<p><span style=\"line-height: 115%;\"><br></span><span style=\"line-height: 115%;\">With Vixxo\u2019s retail facilities expertise, you can consistently create exceptional experiences for all of your customers. Whether it\u2019s your HVAC, lighting, store exterior, signage or a special project you need for all your locations, our extensive network of service providers has you covered.</span></p>\n<p><span style=\"line-height: 115%;\"></span><span style=\"line-height: 115%;\">We keep your customers happy and your stores up and running, all while saving you time and money.<br></span></p>",
+                          "type": "text"
+                        },
+                        {
+                          "content_mb": 25,
+                          "content_name": "Image",
+                          "image": {
+                            "alt": "Shopping4",
+                            "height": 3744,
+                            "max_height": 1333.3333333333333,
+                            "max_width": 2000,
+                            "size_type": "auto_custom_max",
+                            "src": "https://7718689.fs1.hubspotusercontent-na2.net/hubfs/7718689/Website%20-%20June%202026/Solutions%20-%20June%202026/Industries%20-%20June%202026/Retail%20-%20June%202026/Shopping4.jpeg",
+                            "width": 5616
+                          },
+                          "type": "image"
+                        }
+                      ]
+                    },
+                    "css": {},
+                    "css_class": "dnd-module",
+                    "path": "../modules/CLEAN Pro - Magic Module",
+                    "schema_version": 2,
+                    "smart_objects": [],
+                    "smart_type": "NOT_SMART",
+                    "start": {
+                      "num_cols": 1
+                    },
+                    "style": {
+                      "row": {
+                        "size": {
+                          "content_width": "container-slim"
+                        },
+                        "spacing": {
+                          "desktop": {
+                            "css": "padding-top: 0px;\npadding-bottom: 0px;\nmargin-top: 50px;\nmargin-bottom: 150px;\n",
+                            "margin": {
+                              "bottom": {
+                                "units": "px",
+                                "value": 150
+                              },
+                              "top": {
+                                "units": "px",
+                                "value": 50
+                              }
+                            },
+                            "padding": {
+                              "bottom": {
+                                "units": "px",
+                                "value": 0
+                              },
+                              "top": {
+                                "units": "px",
+                                "value": 0
+                              }
+                            }
+                          },
+                          "mobile": {
+                            "css": "padding-top: 0px;\npadding-bottom: 0px;\nmargin-top: 50px;\nmargin-bottom: 100px;\n",
+                            "margin": {
+                              "bottom": {
+                                "units": "px",
+                                "value": 100
+                              },
+                              "top": {
+                                "units": "px",
+                                "value": 50
+                              }
+                            },
+                            "padding": {
+                              "bottom": {
+                                "units": "px",
+                                "value": 0
+                              },
+                              "top": {
+                                "units": "px",
+                                "value": 0
+                              }
+                            }
+                          },
+                          "tablet": {
+                            "css": "padding-top: 0px;\npadding-bottom: 0px;\nmargin-top: 50px;\nmargin-bottom: 150px;\n",
+                            "margin": {
+                              "bottom": {
+                                "units": "px",
+                                "value": 150
+                              },
+                              "top": {
+                                "units": "px",
+                                "value": 50
+                              }
+                            },
+                            "padding": {
+                              "bottom": {
+                                "units": "px",
+                                "value": 0
+                              },
+                              "top": {
+                                "units": "px",
+                                "value": 0
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "section": {
+                        "add_wave": {
+                          "add_wave_bottom": true,
+                          "add_wave_top": false
+                        },
+                        "bg": {
+                          "color": {
+                            "color": "#ffffff",
+                            "opacity": 100
+                          },
+                          "type": "color"
+                        }
+                      }
+                    },
+                    "wrap_field_tag": "div"
+                  },
+                  "rowMetaData": [],
+                  "rows": [],
+                  "type": "custom_widget",
+                  "w": 12,
+                  "x": 0
+                }
+              }
+            ],
+            "styles": {
+              "verticalAlignment": "TOP"
+            },
+            "type": "cell",
+            "w": 12,
+            "x": 0
+          }
+        },
+        {
+          "0": {
+            "cells": [],
+            "cssClass": "",
+            "cssId": "",
+            "cssStyle": "",
+            "label": "Base Call to Action (Magic Module - Pro)",
+            "name": "dnd_area-module-5",
+            "params": {
+              "child_css": {},
+              "col_1": {
+                "animation": {
+                  "delay": "none",
+                  "rellax_speed": 1,
+                  "reps": "none",
+                  "speed": "none",
+                  "type": "animate__animated animate__fadeInUp"
+                },
+                "content": [
+                  {
+                    "content_mb": 25,
+                    "content_name": "Headline and button",
+                    "rich_text": "<h2 style=\"text-align: center;\">Keep every store customer-ready.</h2>\n<p style=\"text-align: center;\">Connect with Vixxo to build a smarter facilities strategy that improves performance across your retail footprint.</p>",
+                    "type": "text"
+                  },
+                  {
+                    "button": {
+                      "btn_1": {
+                        "btn_label": "Contact Us",
+                        "link": {
+                          "no_follow": false,
+                          "open_in_new_tab": true,
+                          "url": {
+                            "href": "https://www.vixxo.com/about-us/contact-us",
+                            "type": "EXTERNAL"
+                          }
+                        },
+                        "style": "cta-primary"
+                      },
+                      "type": "button"
+                    },
+                    "content_name": "Contact Us",
+                    "simple_align": "c-justify-center",
+                    "type": "cta"
+                  }
+                ]
+              },
+              "css": {},
+              "css_class": "dnd-module",
+              "path": "../modules/CLEAN Pro - Magic Module",
+              "schema_version": 2,
+              "smart_objects": [],
+              "smart_type": "NOT_SMART",
+              "start": {
+                "num_cols": 1
+              },
+              "style": {
+                "col": {
+                  "col_1": {
+                    "bg": {
+                      "type": "none"
+                    },
+                    "spacing": {
+                      "desktop": {
+                        "css": "padding: 0px;\n",
+                        "padding": {
+                          "bottom": {
+                            "units": "px",
+                            "value": 0
+                          },
+                          "left": {
+                            "units": "px",
+                            "value": 0
+                          },
+                          "right": {
+                            "units": "px",
+                            "value": 0
+                          },
+                          "top": {
+                            "units": "px",
+                            "value": 0
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "row": {
+                  "bg": {
+                    "color": {
+                      "color": "#ffffff",
+                      "css": "#ffffff",
+                      "hex": "#ffffff",
+                      "opacity": 100,
+                      "rgb": "rgb(255, 255, 255)",
+                      "rgba": "rgba(255, 255, 255, 1)"
+                    },
+                    "type": "color"
+                  },
+                  "extras": {
+                    "add_drop_shadow": true,
+                    "add_rounded_corners": true,
+                    "shadow_blur_radius": 25,
+                    "shadow_color": {
+                      "color": "#000000",
+                      "css": "rgba(0, 0, 0, 25%)",
+                      "hex": "#000000",
+                      "opacity": 25,
+                      "rgb": "rgb(0, 0, 0)",
+                      "rgba": "rgba(0, 0, 0, 0.25)"
+                    }
+                  },
+                  "size": {
+                    "content_width": "container-slim"
+                  },
+                  "spacing": {
+                    "desktop": {
+                      "css": "padding-top: 50px;\npadding-right: 25px;\npadding-bottom: 50px;\npadding-left: 25px;\nmargin-top: -100px;\nmargin-bottom: 25px;\n",
+                      "margin": {
+                        "bottom": {
+                          "units": "px",
+                          "value": 25
+                        },
+                        "top": {
+                          "units": "px",
+                          "value": -100
+                        }
+                      },
+                      "padding": {
+                        "bottom": {
+                          "units": "px",
+                          "value": 50
+                        },
+                        "left": {
+                          "units": "px",
+                          "value": 25
+                        },
+                        "right": {
+                          "units": "px",
+                          "value": 25
+                        },
+                        "top": {
+                          "units": "px",
+                          "value": 50
+                        }
+                      }
+                    },
+                    "mobile": {
+                      "css": "padding-top: 25px;\npadding-bottom: 25px;\nmargin-top: -50px;\nmargin-bottom: 50px;\n",
+                      "margin": {
+                        "bottom": {
+                          "units": "px",
+                          "value": 50
+                        },
+                        "top": {
+                          "units": "px",
+                          "value": -50
+                        }
+                      },
+                      "padding": {
+                        "bottom": {
+                          "units": "px",
+                          "value": 25
+                        },
+                        "top": {
+                          "units": "px",
+                          "value": 25
+                        }
+                      }
+                    },
+                    "tablet": {
+                      "css": "padding-top: 50px;\npadding-right: 25px;\npadding-bottom: 50px;\npadding-left: 25px;\nmargin-top: -100px;\nmargin-bottom: 25px;\n",
+                      "margin": {
+                        "bottom": {
+                          "units": "px",
+                          "value": 25
+                        },
+                        "top": {
+                          "units": "px",
+                          "value": -100
+                        }
+                      },
+                      "padding": {
+                        "bottom": {
+                          "units": "px",
+                          "value": 50
+                        },
+                        "left": {
+                          "units": "px",
+                          "value": 25
+                        },
+                        "right": {
+                          "units": "px",
+                          "value": 25
+                        },
+                        "top": {
+                          "units": "px",
+                          "value": 50
+                        }
+                      }
+                    }
+                  }
+                },
+                "section": {
+                  "bg": {
+                    "color": {
+                      "color": "#fff",
+                      "opacity": 100
+                    },
+                    "type": "none"
+                  }
+                }
+              },
+              "wrap_field_tag": "div"
+            },
+            "rowMetaData": [],
+            "rows": [],
+            "styles": {
+              "verticalAlignment": "TOP"
+            },
+            "type": "custom_widget",
+            "w": 12,
+            "x": 0
+          }
+        }
+      ],
+      "type": "cell",
+      "w": 12,
+      "x": 0
+    }
+  }
+}

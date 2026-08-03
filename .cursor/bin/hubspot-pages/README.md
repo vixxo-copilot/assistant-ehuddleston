@@ -1,7 +1,8 @@
 # HubSpot CMS Pages MCP
 
 Local MCP for HubSpot **site pages** and **landing pages** — template migration,
-draft creation, **AEO page staging from topics**, and batch inventory runs.
+draft creation, **AEO page staging from topics**, **AEO + SEO page revamps**
+(clone workflow), and batch inventory runs.
 
 ## Quick start
 
@@ -48,6 +49,16 @@ py -3 .cursor/bin/hubspot-pages/hubspot_pages.py run-inventory --dry-run
 ```
 
 Topic → full AEO page workflow: see `.agents/skills/hubspot-page-content/SKILL.md`.
+
+Existing page revamp (AEO + SEO on clone drafts): see `.agents/skills/hubspot-page-aeo/SKILL.md`.
+
+```powershell
+py -3 .cursor/bin/hubspot-pages/hubspot_pages.py clone-page --slug solutions/hvac
+py -3 .cursor/bin/hubspot-pages/fix_url_hyperlinks.py
+```
+
+`fix_url_hyperlinks.py` renames C/D to **Before URL** / **After URL** and applies
+clickable Excel hyperlinks (openpyxl `Hyperlink` + blue underline font).
 
 ## API surface
 

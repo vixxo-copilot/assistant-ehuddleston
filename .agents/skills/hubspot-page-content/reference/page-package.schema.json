@@ -1,0 +1,36 @@
+{
+  "$comment": "Schema for hubspot_pages_stage_page — Cursor composes, MCP stages as DRAFT site page.",
+  "topic": "Required user topic prompt",
+  "pageName": "Internal HubSpot page name",
+  "slug": "URL slug with section prefix, e.g. solutions/hvac-preventive-maintenance",
+  "htmlTitle": "≤60 characters, primary keyword near front",
+  "metaDescription": "≤155 characters, answer-first summary",
+  "pageKind": "standard | case-study | contact (auto-inferred when omitted)",
+  "hero": {
+    "headline": "H1 — concise topic title",
+    "subheadline": "Optional — case study kicker"
+  },
+  "answerFirst": "40–60 words directly answering the topic (AEO lead paragraph)",
+  "intro": "Supporting intro — HTML or plain text",
+  "sections": [
+    {
+      "heading": "H2 phrased as a natural-language question where possible",
+      "bodyHtml": "Section body HTML with <p> tags and optional internal <a href> links",
+      "placement": "section1 | section2 | case-profile | case-challenge | case-solution"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "PAA-style question",
+      "answer": "Direct concise answer"
+    }
+  ],
+  "internalLinks": [
+    {
+      "label": "Anchor text",
+      "slug": "solutions/sign-and-lighting"
+    }
+  ],
+  "trade": "Optional — hvac | plumbing | electrical",
+  "visualTopic": "Optional editorial image brief"
+}

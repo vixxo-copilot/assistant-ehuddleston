@@ -1,0 +1,311 @@
+{
+  "generated": "2026-08-03T17:48:47.454613+00:00",
+  "profound_pull_date": "2026-08-03",
+  "category_id": "4b5a41db-8261-44ee-a343-edadd010c26e",
+  "domain": "vixxo.com",
+  "batch_id": "Batch-1",
+  "formula": "priority = prompt_volume \u00d7 (1 - citation_share) \u00d7 business_weight \u00d7 avg_visibility_gap",
+  "count": 15,
+  "items": [
+    {
+      "row": 27,
+      "page_name": "Plumbing - June 2026",
+      "slug": "solutions/commercial-plumbing-services",
+      "template_family": "CLEAN-6-1",
+      "assignee": "Neetu Rao",
+      "live_url": "https://www.vixxo.com/solutions/commercial-plumbing-services",
+      "clone_page_id": "367619079907",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367619079907/content",
+      "profound_priority": 76.2289,
+      "prompt_volume": 84,
+      "avg_visibility_gap": 0.6485,
+      "citation_share": 0.000387,
+      "business_weight": 1.4,
+      "top_weak_prompts": [
+        "Who repairs commercial food equipment in retail cafes?",
+        "How do multi-site brands manage consistent facility services nationwide?",
+        "Who repairs commercial refrigeration in QSR and restaurant kitchens?"
+      ]
+    },
+    {
+      "row": 31,
+      "page_name": "Refrigeration - June 2026",
+      "slug": "solutions/refrigeration-services",
+      "template_family": "CLEAN-6-1",
+      "assignee": "Mia Li",
+      "live_url": "https://www.vixxo.com/solutions/refrigeration-services",
+      "clone_page_id": "367619079914",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367619079914/content",
+      "profound_priority": 63.8729,
+      "prompt_volume": 74,
+      "avg_visibility_gap": 0.6168,
+      "citation_share": 0.000363,
+      "business_weight": 1.4,
+      "top_weak_prompts": [
+        "How do multi-site brands manage consistent facility services nationwide?",
+        "Who repairs commercial refrigeration in QSR and restaurant kitchens?",
+        "How do restaurant chains minimize refrigeration downtime nationally?"
+      ]
+    },
+    {
+      "row": 12,
+      "page_name": "Store Refresh Remodels - June 2026",
+      "slug": "facility-equipment-projects/store-refresh-and-remodels",
+      "template_family": "CLEAN-6-1",
+      "assignee": "Neetu Rao",
+      "live_url": "https://www.vixxo.com/facility-equipment-projects/store-refresh-and-remodels",
+      "clone_page_id": "367618900678",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367618900678/content",
+      "profound_priority": 55.1319,
+      "prompt_volume": 83,
+      "avg_visibility_gap": 0.6642,
+      "citation_share": 0.0,
+      "business_weight": 1.0,
+      "top_weak_prompts": [
+        "Who repairs commercial food equipment in retail cafes?",
+        "How do multi-site brands manage consistent facility services nationwide?",
+        "Who provides national service for in-store bakery and caf\u00e9 equipment?"
+      ]
+    },
+    {
+      "row": 21,
+      "page_name": "Case Studies - June 2026",
+      "slug": "resources/facilities-management-case-studies",
+      "template_family": "CLEAN-6-1",
+      "assignee": "Neetu Rao",
+      "live_url": "https://www.vixxo.com/resources/facilities-management-case-studies",
+      "clone_page_id": "367619079896",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367619079896/content",
+      "profound_priority": 51.1134,
+      "prompt_volume": 86,
+      "avg_visibility_gap": 0.5943,
+      "citation_share": 0.0,
+      "business_weight": 1.0,
+      "top_weak_prompts": [
+        "Which facilities management or service providers use predictive analytics or AI?",
+        "What are the best AI-powered facilities management platforms?",
+        "How is artificial intelligence improving facilities operations for retailers?"
+      ]
+    },
+    {
+      "row": 20,
+      "page_name": "News - June 2026",
+      "slug": "resources/facilities-management-and-company-news",
+      "template_family": "CLEAN-6-1",
+      "assignee": "Erica Huddleston",
+      "live_url": "https://www.vixxo.com/resources/facilities-management-and-company-news",
+      "clone_page_id": "367618900707",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367618900707/content",
+      "profound_priority": 50.1457,
+      "prompt_volume": 85,
+      "avg_visibility_gap": 0.5899,
+      "citation_share": 0.0,
+      "business_weight": 1.0,
+      "top_weak_prompts": [
+        "Which facilities management or service providers use predictive analytics or AI?",
+        "What are the best AI-powered facilities management platforms?",
+        "How is artificial intelligence improving facilities operations for retailers?"
+      ]
+    },
+    {
+      "row": 22,
+      "page_name": "Insights - June 2026",
+      "slug": "resources/facilities-management-industry-insights",
+      "template_family": "CLEAN-6-1",
+      "assignee": "Mia Li",
+      "live_url": "https://www.vixxo.com/resources/facilities-management-industry-insights",
+      "clone_page_id": "367618900711",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367618900711/content",
+      "profound_priority": 50.1457,
+      "prompt_volume": 85,
+      "avg_visibility_gap": 0.5899,
+      "citation_share": 0.0,
+      "business_weight": 1.0,
+      "top_weak_prompts": [
+        "Which facilities management or service providers use predictive analytics or AI?",
+        "What are the best AI-powered facilities management platforms?",
+        "How is artificial intelligence improving facilities operations for retailers?"
+      ]
+    },
+    {
+      "row": 34,
+      "page_name": "AI in Facilities - June 2026",
+      "slug": "vixxo-ai-in-facilities",
+      "template_family": "CLEAN-6-1",
+      "assignee": "Mia Li",
+      "live_url": "https://www.vixxo.com/vixxo-ai-in-facilities",
+      "clone_page_id": "367604474572",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367604474572/content",
+      "profound_priority": 48.9888,
+      "prompt_volume": 82,
+      "avg_visibility_gap": 0.5974,
+      "citation_share": 0.0,
+      "business_weight": 1.0,
+      "top_weak_prompts": [
+        "Which facilities management or service providers use predictive analytics or AI?",
+        "What are the best AI-powered facilities management platforms?",
+        "How is artificial intelligence improving facilities operations for retailers?"
+      ]
+    },
+    {
+      "row": 69,
+      "page_name": "Solutions - Fuel Service",
+      "slug": "solutions/commercial-fuel-equipment-maintenance",
+      "template_family": "Legacy",
+      "assignee": "Neetu Rao",
+      "live_url": "https://www.vixxo.com/solutions/commercial-fuel-equipment-maintenance",
+      "clone_page_id": "367626505950",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367626505950/content",
+      "profound_priority": 34.8986,
+      "prompt_volume": 107,
+      "avg_visibility_gap": 0.6523,
+      "citation_share": 0.0,
+      "business_weight": 0.5,
+      "top_weak_prompts": [
+        "Who repairs commercial food equipment in retail cafes?",
+        "Who repairs commercial refrigeration in QSR and restaurant kitchens?",
+        "Who provides national service for in-store bakery and caf\u00e9 equipment?"
+      ]
+    },
+    {
+      "row": 23,
+      "page_name": "How to Join - June 2026",
+      "slug": "service-providers/how-to-join",
+      "template_family": "CLEAN-6-1",
+      "assignee": "Erica Huddleston",
+      "live_url": "https://www.vixxo.com/service-providers/how-to-join",
+      "clone_page_id": "367619079898",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367619079898/content",
+      "profound_priority": 34.6955,
+      "prompt_volume": 46,
+      "avg_visibility_gap": 0.7543,
+      "citation_share": 0.0,
+      "business_weight": 1.0,
+      "top_weak_prompts": [
+        "Which facilities management or service providers use predictive analytics or AI?",
+        "How do multi-site brands manage consistent facility services nationwide?",
+        "Best national providers for retail lighting and sign repair?"
+      ]
+    },
+    {
+      "row": 24,
+      "page_name": "Aquatics - June 2026",
+      "slug": "solutions/acquatics",
+      "template_family": "CLEAN-6-1",
+      "assignee": "Neetu Rao",
+      "live_url": "https://www.vixxo.com/solutions/acquatics",
+      "clone_page_id": "367618900716",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367618900716/content",
+      "profound_priority": 33.3,
+      "prompt_volume": 45,
+      "avg_visibility_gap": 0.5286,
+      "citation_share": 0.0,
+      "business_weight": 1.4,
+      "top_weak_prompts": [
+        "Which company offers the best master key systems for retailers in facilities solutions?",
+        "Best security and exit devices supplier for fitting room doors, gates, and storefronts in facilities solutions?",
+        "Who's the best ice machine repair service for beverage equipment in facilities solutions?"
+      ]
+    },
+    {
+      "row": 32,
+      "page_name": "Signs Lighting - June 2026",
+      "slug": "solutions/signslighting",
+      "template_family": "CLEAN-6-1",
+      "assignee": "Erica Huddleston",
+      "live_url": "https://www.vixxo.com/solutions/signslighting",
+      "clone_page_id": "367604474565",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367604474565/content",
+      "profound_priority": 33.3,
+      "prompt_volume": 45,
+      "avg_visibility_gap": 0.5286,
+      "citation_share": 0.0,
+      "business_weight": 1.4,
+      "top_weak_prompts": [
+        "Which company offers the best master key systems for retailers in facilities solutions?",
+        "Best security and exit devices supplier for fitting room doors, gates, and storefronts in facilities solutions?",
+        "Who's the best ice machine repair service for beverage equipment in facilities solutions?"
+      ]
+    },
+    {
+      "row": 61,
+      "page_name": "Service Provider Spotlight - City Maintenance & Service Company",
+      "slug": "service-provider-spotlight-city-maintenance-service-company",
+      "template_family": "Legacy",
+      "assignee": "Mia Li",
+      "live_url": "https://www.vixxo.com/service-provider-spotlight-city-maintenance-service-company",
+      "clone_page_id": "367604475610",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367604475610/content",
+      "profound_priority": 32.9159,
+      "prompt_volume": 96,
+      "avg_visibility_gap": 0.6857,
+      "citation_share": 0.0,
+      "business_weight": 0.5,
+      "top_weak_prompts": [
+        "Which facilities management or service providers use predictive analytics or AI?",
+        "How do multi-site brands manage consistent facility services nationwide?",
+        "Best national providers for retail lighting and sign repair?"
+      ]
+    },
+    {
+      "row": 51,
+      "page_name": "C Case Study: Global Grocery Leader Saves $14M in Facilities Costs",
+      "slug": "resources/case-study-global-grocery-leader-saves-14m-in-facilities-costs",
+      "template_family": "Legacy",
+      "assignee": "Neetu Rao",
+      "live_url": "https://www.vixxo.com/resources/case-study-global-grocery-leader-saves-14m-in-facilities-costs",
+      "clone_page_id": "367604475584",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367604475584/content",
+      "profound_priority": 31.695,
+      "prompt_volume": 103,
+      "avg_visibility_gap": 0.6154,
+      "citation_share": 0.0,
+      "business_weight": 0.5,
+      "top_weak_prompts": [
+        "Which facilities management or service providers use predictive analytics or AI?",
+        "What are the best AI-powered facilities management platforms?",
+        "How is artificial intelligence improving facilities operations for retailers?"
+      ]
+    },
+    {
+      "row": 60,
+      "page_name": "Service Provider Spotlight: Big Country Restaurant and Refrigeration Inc.",
+      "slug": "service-provider-spotlight-big-country-restaurant-and-refrigeration-inc",
+      "template_family": "Legacy",
+      "assignee": "Neetu Rao",
+      "live_url": "https://www.vixxo.com/service-provider-spotlight-big-country-restaurant-and-refrigeration-inc",
+      "clone_page_id": "367604475607",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367604475607/content",
+      "profound_priority": 30.417,
+      "prompt_volume": 83,
+      "avg_visibility_gap": 0.7329,
+      "citation_share": 0.0,
+      "business_weight": 0.5,
+      "top_weak_prompts": [
+        "Which facilities management or service providers use predictive analytics or AI?",
+        "How do multi-site brands manage consistent facility services nationwide?",
+        "Who repairs commercial refrigeration in QSR and restaurant kitchens?"
+      ]
+    },
+    {
+      "row": 56,
+      "page_name": "Handyman Interactive Graphic",
+      "slug": "resources/facilities-management-industry-insights/commercial-handyman",
+      "template_family": "Legacy",
+      "assignee": "Erica Huddleston",
+      "live_url": "https://www.vixxo.com/resources/facilities-management-industry-insights/commercial-handyman",
+      "clone_page_id": "367626505944",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367626505944/content",
+      "profound_priority": 30.2268,
+      "prompt_volume": 97,
+      "avg_visibility_gap": 0.6232,
+      "citation_share": 0.0,
+      "business_weight": 0.5,
+      "top_weak_prompts": [
+        "Who repairs commercial food equipment in retail cafes?",
+        "Which facilities management or service providers use predictive analytics or AI?",
+        "What are the best AI-powered facilities management platforms?"
+      ]
+    }
+  ]
+}

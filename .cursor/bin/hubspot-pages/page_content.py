@@ -42,10 +42,15 @@ TEMPLATE_KEYS = {
     "contact": "contactTemplatePath",
 }
 
+RETAIL_MAGIC_TEMPLATE = (
+    "CLEAN-6-1-theme child X Vixxo Facility Solutions/templates/clean-pro-case-study.html"
+)
+
 DEFAULT_TEMPLATES = {
-    "standard": "CLEAN-6-1-theme child X Vixxo Facility Solutions/templates/clean-pro-home-opt-1.html",
-    "case-study": "CLEAN-6-1-theme child X Vixxo Facility Solutions/templates/clean-pro-case-study.html",
+    "standard": RETAIL_MAGIC_TEMPLATE,
+    "case-study": RETAIL_MAGIC_TEMPLATE,
     "contact": "CLEAN-6-1-theme child X Vixxo Facility Solutions/templates/clean-pro-contact-us.html",
+    "retail-magic": RETAIL_MAGIC_TEMPLATE,
 }
 
 CASE_STUDY_KEYWORDS = ("case study", "customer story", "success story", "client story", "pilot program")
@@ -119,13 +124,119 @@ def template_path_for_kind(page_kind: str, cfg: dict[str, Any]) -> str:
     return str(cfg.get(key) or DEFAULT_TEMPLATES.get(page_kind) or cfg.get("targetTemplatePath") or "")
 
 
-def load_blueprint(page_kind: str) -> dict[str, Any]:
+def load_blueprint(page_kind: str, layout_style: str | None = None) -> dict[str, Any]:
+    style = str(layout_style or "retail-magic").strip().lower()
+    if style == "retail-magic":
+        retail_path = SKILL_DIR / "reference" / "blueprint-retail-magic.json"
+        if retail_path.is_file():
+            return json.loads(retail_path.read_text(encoding="utf-8"))
     path = SKILL_DIR / "reference" / f"blueprint-{page_kind}.json"
     if not path.is_file() and page_kind != "standard":
         path = SKILL_DIR / "reference" / "blueprint-standard.json"
     if not path.is_file():
         raise SystemExit(f"Module blueprint missing: {path}")
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _hero_rich_text(headline: str, subheadline: str) -> str:
+    return (
+        f'<h1 style="color: #fff; text-align: center;">{headline}</h1>\n'
+        f'<p style="color: #fff; text-align: center;">{subheadline}</p>'
+    )
+
+
+def _lead_rich_text(lead: str) -> str:
+    return (
+        '<h4><span style="color: #8e992e; font-family: \'Wix Madefor Text\'; '
+        f'font-weight: 800; font-style: normal;">{lead}</span></h4>'
+    )
+
+
+def _build_body_rich_text(package: dict[str, Any]) -> str:
+    parts: list[str] = []
+    lead = str(package.get("body", {}).get("lead") or package.get("answerFirst") or "").strip()
+    if lead:
+        parts.append(_lead_rich_text(lead))
+    intro = str(package.get("intro") or package.get("body", {}).get("html") or "").strip()
+    if intro:
+        parts.append(html_paragraph(intro) if "<p" not in intro else intro)
+    for section in package.get("sections") or []:
+        heading = str(section.get("heading") or "").strip()
+        body_html = str(section.get("bodyHtml") or "").strip()
+        if heading:
+            parts.append(f"<h2>{heading}</h2>")
+        if body_html:
+            parts.append(body_html)
+    faq_html = build_faq_html(package.get("faqs") or [])
+    if faq_html:
+        parts.append(faq_html)
+    links_html = build_internal_links_html(package.get("internalLinks") or [])
+    if links_html:
+        parts.append(links_html)
+    return "\n".join(parts)
+
+
+def _cta_rich_text(headline: str, body: str) -> str:
+    return (
+        f'<h2 style="text-align: center;">{headline}</h2>\n'
+        f'<p style="text-align: center;">{body}</p>'
+    )
+
+
+def apply_retail_magic_package(
+    blueprint: dict[str, Any],
+    package: dict[str, Any],
+    images: dict[str, dict[str, Any]],
+) -> dict[str, Any]:
+    """Map composed copy into industries/retail Magic Module layoutSections."""
+    result = copy.deepcopy(blueprint)
+    layout = result.setdefault("layoutSections", {})
+    rows = layout.get("dnd_area", {}).get("rows") or []
+    if len(rows) < 4:
+        raise SystemExit("Retail magic blueprint requires at least 4 dnd_area rows.")
+
+    hero = package.get("hero") or {}
+    headline = str(hero.get("headline") or package.get("pageName") or "")
+    subheadline = str(hero.get("subheadline") or package.get("answerFirst") or "")
+    cta = package.get("cta") or {}
+    cta_headline = str(cta.get("headline") or "Connect with Vixxo.")
+    cta_body = str(
+        cta.get("body")
+        or "Let's build a smarter facilities strategy for your multi-site portfolio."
+    )
+    cta_label = str(cta.get("buttonLabel") or "Contact Us")
+    cta_url = str(cta.get("buttonUrl") or "https://www.vixxo.com/about-us/contact-us")
+
+    hero_params = rows[1]["0"]["params"]
+    hero_params["col_1"]["content"][0]["rich_text"] = _hero_rich_text(headline, subheadline)
+    hero_img = images.get("hero") or {}
+    if hero_img.get("url"):
+        hero_params.setdefault("style", {}).setdefault("section", {}).setdefault("bg", {}).setdefault(
+            "image", {}
+        )
+        hero_params["style"]["section"]["bg"]["image"]["src"] = hero_img["url"]
+        hero_params["style"]["section"]["bg"]["type"] = "image"
+
+    body_params = rows[2]["0"]["rows"][0]["0"]["params"]
+    body_params["col_1"]["content"][0]["rich_text"] = _build_body_rich_text(package)
+    section_img = images.get("section1") or images.get("section") or {}
+    if section_img.get("url") and len(body_params["col_1"]["content"]) > 1:
+        img_block = body_params["col_1"]["content"][1].setdefault("image", {})
+        img_block["src"] = section_img["url"]
+        img_block["alt"] = section_img.get("alt") or headline
+
+    cta_params = rows[3]["0"]["params"]
+    cta_params["col_1"]["content"][0]["rich_text"] = _cta_rich_text(cta_headline, cta_body)
+    if len(cta_params["col_1"]["content"]) > 1:
+        btn = cta_params["col_1"]["content"][1].setdefault("button", {}).setdefault("btn_1", {})
+        btn["btn_label"] = cta_label
+        btn.setdefault("link", {}).setdefault("url", {})["href"] = cta_url
+        btn["link"]["url"]["type"] = "EXTERNAL"
+
+    result["templatePath"] = RETAIL_MAGIC_TEMPLATE
+    result["widgetContainers"] = {}
+    result["widgets"] = {}
+    return result
 
 
 def html_paragraph(text: str) -> str:
@@ -323,7 +434,10 @@ def apply_package_to_blueprint(
     package: dict[str, Any],
     images: dict[str, dict[str, Any]],
 ) -> dict[str, Any]:
-    blueprint = load_blueprint(page_kind if page_kind in {"standard", "case-study"} else "standard")
+    layout_style = str(package.get("layoutStyle") or "retail-magic").strip().lower()
+    blueprint = load_blueprint(page_kind, layout_style)
+    if layout_style == "retail-magic":
+        return apply_retail_magic_package(blueprint, package, images)
     if page_kind == "case-study":
         return apply_case_study_package(blueprint, package, images)
     return apply_standard_package(blueprint, package, images)
@@ -362,7 +476,45 @@ def discover_internal_links(
     return merged
 
 
+VIXXO_FALLBACK_IMAGES = {
+    "hero": {
+        "url": "https://7718689.fs1.hubspotusercontent-na2.net/hubfs/7718689/Website%20-%20June%202026/Solutions%20-%20June%202026/Industries%20-%20June%202026/Retail%20-%20June%202026/Retail2.jpg",
+        "alt": "Vixxo multi-site facility maintenance",
+        "source": "vixxo-retail-layout-fallback",
+    },
+    "section1": {
+        "url": "https://7718689.fs1.hubspotusercontent-na2.net/hubfs/7718689/Website%20-%20June%202026/Solutions%20-%20June%202026/Industries%20-%20June%202026/Retail%20-%20June%202026/Shopping4.jpeg",
+        "alt": "Vixxo facilities services",
+        "source": "vixxo-retail-layout-fallback",
+    },
+    "section2": {
+        "url": "https://7718689.fs1.hubspotusercontent-na2.net/hubfs/7718689/Website%20-%20June%202026/Solutions%20-%20June%202026/Industries%20-%20June%202026/Retail%20-%20June%202026/Shopping4.jpeg",
+        "alt": "Vixxo commercial facilities",
+        "source": "vixxo-retail-layout-fallback",
+    },
+}
+
+
 def resolve_page_images(package: dict[str, Any], campaign_slug: str) -> dict[str, dict[str, Any]]:
+    """Resolve hero + section images; fall back to Vixxo CDN when OAuth/stock unavailable."""
+    import sys
+
+    if str(CONTENT_BIN) not in sys.path:
+        sys.path.insert(0, str(CONTENT_BIN))
+    from hubspot_oauth import auth_status  # noqa: E402
+
+    auth = auth_status()
+    if not auth.get("oauthConnected"):
+        topic = str(package.get("topic") or "")
+        headline = str(package.get("hero", {}).get("headline") or topic)
+        return {
+            key: {
+                **meta,
+                "alt": f"Vixxo {headline}, {key}",
+            }
+            for key, meta in VIXXO_FALLBACK_IMAGES.items()
+        }
+
     slugify, infer_trade_from_topic, build_visual_topic_from_topic, _ = _import_hubspot_content_helpers()
     topic = str(package.get("topic") or "")
     trade = str(package.get("trade") or infer_trade_from_topic(topic))
@@ -391,11 +543,16 @@ def resolve_page_images(package: dict[str, Any], campaign_slug: str) -> dict[str
             )
             images[key] = {
                 "url": resolved.get("url"),
-                "alt": f"Vixxo {package.get('hero', {}).get('headline') or topic} — {key}",
+                "alt": f"Vixxo {package.get('hero', {}).get('headline') or topic}, {key}",
                 "source": resolved.get("source"),
             }
         except Exception as exc:
-            images[key] = {"url": None, "alt": "", "source": "error", "error": str(exc)}
+            fallback = VIXXO_FALLBACK_IMAGES.get(key, VIXXO_FALLBACK_IMAGES["hero"])
+            images[key] = {
+                **fallback,
+                "alt": f"Vixxo {package.get('hero', {}).get('headline') or topic}, {key}",
+                "error": str(exc)[:120],
+            }
     return images
 
 
@@ -478,7 +635,11 @@ def normalize_package(package: dict[str, Any], cfg: dict[str, Any]) -> dict[str,
     normalized.setdefault("faqs", [])
     normalized.setdefault("sections", [])
     normalized.setdefault("internalLinks", [])
-    normalized["templatePath"] = template_path_for_kind(page_kind, cfg)
+    layout_style = str(normalized.get("layoutStyle") or "retail-magic").strip().lower()
+    if layout_style == "retail-magic":
+        normalized["templatePath"] = RETAIL_MAGIC_TEMPLATE
+    else:
+        normalized["templatePath"] = template_path_for_kind(page_kind, cfg)
     return normalized
 
 
@@ -487,24 +648,63 @@ def build_create_payload(
     blueprint_applied: dict[str, Any],
     cfg: dict[str, Any],
 ) -> dict[str, Any]:
+    layout_style = str(package.get("layoutStyle") or "retail-magic").strip().lower()
     payload: dict[str, Any] = {
         "name": package["pageName"],
         "slug": package["slug"],
         "htmlTitle": package["htmlTitle"],
         "metaDescription": package["metaDescription"],
-        "templatePath": package["templatePath"],
+        "templatePath": blueprint_applied.get("templatePath") or package["templatePath"],
         "state": "DRAFT",
-        "widgetContainers": blueprint_applied.get("widgetContainers") or {},
-        "widgets": blueprint_applied.get("widgets") or {},
     }
+    if layout_style == "retail-magic":
+        payload["layoutSections"] = blueprint_applied.get("layoutSections") or {}
+        payload["widgetContainers"] = {}
+        payload["widgets"] = {}
+        payload["useFeaturedImage"] = False
+    else:
+        payload["widgetContainers"] = blueprint_applied.get("widgetContainers") or {}
+        payload["widgets"] = blueprint_applied.get("widgets") or {}
+        hero_url = (package.get("_images") or {}).get("hero", {}).get("url")
+        if hero_url:
+            payload["featuredImage"] = hero_url
+            payload["featuredImageAltText"] = (
+                (package.get("_images") or {}).get("hero", {}).get("alt") or package["pageName"]
+            )
+            payload["useFeaturedImage"] = True
     domain = cfg.get("defaultDomain")
     if domain:
         payload["domain"] = domain
-    hero_url = (package.get("_images") or {}).get("hero", {}).get("url")
-    if hero_url:
-        payload["featuredImage"] = hero_url
-        payload["featuredImageAltText"] = (package.get("_images") or {}).get("hero", {}).get("alt") or package["pageName"]
-        payload["useFeaturedImage"] = True
+    return payload
+
+
+def build_update_payload(
+    package: dict[str, Any],
+    blueprint_applied: dict[str, Any],
+) -> dict[str, Any]:
+    layout_style = str(package.get("layoutStyle") or "retail-magic").strip().lower()
+    payload: dict[str, Any] = {
+        "name": package["pageName"],
+        "htmlTitle": package["htmlTitle"],
+        "metaDescription": package["metaDescription"],
+        "templatePath": blueprint_applied.get("templatePath") or package["templatePath"],
+        "useFeaturedImage": False,
+    }
+    if layout_style == "retail-magic":
+        payload["layoutSections"] = blueprint_applied.get("layoutSections") or {}
+        payload["widgetContainers"] = {}
+        payload["widgets"] = {}
+    else:
+        payload["layoutSections"] = {}
+        payload["widgetContainers"] = blueprint_applied.get("widgetContainers") or {}
+        payload["widgets"] = blueprint_applied.get("widgets") or {}
+        hero_url = (package.get("_images") or {}).get("hero", {}).get("url")
+        if hero_url:
+            payload["featuredImage"] = hero_url
+            payload["featuredImageAltText"] = (
+                (package.get("_images") or {}).get("hero", {}).get("alt") or package["pageName"]
+            )
+            payload["useFeaturedImage"] = True
     return payload
 
 

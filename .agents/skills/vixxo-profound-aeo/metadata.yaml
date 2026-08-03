@@ -1,0 +1,13 @@
+name: vixxo-profound-aeo
+title: "Profound + Marketing Skills AEO Integration"
+description: "Pulls Profound AEO insights via MCP and routes work through marketingskills + HubSpot page workflows."
+category: marketing
+agents:
+  - cursor
+  - claude-code
+author: vixxo
+version: "1.0.0"
+tags: [aeo, profound, seo, ai-seo, hubspot, marketing-skills, visibility, citations]
+status: approved
+requires_mcp: [profound, hubspot-pages]
+source: vixxo

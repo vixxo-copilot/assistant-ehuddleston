@@ -1,0 +1,389 @@
+{
+  "templatePath": "CLEAN-6-1-theme child X Vixxo Facility Solutions/templates/clean-pro-home-opt-1.html",
+  "widgetContainers": {
+    "module_15404233906385300": {
+      "widgets": [
+        {
+          "body": {
+            "col_1": {
+              "content": "<h1>Landscaping Services</h1>",
+              "style": {
+                "content_align": "center",
+                "content_align_mobile": "center"
+              }
+            },
+            "extra_wrapper_attrs": {},
+            "field_types": {
+              "col_1": "group",
+              "col_2": "group",
+              "row_settings": "group",
+              "start": "group"
+            },
+            "is_widget_block": true,
+            "label": "CLEAN 6 - Hero - Banner",
+            "module_id": 8367051,
+            "name": "module_1565818901112392",
+            "no_marker": true,
+            "no_wrapper": true,
+            "org_tag": "module_block",
+            "overrideable": true,
+            "parent_widget_container": "module_15404233906385300",
+            "path": "/Marketplace/HubSpot_Hero/CLEAN_61_Premium_Pack/Custom_Modules/CLEAN 6-1 - Hero - Banner",
+            "per_widget_wrapper_html": "",
+            "row_settings": {
+              "bg_image": {
+                "alt": "Tall sprinkler spraying lawn with long jet of water on college campus",
+                "height": 746,
+                "src": "https://f.hubspotusercontent30.net/hubfs/7718689/Stock%20images/Tall%20sprinkler%20spraying%20lawn%20with%20long%20jet%20of%20water%20on%20college%20campus.jpeg",
+                "width": 1000
+              },
+              "bg_type": "image",
+              "color_1": {
+                "color": "#39548d",
+                "opacity": 20
+              },
+              "color_2": {
+                "color": "#39548d",
+                "opacity": 90
+              },
+              "gradient_angle": "45deg",
+              "overlay_bg": "gradient",
+              "overlay_color": {
+                "color": "#000000",
+                "opacity": 0
+              },
+              "parallax": true
+            },
+            "smart_objects": [],
+            "smart_type": "NOT_SMART",
+            "type": "module",
+            "widget_name": "CLEAN 6 - Hero - Banner",
+            "widget_type": "module",
+            "wrap_field_tag": "div",
+            "wrapping_html": ""
+          },
+          "child_css": {},
+          "css": {},
+          "id": 29841891430,
+          "label": "CLEAN 6 - Hero - Banner",
+          "module_id": 8367051,
+          "order": 0,
+          "styles": {},
+          "type": "module"
+        },
+        {
+          "body": {
+            "col_1": {
+              "content": "<h3 style=\"text-align: center;\">Is Your Company Green? <br>No, We Mean Actually Green.</h3>\n<div style=\"text-align: center;\">From trees and flowers to shrubs and lawns, the landscaping around your business shows your customers that you care. While landscaping and other exterior services are unique to every location and brand, maintenance is absolutely essential. Bring the care and attention you give the inside of your business to the outside! You\u2019ll be surprised at what a difference it can make when attracting and keeping lifelong customers.</div>\n<div style=\"text-align: center;\">&nbsp;</div>\n<div style=\"text-align: center;\">Partnering with Vixxo for your landscaping services needs ensures you are getting vetted, expert technicians every time, with a manageable, planned budget that extends the life of your facilities and helps you save money. Too many business owners leave landscaping until the last minute, and it can suddenly become a huge unexpected cost. This can have a negative impact on customer confidence and loyalty. Vixxo can help!</div>",
+              "settings": {
+                "align_desktop": "left",
+                "align_mobile": "left",
+                "show_divider": false
+              }
+            },
+            "row_settings": {
+              "adv_settings": {
+                "padding_top": "0px"
+              },
+              "bg_color": {
+                "color": "#FFFFFF",
+                "opacity": 0
+              },
+              "content_width": "container-slim",
+              "style": {
+                "content_bg_color": {
+                  "color": "#ffffff",
+                  "opacity": 100
+                },
+                "pull_up": true,
+                "pull_up_num_desktop": 100,
+                "pull_up_num_tablet": 40
+              }
+            }
+          },
+          "child_css": {},
+          "css": {},
+          "id": 1592245467329,
+          "module_id": 4148708,
+          "order": 1,
+          "styles": {},
+          "type": "module"
+        },
+        {
+          "body": {},
+          "child_css": {},
+          "css": {},
+          "id": 1603749875328,
+          "module_id": 36659638384,
+          "order": 2,
+          "styles": {},
+          "type": "module"
+        },
+        {
+          "body": {
+            "content": {
+              "advanced": {
+                "header_cutout": true,
+                "img_shadow": true,
+                "layer_img": true,
+                "offset_distance": 30,
+                "shadow_color": {
+                  "color": "#3e4543",
+                  "opacity": 40
+                },
+                "text_slider": 100,
+                "underlay_color": {
+                  "color": "#3e4543",
+                  "opacity": 100
+                },
+                "underlay_offset_position": "top_left",
+                "underlay_type": "color"
+              },
+              "image": {
+                "alt": "exterior-services-vixxo-644296102",
+                "height": 337,
+                "src": "https://f.hubspotusercontent30.net/hubfs/7718689/Solutions%20Pages%20Images/exterior-services-vixxo-644296102.jpg",
+                "width": 600
+              },
+              "text": "<h2>Landscaping &amp; Plant Care</h2>\n<p>One of the best ways to show your customers that you care is through landscaping! Even before they walk in the front door, your landscaping and your signage are visible from the road.</p>\n<p><span>{{cta('44e021ee-8ed3-48eb-b16e-0276c99658a9')}}</span></p>"
+            },
+            "extra_wrapper_attrs": {},
+            "field_types": {
+              "content": "group",
+              "row_settings": "group",
+              "start": "group"
+            },
+            "is_widget_block": true,
+            "label": "CLEAN 6-1 - Row - Image and Text - Opt 2",
+            "module_id": 4149634,
+            "name": "module_1590608079140130",
+            "no_marker": true,
+            "no_wrapper": true,
+            "org_tag": "module_block",
+            "overrideable": true,
+            "parent_widget_container": "module_15404233906385300",
+            "path": "/Marketplace/HubSpot_Hero/CLEAN_61_Premium_Pack/Custom_Modules/CLEAN 6-1 - Row - Image and Text - Opt 2",
+            "per_widget_wrapper_html": "",
+            "row_settings": {
+              "adv_settings": {
+                "padding_bottom": "50px"
+              }
+            },
+            "smart_objects": [],
+            "smart_type": "NOT_SMART",
+            "start": {
+              "col_arrangement": "opt5"
+            },
+            "type": "module",
+            "widget_name": "CLEAN 6-1 - Row - Image and Text - Opt 2",
+            "widget_type": "module",
+            "wrap_field_tag": "div",
+            "wrapping_html": ""
+          },
+          "child_css": {},
+          "css": {},
+          "id": 29841891434,
+          "label": "CLEAN 6-1 - Row - Image and Text - Opt 2",
+          "module_id": 4149634,
+          "order": 3,
+          "styles": {},
+          "type": "module"
+        },
+        {
+          "body": {
+            "col_1": {
+              "content": "<p style=\"text-align: left;\">Not all grocery, convenience, retail, or restaurant locations are conducive to lush, flowing gardens, nor do all brands need that. But even something as simple as tall planters by the front door, well-maintained for each season, can add a welcoming pop of green to the outside of your building and make a budget-friendly but impactful impression on customer experience. Potted trees throughout the parking lot, small sidewalk beds with local, water-friendly species, and beautiful hedges along the exterior foundation can go a long way in making your business appear more welcoming and trustworthy to customers.</p>\n<p style=\"text-align: left;\"><br>With Vixxo\u2019s network of experienced landscapers, you know you are getting the highest quality service. Plus, our experts can help you plan out your landscaping needs throughout the year, so that costs can be more easily managed - and you are able to avoid sudden unforeseen expenses.</p>",
+              "settings": {
+                "align_desktop": "left",
+                "align_mobile": "left",
+                "show_divider": false
+              }
+            },
+            "col_2": {
+              "content": "<span>customers continue returning to a business, and the cleanliness and reliability of your food service equipment plays a major role in customer confidence. Whether they\u2019re out for a date night at a restaurant or trying to pick up a quick meal on the way home for their family, customers will return time and again to the places that consistently offer the highest quality experience every time.</span>",
+              "settings": {
+                "align_desktop": "left",
+                "align_mobile": "left",
+                "show_divider": false
+              }
+            },
+            "row_settings": {
+              "adv_settings": {
+                "padding_bottom": "100px",
+                "padding_top": "25px"
+              }
+            },
+            "start": {
+              "num_cols": "1"
+            }
+          },
+          "child_css": {},
+          "css": {},
+          "id": 1602620929475,
+          "module_id": 4148708,
+          "order": 4,
+          "styles": {},
+          "type": "module"
+        },
+        {
+          "body": {
+            "col_1": {
+              "content": "<a id=\"pageform\" data-hs-anchor=\"true\"></a>\n<h2 style=\"text-align: left;\"><span style=\"color: #ffffff;\">Give Your Customers An Experience To Remember</span></h2>",
+              "settings": {
+                "show_divider": false
+              }
+            },
+            "col_2": {
+              "content": "<h3 style=\"text-align: left;\"><span style=\"color: #ffffff;\">Get Started Today</span></h3>\n<script type=\"text/javascript\" src=\"//js.hsforms.net/forms/shell.js\" charset=\"utf-8\"></script>\n<script>\n  hbspt.forms.create({\n\tportalId: \"7718689\",\n\tformId: \"139e029a-00de-4737-97d3-05fd74684cb6\"\n});\n</script>",
+              "settings": {
+                "show_divider": false
+              }
+            },
+            "extra_wrapper_attrs": {},
+            "field_types": {
+              "col_1": "group",
+              "col_2": "group",
+              "col_3": "group",
+              "col_4": "group",
+              "row_settings": "group",
+              "start": "group"
+            },
+            "is_widget_block": true,
+            "label": "CLEAN 6-1 - Row - Multi-Column Content",
+            "module_id": 4148708,
+            "name": "module_1590608103879132",
+            "no_marker": true,
+            "no_wrapper": true,
+            "org_tag": "module_block",
+            "overrideable": true,
+            "parent_widget_container": "module_15404233906385300",
+            "path": "/Marketplace/HubSpot_Hero/CLEAN_61_Premium_Pack/Custom_Modules/CLEAN 6-1 - Row - Multi-Column Content",
+            "per_widget_wrapper_html": "",
+            "row_settings": {
+              "adv_settings": {
+                "padding_bottom": "100px",
+                "padding_bottom_mobile": "50px",
+                "padding_top": "100px",
+                "padding_top_tablet": "100px"
+              },
+              "bg_image": {
+                "alt": "Vixxo-Facilities-Management-Plumbing-1093678798-1400",
+                "height": 788,
+                "src": "https://cdn2.hubspot.net/hubfs/7718689/IMAGES/Plumbing/Vixxo-Facilities-Management-Plumbing-1093678798-1400.jpg",
+                "width": 1400
+              },
+              "bg_type": "image",
+              "img_pos": "center center",
+              "overlay_angle": "45deg",
+              "overlay_bg": "gradient",
+              "overlay_color_1": {
+                "color": "#39548d",
+                "opacity": 20
+              },
+              "overlay_color_2": {
+                "color": "#39548d",
+                "opacity": 100
+              },
+              "parallax": false,
+              "shadow": "outer",
+              "shadow_color": {
+                "color": "#39548d",
+                "opacity": 20
+              }
+            },
+            "smart_objects": [],
+            "smart_type": "NOT_SMART",
+            "start": {
+              "num_cols": "2"
+            },
+            "type": "module",
+            "widget_name": "CLEAN 6-1 - Row - Multi-Column Content",
+            "widget_type": "module",
+            "wrap_field_tag": "div",
+            "wrapping_html": ""
+          },
+          "child_css": {},
+          "css": {},
+          "id": 29841891435,
+          "label": "CLEAN 6-1 - Row - Multi-Column Content",
+          "module_id": 4148708,
+          "order": 5,
+          "styles": {},
+          "type": "module"
+        },
+        {
+          "body": {
+            "content": {
+              "map": "<div class=\"hs-responsive-embed-wrapper hs-responsive-embed\" style=\"border: 0; width: 100%; height: auto; position: relative; overflow: hidden; padding: 0; max-width: 600px; max-height: 450px; min-width: 256px; margin: 0px auto; display: block;\">\n<div class=\"hs-responsive-embed-inner-wrapper\" style=\"position: relative; overflow: hidden; max-width: 100%; padding-bottom: 75.00%; margin: 0;\"><iframe class=\"hs-responsive-embed-iframe\" style=\"position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;\" tabindex=\"0\" xml=\"lang\" src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d425449.40845169517!2d-112.20995037340067!3d33.58393154971119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b7493439481f3%3A0x68c184ceedca49e8!2s7000%20E%20Shea%20Blvd%20Suite%20H-1970%2C%20Scottsdale%2C%20AZ%2085254!5e0!3m2!1sen!2sus!4v1596139093616!5m2!1sen!2sus\" width=\"600\" height=\"450\" aria-hidden=\"false\" data-service=\"google-maps\" frameborder=\"0\" allowfullscreen=\"allowfullscreen\"></iframe></div>\n</div>\n<p>&nbsp;</p>",
+              "text": "<h3>Vixxo Headquarters</h3>\n<p>7000 E. Shea Blvd., Suite H-1970<br>Scottsdale, AZ 85254 USA<br>844-468-4996<br><a href=\"mailto:info@vixxo.com\" rel=\" noopener\">info@vixxo.com</a></p>\n<p><span>Media Inquiries</span> <br><a href=\"mailto:vixxocommunication@vixxo.com\" rel=\" noopener\">vixxocommunication@vixxo.com</a></p>\n<p><a rel=\" noopener\" href=\"/locations\">Other Locations</a></p>"
+            },
+            "extra_wrapper_attrs": {},
+            "field_types": {
+              "content": "group",
+              "row_settings": "group",
+              "start": "group"
+            },
+            "is_widget_block": true,
+            "label": "Vixxo - CLEAN 6-1 - Row - Map and Text",
+            "module_id": 29787244097,
+            "name": "module_1590608111217134",
+            "no_marker": true,
+            "no_wrapper": true,
+            "org_tag": "module_block",
+            "overrideable": true,
+            "parent_widget_container": "module_15404233906385300",
+            "path": "/Marketplace/HubSpot_Hero/CLEAN_61_Premium_Pack/Custom_Modules/Vixxo - CLEAN 6-1 - Row - Map and Text",
+            "per_widget_wrapper_html": "",
+            "smart_objects": [],
+            "smart_type": "NOT_SMART",
+            "type": "module",
+            "widget_name": "Vixxo - CLEAN 6-1 - Row - Map and Text",
+            "widget_type": "module",
+            "wrap_field_tag": "div",
+            "wrapping_html": ""
+          },
+          "child_css": {},
+          "css": {},
+          "id": 29841891437,
+          "label": "Vixxo - CLEAN 6-1 - Row - Map and Text",
+          "module_id": 29787244097,
+          "order": 6,
+          "styles": {},
+          "type": "module"
+        }
+      ]
+    }
+  },
+  "widgets": {
+    "module_1565818738093371": {
+      "body": {
+        "field_types": {
+          "hide_footer": "boolean",
+          "hide_nav": "boolean",
+          "logo_center": "boolean",
+          "logo_mt": "number",
+          "nav_trans": "boolean",
+          "use_alt_nav": "boolean"
+        },
+        "module_id": 8867631,
+        "path": "/Marketplace/HubSpot_Hero/CLEAN_61_Premium_Pack/Custom_Modules/CLEAN 6-1 - Style - Header Footer Override",
+        "per_widget_wrapper_html": "",
+        "smart_type": "NOT_SMART",
+        "tag": "module",
+        "type": "module",
+        "widget_name": "CLEAN 6 - Style - Header Footer Override",
+        "wrap_field_tag": "div",
+        "wrapping_html": ""
+      },
+      "child_css": {},
+      "css": {},
+      "id": "module_1565818738093371",
+      "label": "CLEAN 6 - Style - Header Footer Override",
+      "module_id": 8867631,
+      "name": "module_1565818738093371",
+      "order": 0,
+      "styles": {},
+      "type": "module"
+    }
+  }
+}

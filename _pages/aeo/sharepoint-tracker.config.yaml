@@ -1,0 +1,52 @@
+# SharePoint status tracker for hubspot-page-aeo agent (AEO + SEO revamp)
+
+sharepoint:
+  hostname: vixxo.sharepoint.com
+  siteId: vixxo.sharepoint.com,db334545-d7dd-40fc-b5f0-b62f92672896,6e074747-d357-474c-8ab5-9b9387a35920
+  sitePath: /sites/Marketing919
+  driveId: b!RUUz293X_EC18LYvkmcolkdHB25X00xHirWbk4ejWSAkn2z2REgVTbm6ZMFdID_h
+  folderItemId: 01M5HJQDYF26JQ3MGK3NFLQUS6KFBSMVZB
+  workbookItemId: 01M5HJQD2D2CGYFAJFDZAYP5SWFPQTFAZV
+  library: Shared Documents
+  folderPath: General/Website & SEO/AEO Website Updates
+  workbookName: Vixxo-AEO-Website-Revamp-Status.xlsx
+  folderUrl: https://vixxo.sharepoint.com/:f:/r/sites/Marketing919/Shared%20Documents/General/Website%20%26%20SEO/AEO%20Website%20Updates?csf=1&web=1&e=gnf4Gd
+  workbookUrl: https://vixxo.sharepoint.com/:x:/r/sites/Marketing919/_layouts/15/Doc.aspx?sourcedoc=%7B828DD043-2581-411E-87F6-562BE1328335%7D&file=Vixxo-AEO-Website-Revamp-Status.xlsx&action=default&mobileredirect=true
+
+table:
+  name: AEOPageStatus
+  sheet: AEO Page Status
+  urlColumns:
+    before: C  # Before URL — published live page (hyperlink)
+    after: D   # After URL — HubSpot editor link to clone draft (not www.vixxo.com)
+
+# Before URL (C) = published live page on www.vixxo.com.
+# After URL (D) = HubSpot editor URL for the clone draft (open → Preview in editor).
+# Draft slugs are NOT live until publish; do not use page.url in column D.
+# Both URL columns use Excel hyperlinks for one-click comparison.
+# SEO meta fields are staged on the clone draft only (never auto-publish to live).
+columns:
+  - Page Name
+  - URL Slug
+  - Before URL
+  - After URL
+  - Template
+  - Template Family
+  - AEO Status
+  - AEO Score (Before)
+  - AEO Score (After)
+  - SEO Status
+  - SEO Score (Before)
+  - SEO Score (After)
+  - Meta Title (After)
+  - Meta Description (After)
+  - Primary Keyword
+  - SEO Notes
+  - Last Updated
+  - Updated By
+  - Profound Items Addressed
+  - Accomplishments / Notes
+  - LLM Test Queries
+  - HubSpot Editor URL
+  - Report File
+  - Assignment
