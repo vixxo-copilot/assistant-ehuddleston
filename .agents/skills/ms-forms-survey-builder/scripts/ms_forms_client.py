@@ -12,6 +12,7 @@ import argparse
 import json
 import sys
 import time
+import uuid
 from pathlib import Path
 from typing import Any
 
@@ -56,25 +57,60 @@ def _save_cache(cache: Any) -> None:
         TOKEN_CACHE_PATH.write_text(cache.serialize(), encoding="utf-8")
 
 
-def _claims_from_token(access_token: str) -> dict[str, str]:
-    """Decode JWT payload without verifying (token already from MSAL)."""
+def _claims_from_jwt(token: str) -> dict[str, Any] | None:
+    """Best-effort JWT payload decode (Forms access tokens are often opaque)."""
     import base64
 
+    parts = token.split(".")
+    if len(parts) < 2:
+        return None
     try:
-        payload = access_token.split(".")[1]
+        payload = parts[1]
         padding = "=" * (-len(payload) % 4)
-        data = json.loads(base64.urlsafe_b64decode(payload + padding))
-    except Exception as exc:  # noqa: BLE001
-        _die(f"Could not decode access token claims: {exc}")
+        raw = base64.urlsafe_b64decode(payload + padding)
+        return json.loads(raw.decode("utf-8"))
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def _claims_from_auth(
+    result: dict[str, Any], accounts: list[dict[str, Any]]
+) -> dict[str, str]:
+    """Resolve tenant/user ids from MSAL id_token claims, account, or JWT."""
+    data: dict[str, Any] = {}
+    id_claims = result.get("id_token_claims") or {}
+    if isinstance(id_claims, dict):
+        data.update(id_claims)
+
+    if accounts:
+        acct = accounts[0]
+        data.setdefault("preferred_username", acct.get("username") or "")
+        home = acct.get("home_account_id") or ""
+        # home_account_id is typically "{oid}.{tid}"
+        if "." in home:
+            oid, tid = home.split(".", 1)
+            data.setdefault("oid", oid)
+            data.setdefault("tid", tid)
+
+    if not data.get("tid") or not data.get("oid"):
+        jwt_claims = _claims_from_jwt(result.get("access_token") or "")
+        if jwt_claims:
+            data.update(jwt_claims)
+
     tid = data.get("tid") or data.get("tenantId")
     oid = data.get("oid") or data.get("sub")
     if not tid or not oid:
-        _die("Token missing tid/oid claims; cannot build Forms API path.")
+        _die(
+            "Could not resolve tenant/user ids from sign-in. "
+            "Try auth again, or pass identity via a fresh device-code login."
+        )
     return {
-        "tenant_id": tid,
-        "user_id": oid,
-        "name": data.get("name") or "",
-        "upn": data.get("preferred_username") or data.get("upn") or "",
+        "tenant_id": str(tid),
+        "user_id": str(oid),
+        "name": str(data.get("name") or ""),
+        "upn": str(
+            data.get("preferred_username") or data.get("upn") or ""
+        ),
     }
 
 
@@ -121,9 +157,10 @@ def acquire_token(interactive: bool = True) -> tuple[str, dict[str, str]]:
         ) or "unknown"
         _die(f"Auth failed: {err}")
 
-    token = result["access_token"]
-    claims = _claims_from_token(token)
-    return token, claims
+    # Refresh account list after interactive/device login.
+    accounts = app.get_accounts() or accounts
+    claims = _claims_from_auth(result, accounts)
+    return result["access_token"], claims
 
 
 class FormsClient:
@@ -190,6 +227,11 @@ def _stringify_info(info: dict[str, Any]) -> str:
     return json.dumps(info, separators=(",", ":"))
 
 
+def _new_question_id() -> str:
+    """Forms API requires question ids that start with 'r'."""
+    return "r" + uuid.uuid4().hex
+
+
 def build_question_payload(
     question: dict[str, Any], order: int
 ) -> dict[str, Any] | None:
@@ -203,7 +245,7 @@ def build_question_payload(
     required = bool(question.get("required", False))
     base = {
         "title": title,
-        "id": "",
+        "id": _new_question_id(),
         "order": order,
         "isQuiz": False,
         "required": required,
@@ -423,10 +465,19 @@ def cmd_create(args: argparse.Namespace) -> None:
     token, claims = acquire_token(interactive=not args.device_code)
     client = FormsClient(token, claims["tenant_id"], claims["user_id"])
 
-    print(f"Creating form: {title}")
-    form = client.create_form(title, description)
-    form_id = form["id"]
-    print(f"  form id: {form_id}")
+    form_id = (args.form_id or "").strip()
+    form: dict[str, Any]
+    if form_id:
+        print(f"Adding questions to existing form: {form_id}")
+        try:
+            form = client.get_form(form_id)
+        except SystemExit:
+            form = {"id": form_id, "title": title}
+    else:
+        print(f"Creating form: {title}")
+        form = client.create_form(title, description)
+        form_id = form["id"]
+        print(f"  form id: {form_id}")
 
     created = 0
     for payload in auto_payloads:
@@ -508,6 +559,11 @@ def build_parser() -> argparse.ArgumentParser:
         "--dry-run",
         action="store_true",
         help="Print create + question payloads without calling Forms or signing in",
+    )
+    create.add_argument(
+        "--form-id",
+        default="",
+        help="Add questions to an existing form id instead of creating a new form",
     )
     create.set_defaults(func=cmd_create)
 
