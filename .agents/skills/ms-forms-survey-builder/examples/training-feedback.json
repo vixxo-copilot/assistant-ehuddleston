@@ -1,0 +1,49 @@
+{
+  "title": "Training session feedback",
+  "description": "Rate the session and tell us what to fix before the next cohort.",
+  "settings": {
+    "collect_email": false,
+    "one_response_per_person": true
+  },
+  "questions": [
+    {
+      "type": "rating",
+      "title": "Overall session quality",
+      "required": true,
+      "length": 5,
+      "shape": "Star"
+    },
+    {
+      "type": "rating",
+      "title": "How clear were the materials?",
+      "required": true,
+      "length": 5,
+      "shape": "Star"
+    },
+    {
+      "type": "choice",
+      "title": "Which part was most useful?",
+      "required": true,
+      "multi": false,
+      "allow_other": true,
+      "choices": [
+        "Live demo",
+        "Slides / deck",
+        "Hands-on practice",
+        "Q&A",
+        "Job aids"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What should we change for the next cohort?",
+      "required": false,
+      "multiline": true
+    },
+    {
+      "type": "manual",
+      "title": "Rate each module (Likert)",
+      "note": "Add a Likert in DesignPageV2 after create — not auto-created."
+    }
+  ]
+}

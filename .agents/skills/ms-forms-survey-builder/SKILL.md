@@ -76,14 +76,19 @@ Write the approved spec to
 `_tmp/ms-forms-survey-builder/<slug>-spec.json`.
 
 ```powershell
+py -3 -m pip install -r .agents/skills/ms-forms-survey-builder/requirements.txt
+py -3 .agents/skills/ms-forms-survey-builder/scripts/ms_forms_client.py create --spec "_tmp/ms-forms-survey-builder/<slug>-spec.json" --dry-run
 py -3 .agents/skills/ms-forms-survey-builder/scripts/ms_forms_client.py auth
 py -3 .agents/skills/ms-forms-survey-builder/scripts/ms_forms_client.py create --spec "_tmp/ms-forms-survey-builder/<slug>-spec.json"
 ```
 
+- Prefer `--dry-run` once before live create to confirm payloads.
 - First run: `auth` opens device-code / browser login for
   `https://forms.office.com/.default`. Token cache lives under the user
   profile (not the repo).
-- Needs `msal` and `requests` (`py -3 -m pip install msal requests`).
+- Needs `msal` and `requests` (see `requirements.txt`).
+- Starter specs live in [`examples/`](examples/) (NPS pulse, event RSVP,
+  training feedback).
 - On success, print **designer URL** and **respond URL**. Prefer designer:
   `https://forms.cloud.microsoft/Pages/DesignPageV2.aspx?origin=shell&subpage=design&id=<formId>`
 

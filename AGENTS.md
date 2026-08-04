@@ -48,3 +48,11 @@ For any AEO, AI visibility, citation, or Vixxo page optimization work:
 
 Connect Profound before first use: Cursor → Settings → Tools & MCPs →
 `profound` → Connect.
+
+## Microsoft Forms surveys
+
+For “build me a survey” / Microsoft Forms design work, use
+**`ms-forms-survey-builder`**: grill one question at a time, draft a survey
+spec, then create the Form via
+`.agents/skills/ms-forms-survey-builder/scripts/ms_forms_client.py` after
+explicit approval. There is no official Graph Forms-create API.

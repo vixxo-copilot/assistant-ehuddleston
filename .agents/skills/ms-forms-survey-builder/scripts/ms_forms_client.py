@@ -365,22 +365,60 @@ def cmd_whoami(_: argparse.Namespace) -> None:
     print(json.dumps(claims, indent=2))
 
 
-def cmd_create(args: argparse.Namespace) -> None:
-    spec_path = Path(args.spec)
+def _load_spec(spec_path: Path) -> dict[str, Any]:
     if not spec_path.exists():
         _die(f"Spec not found: {spec_path}")
     try:
         spec = json.loads(spec_path.read_text(encoding="utf-8"))
     except json.JSONDecodeError as exc:
         _die(f"Invalid JSON in {spec_path}: {exc}")
-
     title = (spec.get("title") or "").strip()
     if not title:
         _die("Spec missing title")
-    description = (spec.get("description") or "").strip()
     questions = spec.get("questions") or []
     if not isinstance(questions, list) or not questions:
         _die("Spec needs a non-empty questions array")
+    return spec
+
+
+def _plan_questions(
+    questions: list[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """Return (auto_payloads, manual_questions) with assigned order values."""
+    auto: list[dict[str, Any]] = []
+    manual: list[dict[str, Any]] = []
+    order = 1_000_000
+    for q in questions:
+        payload = build_question_payload(q, order)
+        if payload is None:
+            manual.append(q)
+            continue
+        auto.append(payload)
+        order += 1_000_000
+    return auto, manual
+
+
+def cmd_create(args: argparse.Namespace) -> None:
+    spec = _load_spec(Path(args.spec))
+    title = (spec.get("title") or "").strip()
+    description = (spec.get("description") or "").strip()
+    questions = spec.get("questions") or []
+    auto_payloads, manual = _plan_questions(questions)
+
+    if args.dry_run:
+        plan = {
+            "dry_run": True,
+            "title": title,
+            "description": description,
+            "create_body": {"title": title, **({"description": description} if description else {})},
+            "questions": auto_payloads,
+            "manual_questions": [
+                {"title": m.get("title"), "note": m.get("note")} for m in manual
+            ],
+            "settings_hint": spec.get("settings") or {},
+        }
+        print(json.dumps(plan, indent=2))
+        return
 
     token, claims = acquire_token(interactive=not args.device_code)
     client = FormsClient(token, claims["tenant_id"], claims["user_id"])
@@ -390,17 +428,10 @@ def cmd_create(args: argparse.Namespace) -> None:
     form_id = form["id"]
     print(f"  form id: {form_id}")
 
-    manual: list[dict[str, Any]] = []
     created = 0
-    order = 1_000_000
-    for q in questions:
-        payload = build_question_payload(q, order)
-        if payload is None:
-            manual.append(q)
-            continue
+    for payload in auto_payloads:
         client.add_question(form_id, payload)
         created += 1
-        order += 1_000_000
         # Gentle pacing — Forms API is undocumented and rate-sensitive.
         time.sleep(0.15)
 
@@ -433,31 +464,16 @@ def cmd_create(args: argparse.Namespace) -> None:
 
 
 def cmd_validate(args: argparse.Namespace) -> None:
-    spec_path = Path(args.spec)
-    spec = json.loads(spec_path.read_text(encoding="utf-8"))
+    spec = _load_spec(Path(args.spec))
     title = (spec.get("title") or "").strip()
-    if not title:
-        _die("Missing title")
-    questions = spec.get("questions") or []
-    if not questions:
-        _die("Missing questions")
-    order = 1_000_000
-    auto = 0
-    manual = 0
-    for q in questions:
-        payload = build_question_payload(q, order)
-        if payload is None:
-            manual += 1
-        else:
-            auto += 1
-            order += 1_000_000
+    auto_payloads, manual = _plan_questions(spec.get("questions") or [])
     print(
         json.dumps(
             {
                 "ok": True,
                 "title": title,
-                "auto_create": auto,
-                "manual": manual,
+                "auto_create": len(auto_payloads),
+                "manual": len(manual),
             },
             indent=2,
         )
@@ -487,6 +503,11 @@ def build_parser() -> argparse.ArgumentParser:
         "--device-code",
         action="store_true",
         help="Force device-code flow for auth",
+    )
+    create.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Print create + question payloads without calling Forms or signing in",
     )
     create.set_defaults(func=cmd_create)
 

@@ -1,0 +1,58 @@
+{
+  "skill_name": "ms-forms-survey-builder",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Build me a Microsoft Form survey for our Q3 field-tech pulse. Grill me first, then create it in Forms.",
+      "expected_output": "Should load ms-forms-survey-builder. Should grill one question at a time using the interview tree (decision, audience, access, length, topics). Should not create the Form until a survey spec is shown and explicitly approved. After approval, should write a spec JSON and run ms_forms_client.py create. Should return designer + respond URLs.",
+      "assertions": [
+        "Triggers ms-forms-survey-builder (not only grill-me)",
+        "Asks one grill question at a time",
+        "Gives a recommended answer with each question",
+        "Drafts a survey spec before create",
+        "Waits for explicit approval before calling create",
+        "Uses scripts/ms_forms_client.py for Form creation",
+        "Returns a DesignPageV2 designer URL on success"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Create an anonymous 5-question NPS form for internal employees. Decision: whether to invest in tooling next quarter. Max 3 minutes.",
+      "expected_output": "Should skip already-answered grill branches (decision, audience, anonymity, length). Should draft a short NPS-led spec (NPS + influencing factor + optional open text). Should keep <=5-8 questions. Should show the outline for approval before create.",
+      "assertions": [
+        "Skips resolved grill branches",
+        "Includes an NPS question as primary metric",
+        "Keeps the survey short (<=8 questions)",
+        "Respects anonymous / internal constraints in the draft",
+        "Shows draft for approval before create"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "I need a training feedback form with a Likert for each module — put it straight into Microsoft Forms.",
+      "expected_output": "Should still draft-then-approve (never skip approval). Should mark Likert as type manual in the spec and remind the user to add it in the designer after auto-create. Should auto-create rating/choice/text questions. Should not claim Graph officially supports Forms create.",
+      "assertions": [
+        "Does not skip draft approval",
+        "Marks Likert as manual in the spec",
+        "Explains Likert must be added in the designer",
+        "Auto-creates supported question types only",
+        "Does not claim official Graph Forms create support"
+      ],
+      "files": ["examples/training-feedback.json"]
+    },
+    {
+      "id": 4,
+      "prompt": "forms.cloud.microsoft DesignPage — help me design a quick event RSVP and configure it.",
+      "expected_output": "Should trigger on DesignPage / Forms URL language. Should grill lightly then produce an RSVP-shaped spec (attendance choice, optional dietary, open comment). After approval, create via the client script or dry-run if auth is blocked, with a clear manual fallback.",
+      "assertions": [
+        "Triggers on Forms/DesignPage language",
+        "Produces an RSVP-shaped question set",
+        "Uses create script after approval",
+        "Provides manual fallback if auth fails"
+      ],
+      "files": ["examples/event-rsvp.json"]
+    }
+  ]
+}
