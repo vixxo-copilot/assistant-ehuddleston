@@ -28,7 +28,7 @@ PULL_DATE = "2026-08-03"
 SLUG_PROFILE: dict[str, dict] = {
     "facility-management-solutions": {"kw": ["facilities management", "facilities solutions", "fm provider", "outsourced facilities", "retail facilities management", "restaurant facilities management", "grocery store facilities"], "weight": 1.5},
     "solutions/hvac": {"kw": ["hvac", "refrigeration downtime", "cold storage", "hvac/r"], "weight": 1.5},
-    "solutions/commercial-handyman-services": {"kw": ["handyman"], "weight": 1.5},
+    "solutions/commercial-handyman-services": {"kw": ["handyman", "building maintenance", "facilities maintenance", "repair across locations", "store repair", "minor repair"], "weight": 1.5},
     "solutions/food-service-equipment": {"kw": ["food service equipment", "food equipment", "kitchen equipment", "fryer", "grill", "oven repair", "commercial kitchen"], "weight": 1.5},
     "beverage-equipment-vixxo": {"kw": ["beverage equipment", "beverage program", "fountain drink"], "weight": 1.4},
     "solutions/coffee": {"kw": ["coffee equipment", "coffee machine", "coffee maintenance", "espresso", "bean-to-cup", "specialty beverage", "brewer"], "weight": 1.4},
@@ -48,9 +48,25 @@ SLUG_PROFILE: dict[str, dict] = {
     "vixxo-ai-in-facilities": {"kw": ["ai-driven fm", "ai in facilities", "predictive analytics facilities"], "weight": 1.1},
 }
 
-# Slugs penalized in Batch 1 (content hubs, not primary conversion pages)
-PENALTY_SLUG_PREFIXES = ("resources/", "service-provider-spotlight", "facilities-management-news/")
-PENALTY_MULTIPLIER = 0.35
+# Batch 1 eligibility — commercial pages only (exclude resource hubs)
+BATCH_ELIGIBLE_PREFIXES = (
+    "solutions/",
+    "beverage-",
+    "electrical-services",
+    "industries/",
+    "facility-equipment-projects/",
+    "facility-management/",
+    "about-us/contact-us",
+    "(homepage)",
+    "vixxo-ai-in-facilities",
+    "why-vixxo",
+)
+
+
+def is_batch_eligible(slug: str) -> bool:
+    if slug in {"about-us/contact-us", "(homepage)", "electrical-services", "beverage-equipment-vixxo"}:
+        return True
+    return any(slug.startswith(p) for p in BATCH_ELIGIBLE_PREFIXES)
 
 DEFAULT_WEIGHT = 1.0
 LEGACY_WEIGHT = 0.5
@@ -99,8 +115,8 @@ def match_prompts(slug: str, prompts: list[dict]) -> list[dict]:
 
 
 def batch_penalty(slug: str) -> float:
-    if any(slug.startswith(p) for p in PENALTY_SLUG_PREFIXES):
-        return PENALTY_MULTIPLIER
+    if not is_batch_eligible(slug):
+        return 0.15  # strongly deprioritize resource/news/spotlight pages
     return 1.0
 
 
@@ -145,7 +161,9 @@ def score_pages(prompts: list[dict], citations: dict[str, float], rows: list[dic
             "top_weak_prompts": [p["prompt"]["name"] for p in top_prompts],
         })
     scored.sort(key=lambda x: x["profound_priority"], reverse=True)
-    return scored
+    eligible = [s for s in scored if is_batch_eligible(s["slug"])]
+    batch1 = eligible[:15] if len(eligible) >= 15 else eligible + [s for s in scored if s not in eligible][:15 - len(eligible)]
+    return scored, batch1
 
 
 def extract_page_id(cell_value: str | None, audit_map: dict[str, str]) -> str | None:
@@ -228,8 +246,7 @@ def main() -> int:
             "editor_url": canonical_editor_url(page_id) if page_id else "",
         })
 
-    scored = score_pages(prompts, citations, tracker_rows)
-    batch1 = scored[:15]
+    scored, batch1 = score_pages(prompts, citations, tracker_rows)
 
     # Write batch files
     BATCH_JSON.write_text(json.dumps({
