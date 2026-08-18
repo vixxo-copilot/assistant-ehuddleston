@@ -1,0 +1,31 @@
+{
+  "title": "Event RSVP",
+  "description": "Quick RSVP — attendance, dietary needs, and one open comment.",
+  "settings": {
+    "collect_email": true,
+    "one_response_per_person": true
+  },
+  "questions": [
+    {
+      "type": "choice",
+      "title": "Will you attend?",
+      "required": true,
+      "multi": false,
+      "choices": ["Yes", "No", "Maybe"]
+    },
+    {
+      "type": "choice",
+      "title": "Dietary preference (if attending)",
+      "required": false,
+      "multi": false,
+      "allow_other": true,
+      "choices": ["None", "Vegetarian", "Vegan", "Gluten-free"]
+    },
+    {
+      "type": "text",
+      "title": "Anything we should know before the event?",
+      "required": false,
+      "multiline": true
+    }
+  ]
+}

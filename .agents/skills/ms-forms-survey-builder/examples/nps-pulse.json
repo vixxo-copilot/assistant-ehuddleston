@@ -1,0 +1,35 @@
+{
+  "title": "Vixxo internal NPS pulse",
+  "description": "2-minute pulse. One primary score + one friction question. Internal only.",
+  "settings": {
+    "collect_email": true,
+    "one_response_per_person": true
+  },
+  "questions": [
+    {
+      "type": "nps",
+      "title": "How likely are you to recommend Vixxo as a place to do great work?",
+      "required": true
+    },
+    {
+      "type": "choice",
+      "title": "What most influenced your score?",
+      "required": true,
+      "multi": false,
+      "allow_other": true,
+      "choices": [
+        "Leadership clarity",
+        "Tools / systems",
+        "Workload",
+        "Team support",
+        "Growth opportunities"
+      ]
+    },
+    {
+      "type": "text",
+      "title": "What is the one change that would raise your score next quarter?",
+      "required": false,
+      "multiline": true
+    }
+  ]
+}

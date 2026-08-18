@@ -1,0 +1,13 @@
+name: hubspot-page-aeo
+title: "HubSpot AEO + SEO Page Revamp"
+description: "Clones and revamps existing Vixxo site pages for AEO and on-page SEO; updates the SharePoint tracker. Draft-only."
+category: marketing
+agents:
+  - cursor
+  - claude-code
+author: vixxo
+version: "1.0.0"
+tags: [hubspot, cms, pages, aeo, seo, website, revamp, tracker]
+status: approved
+requires_mcp: [hubspot-pages]
+source: vixxo

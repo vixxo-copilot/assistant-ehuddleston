@@ -1,0 +1,52 @@
+{
+  "startedAt": "2026-07-10T21:41:14.581876+00:00",
+  "workbook": "C:\\Users\\ehuddleston\\source\\assistant-ehuddleston\\_pages\\aeo\\Vixxo-AEO-Website-Revamp-Status.xlsx",
+  "dryRun": true,
+  "limit": 2,
+  "processed": [
+    {
+      "status": "dry-run",
+      "row": 5,
+      "pageName": "Home (Trades + Caf\u00e9) - June 2026",
+      "slug": "(homepage)",
+      "sourcePageId": "358469480146",
+      "beforeUrl": "https://www.vixxo.com",
+      "aeoBefore": 80,
+      "aeoAfter": 95,
+      "seoBefore": 95,
+      "seoAfter": 100,
+      "metaTitle": "Multi-Site Facility Management | Vixxo",
+      "metaDescription": "Learn how Vixxo supports home for multi-site retail and restaurant operators with licensed technicians and centralized work orders.",
+      "primaryKeyword": "multi-site facility management",
+      "llmTestQueries": "What is Vixxo Home? | How does Vixxo handle multi-site facility management? | Who does Vixxo serve for home?",
+      "seoNotes": "Staged answer-first intro, FAQ block, internal links, and optimized htmlTitle/metaDescription on clone draft.",
+      "notes": "Dry-run validation only \u2014 no clone created."
+    },
+    {
+      "status": "dry-run",
+      "row": 6,
+      "pageName": "Careers - June 2026",
+      "slug": "about-us/careers",
+      "sourcePageId": "359459000020",
+      "beforeUrl": "https://www.vixxo.com/about-us/careers",
+      "aeoBefore": 100,
+      "aeoAfter": 95,
+      "seoBefore": 80,
+      "seoAfter": 90,
+      "metaTitle": "Careers | Vixxo",
+      "metaDescription": "Vixxo careers connect facilities professionals with multi-site retail and restaurant programs backed by licensed technicians and national scale.",
+      "primaryKeyword": "about us careers facility management",
+      "llmTestQueries": "What is Vixxo Careers? | How does Vixxo handle about us careers facility management? | Who does Vixxo serve for careers?",
+      "seoNotes": "Staged answer-first intro, FAQ block, internal links, and optimized htmlTitle/metaDescription on clone draft.",
+      "notes": "Dry-run validation only \u2014 no clone created."
+    }
+  ],
+  "failed": [],
+  "summary": {
+    "total": 2,
+    "succeeded": 2,
+    "failed": 0,
+    "workbook": "C:\\Users\\ehuddleston\\source\\assistant-ehuddleston\\_pages\\aeo\\Vixxo-AEO-Website-Revamp-Status.xlsx"
+  },
+  "finishedAt": "2026-07-10T21:41:16.934905+00:00"
+}

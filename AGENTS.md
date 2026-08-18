@@ -30,3 +30,37 @@
 - Report changed files and validation results.
 - Map outcomes to acceptance criteria or requested goals.
 - List follow-up risks or TODO items.
+
+## IFM marketing coach
+
+For IFM / facilities / multi-site marketing strategy, coaching, teardowns,
+or “keep me current on industry best practices,” start with
+**`ifm-marketing-genius`**. It applies IFM-specific laws, then routes
+execution to the marketing skills below. AEO/page work still starts at
+`vixxo-profound-aeo`.
+
+## Marketing skills + Profound AEO
+
+This repo includes **49 marketing skills** (`coreyhaines31/marketingskills` in
+`.agents/skills/`) and **Profound MCP** for live AEO analytics (`profound` in
+`.cursor/mcp.json`).
+
+For any AEO, AI visibility, citation, or Vixxo page optimization work:
+
+1. Start with **`vixxo-profound-aeo`** — pull Profound signals, then route to
+   the right marketing skill(s).
+2. Page revamps on existing HubSpot pages → **`hubspot-page-aeo`** (clone draft,
+   tracker, report).
+3. Generic playbooks after Profound data is in hand → `ai-seo`, `seo-audit`,
+   `copywriting`, `content-strategy`, etc.
+
+Connect Profound before first use: Cursor → Settings → Tools & MCPs →
+`profound` → Connect.
+
+## Microsoft Forms surveys
+
+For “build me a survey” / Microsoft Forms design work, use
+**`ms-forms-survey-builder`**: grill one question at a time, draft a survey
+spec, then create the Form via
+`.agents/skills/ms-forms-survey-builder/scripts/ms_forms_client.py` after
+explicit approval. There is no official Graph Forms-create API.

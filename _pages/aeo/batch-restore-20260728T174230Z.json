@@ -1,0 +1,39 @@
+{
+  "summary": {
+    "startedAt": "2026-07-28T17:42:25.439865+00:00",
+    "finishedAt": "2026-07-28T17:42:30.721708+00:00",
+    "workbook": "C:\\Users\\ehuddleston\\source\\assistant-ehuddleston\\_pages\\aeo\\Vixxo-AEO-Website-Revamp-Status.xlsx",
+    "output_workbook": "C:\\Users\\ehuddleston\\source\\assistant-ehuddleston\\_pages\\aeo\\Vixxo-AEO-Website-Revamp-Status-fixed.xlsx",
+    "dry_run": false,
+    "total_processed": 1,
+    "success": 0,
+    "partial": 1,
+    "failed": 1,
+    "hero_broken_before_dry_run": null
+  },
+  "processed": [
+    {
+      "row": 20,
+      "slug": "resources/facilities-management-and-company-news",
+      "pageName": "News - June 2026",
+      "clone_id": "367618900707",
+      "live_id": "359459000038",
+      "editor_url": "https://app-na2.hubspot.com/page-ui/7718689/management/pages/website-pages/367618900707/edit",
+      "status": "partial",
+      "hero_matches_live": false,
+      "hero_aeo_injection": true,
+      "text_len": 2023,
+      "has_layout": true,
+      "has_aeo_injection": true,
+      "content_confirmed": true,
+      "empty": false
+    }
+  ],
+  "failed": [
+    {
+      "row": 5,
+      "slug": "(homepage)",
+      "error": "Could not resolve live page for slug '(homepage)'"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "startedAt": "2026-07-28T17:56:28.152348+00:00",
+  "workbook": "_pages\\aeo\\Vixxo-AEO-Website-Revamp-Status.xlsx",
+  "dryRun": false,
+  "limit": 1,
+  "processed": [
+    {
+      "status": "success",
+      "row": 5,
+      "pageName": "Home (Trades + Caf\u00e9) - June 2026",
+      "slug": "(homepage)",
+      "sourcePageId": "358469480146",
+      "clonePageId": "367618899703",
+      "beforeUrl": "https://www.vixxo.com",
+      "afterUrl": "https://app-na2.hubspot.com/page-ui/7718689/management/pages/website-pages/367618899703/edit",
+      "plannedLiveUrl": "https://www.vixxo.com/-temporary-slug-22e73af3-8577-435b-8974-f7c0362f8d4b",
+      "editorUrl": "https://app-na2.hubspot.com/page-ui/7718689/management/pages/website-pages/367618899703/edit",
+      "aeoStatus": "Draft Ready",
+      "seoStatus": "Draft Ready",
+      "aeoBefore": 80,
+      "aeoAfter": 95,
+      "seoBefore": 95,
+      "seoAfter": 100,
+      "metaTitle": "Multi-Site Facility Management | Vixxo",
+      "metaDescription": "Learn how Vixxo supports home for multi-site retail and restaurant operators with licensed technicians and centralized work orders.",
+      "primaryKeyword": "multi-site facility management",
+      "llmTestQueries": "What is Vixxo Home? | How does Vixxo handle multi-site facility management? | Who does Vixxo serve for home?",
+      "seoNotes": "Staged answer-first intro, FAQ block, internal links, and optimized htmlTitle/metaDescription on clone draft.",
+      "reportFile": "_pages/aeo/reports/homepage.md",
+      "content_confirmed": true,
+      "text_len": 9513,
+      "staging_mode": "patch",
+      "templateFamily": "CLEAN-6-1",
+      "notes": "Clone draft staged (patch) with AEO answer-first, FAQ, internal links, and SEO meta. Clone ID 367618899703. Content verified: True."
+    }
+  ],
+  "failed": [],
+  "summary": {
+    "total": 1,
+    "succeeded": 1,
+    "failed": 0,
+    "workbook": "_pages\\aeo\\Vixxo-AEO-Website-Revamp-Status.xlsx"
+  },
+  "finishedAt": "2026-07-28T17:56:30.994614+00:00"
+}

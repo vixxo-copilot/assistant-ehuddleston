@@ -1,0 +1,50 @@
+{
+  "sourcePageId": "359028305635",
+  "sourceSlug": "industries/retail",
+  "sourceTemplate": "CLEAN-6-1-theme child X Vixxo Facility Solutions/templates/clean-pro-case-study.html",
+  "discoveredAt": "2026-07-09",
+  "modules": [
+    {
+      "order": 1,
+      "label": "Header Footer Override",
+      "path": "../modules/CLEAN - Style - Header Footer Override",
+      "role": "navigation",
+      "contentFields": []
+    },
+    {
+      "order": 2,
+      "label": "Hero Area (Magic Module - Pro)",
+      "path": "../modules/CLEAN Pro - Magic Module",
+      "role": "hero",
+      "contentFields": [
+        "col_1.content[].rich_text (H1 + subheadline)",
+        "style.section.bg.image.src (hero background)"
+      ]
+    },
+    {
+      "order": 3,
+      "label": "Content Section (Magic Module - Pro)",
+      "path": "../modules/CLEAN Pro - Magic Module",
+      "role": "body",
+      "contentFields": [
+        "col_1.content[].rich_text (answer-first, sections, FAQ)",
+        "col_1.content[].image.src (section image)"
+      ]
+    },
+    {
+      "order": 4,
+      "label": "Base Call to Action (Magic Module - Pro)",
+      "path": "../modules/CLEAN Pro - Magic Module",
+      "role": "cta",
+      "contentFields": [
+        "col_1.content[].rich_text (CTA headline + body)",
+        "col_1.content[].button.btn_1 (label + link)"
+      ]
+    }
+  ],
+  "templateDefaults": {
+    "default": "CLEAN-6-1-theme child X Vixxo Facility Solutions/templates/clean-pro-home-opt-1.html",
+    "caseStudy": "CLEAN-6-1-theme child X Vixxo Facility Solutions/templates/clean-pro-case-study.html",
+    "contact": "CLEAN-6-1-theme child X Vixxo Facility Solutions/templates/clean-pro-contact-us.html"
+  }
+}

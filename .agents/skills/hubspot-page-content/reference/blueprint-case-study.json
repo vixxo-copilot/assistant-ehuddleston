@@ -1,0 +1,546 @@
+{
+  "templatePath": "CLEAN-6-1-theme child X Vixxo Facility Solutions/templates/clean-pro-case-study.html",
+  "widgetContainers": {
+    "module_15404233906385300": {
+      "widgets": [
+        {
+          "body": {
+            "col_1": {
+              "content": "<h1>Facilities Maintenance Pilot<br>Program Success at Grocery Chain</h1>\n<h3>A FACILITY MANAGEMENT CASE STUDY</h3>",
+              "style": {
+                "content_align": "center",
+                "content_align_mobile": "center"
+              }
+            },
+            "extra_wrapper_attrs": {},
+            "field_types": {
+              "col_1": "group",
+              "col_2": "group",
+              "row_settings": "group",
+              "start": "group"
+            },
+            "is_widget_block": true,
+            "label": "CLEAN 6 - Hero - Banner",
+            "module_id": 8367051,
+            "name": "module_1565818901112392",
+            "no_marker": true,
+            "no_wrapper": true,
+            "org_tag": "module_block",
+            "overrideable": true,
+            "parent_widget_container": "module_15404233906385300",
+            "path": "/Marketplace/HubSpot_Hero/CLEAN_61_Premium_Pack/Custom_Modules/CLEAN 6-1 - Hero - Banner",
+            "per_widget_wrapper_html": "",
+            "row_settings": {
+              "bg_image": {
+                "alt": "25731_Vixxo_Video Integration-Grocery_v03-thumb-2",
+                "height": 1080,
+                "src": "https://f.hubspotusercontent30.net/hubfs/7718689/custom-video-thumbnails/25731_Vixxo_Video%20Integration-Grocery_v03-thumb-2.jpeg",
+                "width": 1920
+              },
+              "bg_type": "image",
+              "color_1": {
+                "color": "#217A81",
+                "opacity": 10
+              },
+              "color_2": {
+                "color": "#217A81",
+                "opacity": 70
+              },
+              "gradient_angle": "45deg",
+              "overlay_bg": "gradient",
+              "overlay_color": {
+                "color": "#000000",
+                "opacity": 0
+              },
+              "parallax": true
+            },
+            "smart_objects": [],
+            "smart_type": "NOT_SMART",
+            "type": "module",
+            "widget_name": "CLEAN 6 - Hero - Banner",
+            "widget_type": "module",
+            "wrap_field_tag": "div",
+            "wrapping_html": ""
+          },
+          "child_css": {},
+          "css": {},
+          "id": 36984246447,
+          "label": "CLEAN 6 - Hero - Banner",
+          "module_id": 8367051,
+          "order": 0,
+          "styles": {},
+          "type": "module"
+        },
+        {
+          "body": {
+            "col_1": {
+              "content": "<h2>Customer Profile</h2>\n<p>&nbsp;</p>",
+              "settings": {
+                "show_divider": false
+              }
+            },
+            "extra_wrapper_attrs": {},
+            "field_types": {
+              "col_1": "group",
+              "col_2": "group",
+              "col_3": "group",
+              "col_4": "group",
+              "row_settings": "group",
+              "start": "group"
+            },
+            "is_widget_block": true,
+            "label": "CLEAN 6 - Row - Multi Column Content",
+            "module_id": 4148708,
+            "name": "module_1565819001234394",
+            "no_marker": true,
+            "no_wrapper": true,
+            "org_tag": "module_block",
+            "overrideable": true,
+            "parent_widget_container": "module_15404233906385300",
+            "path": "/Marketplace/HubSpot_Hero/CLEAN_61_Premium_Pack/Custom_Modules/CLEAN 6-1 - Row - Multi-Column Content",
+            "per_widget_wrapper_html": "",
+            "row_settings": {
+              "adv_settings": {
+                "padding_bottom": "0px",
+                "padding_bottom_tablet": "10px",
+                "padding_top": "0px"
+              },
+              "bg_color": {
+                "color": "#FFFFFF",
+                "opacity": 0
+              },
+              "bg_type": "color",
+              "content_width": "container-slim",
+              "style": {
+                "con_padding": 50,
+                "content_bg_color": {
+                  "color": "#ffffff",
+                  "opacity": 100
+                },
+                "pull_up": true,
+                "pull_up_num_desktop": 100
+              }
+            },
+            "smart_objects": [],
+            "smart_type": "NOT_SMART",
+            "type": "module",
+            "widget_name": "CLEAN 6 - Row - Multi Column Content",
+            "widget_type": "module",
+            "wrap_field_tag": "div",
+            "wrapping_html": ""
+          },
+          "child_css": {},
+          "css": {},
+          "id": 36984246448,
+          "label": "CLEAN 6 - Row - Multi Column Content",
+          "module_id": 4148708,
+          "order": 1,
+          "styles": {},
+          "type": "module"
+        },
+        {
+          "body": {
+            "content_group": {
+              "column_1": {
+                "content": "<h4>A 350-store grocery chain with locations across the United States.</h4>",
+                "icon_hs": {
+                  "name": "chevron-down",
+                  "set": "fontawesome-5",
+                  "type": "SOLID",
+                  "unicode": "f078"
+                }
+              },
+              "column_2": {
+                "content": "<h4>Known for their custom product<br>selections and emphasis on high-end products and fresh food.</h4>",
+                "icon_hs": {
+                  "name": "chevron-down",
+                  "set": "fontawesome-5",
+                  "type": "SOLID",
+                  "unicode": "f078"
+                }
+              },
+              "column_3": {
+                "content": "<h4>Self-performing their repairs<br>and maintenance with in-house<br>resources.</h4>",
+                "icon_hs": {
+                  "name": "chevron-down",
+                  "set": "fontawesome-5",
+                  "type": "SOLID",
+                  "unicode": "f078"
+                }
+              }
+            },
+            "row_settings": {
+              "adv_settings": {
+                "padding_bottom": "25px",
+                "padding_top": "0px"
+              }
+            }
+          },
+          "child_css": {},
+          "css": {},
+          "id": 1604324664824,
+          "module_id": 4127074,
+          "order": 2,
+          "styles": {},
+          "type": "module"
+        },
+        {
+          "body": {
+            "col_1": {
+              "content": "<h4><strong><span style=\"color: #444444;\">\"We ran a highly competitive pilot program against two competitors for several different trades. With a focus on cost management and exceptional service, we were able to show our capabilities to deliver results.\"</span></strong></h4>\n<h4><strong><span style=\"color: #444444;\">- VP, Client Relations at Vixxo</span></strong></h4>",
+              "settings": {
+                "show_divider": true
+              }
+            },
+            "col_2": {
+              "content": "<h3>Download the Complete Case Study</h3>\n<p>{{cta('ab1a24ae-b5ff-4fa1-97e3-574eac5cf4f5')}}</p>"
+            },
+            "row_settings": {
+              "bg_color": {
+                "color": "#FFFFFF",
+                "opacity": 100
+              },
+              "bg_image": {
+                "alt": "Vixxo-Facilities-Management-Grocery-1157106632-1400",
+                "height": 788,
+                "src": "https://f.hubspotusercontent30.net/hubfs/7718689/IMAGES/Grocery/Vixxo-Facilities-Management-Grocery-1157106632-1400.jpg",
+                "width": 1400
+              },
+              "bg_type": "image",
+              "img_pos": "center center",
+              "overlay_angle": "top",
+              "overlay_bg": "gradient",
+              "overlay_color_1": {
+                "color": "#FFFFFF",
+                "opacity": 100
+              },
+              "overlay_color_2": {
+                "color": "#FFFFFF",
+                "opacity": 40
+              }
+            },
+            "start": {
+              "num_cols": "2",
+              "two_col_arrangement": "opt1"
+            }
+          },
+          "child_css": {},
+          "css": {},
+          "id": 1604519065218,
+          "module_id": 4148708,
+          "order": 3,
+          "styles": {},
+          "type": "module"
+        },
+        {
+          "body": {
+            "col_1": {
+              "content": "<h2><span style=\"color: #ffffff;\">The Situation</span></h2>\n<span style=\"color: #ffffff;\">The client had undergone leadership changes related to their facility management and maintenance functions.</span><br><span style=\"color: #ffffff;\">While they traditionally self-performed their maintenance, they needed to quickly stand up a solid and comprehensive facilities maintenance program with trade expertise and depth of coverage.</span><br><span style=\"color: #ffffff;\">A detailed search process to seek out qualified and experienced potential partners was started.</span>",
+              "settings": {
+                "align_desktop": "left",
+                "align_mobile": "left",
+                "show_divider": false
+              }
+            },
+            "col_2": {
+              "content": "",
+              "settings": {
+                "align_desktop": "left",
+                "align_mobile": "left",
+                "show_divider": false
+              }
+            },
+            "extra_wrapper_attrs": {},
+            "field_types": {
+              "col_1": "group",
+              "col_2": "group",
+              "col_3": "group",
+              "col_4": "group",
+              "row_settings": "group",
+              "start": "group"
+            },
+            "is_widget_block": true,
+            "label": "CLEAN 6-1 - Row - Multi-Column Content",
+            "module_id": 4148708,
+            "name": "module_159164981558669",
+            "no_marker": true,
+            "no_wrapper": true,
+            "org_tag": "module_block",
+            "overrideable": true,
+            "parent_widget_container": "module_15404233906385300",
+            "path": "/Marketplace/HubSpot_Hero/CLEAN_61_Premium_Pack/Custom_Modules/CLEAN 6-1 - Row - Multi-Column Content",
+            "per_widget_wrapper_html": "",
+            "row_settings": {
+              "adv_settings": {
+                "padding_bottom": "25px"
+              },
+              "bg_color": {
+                "color": "#217A81",
+                "opacity": 100
+              }
+            },
+            "smart_objects": [],
+            "smart_type": "NOT_SMART",
+            "start": {
+              "num_cols": "1"
+            },
+            "type": "module",
+            "widget_name": "CLEAN 6-1 - Row - Multi-Column Content",
+            "widget_type": "module",
+            "wrap_field_tag": "div",
+            "wrapping_html": ""
+          },
+          "child_css": {},
+          "css": {},
+          "id": 36984246449,
+          "label": "CLEAN 6-1 - Row - Multi-Column Content",
+          "module_id": 4148708,
+          "order": 4,
+          "styles": {},
+          "type": "module"
+        },
+        {
+          "body": {
+            "col_1": {
+              "content": "<h2><span>The Challenge</span></h2>\n<p>The client wanted to pivot and optimize their facility management operations without losing the best of their existing systems and processes.</p>\n<p>They wanted to compare different vendors over a 90-day period to find the best partner but didn't want the complexity, cost overruns, and inconsistent service that often comes with different vendors running different systems at the same time.</p>\n<p>The pilot approach would provide them the data needed to assess the ability of the potential candidates to meet their needs, then make an informed decision.</p>",
+              "settings": {
+                "align_desktop": "right",
+                "align_mobile": "right",
+                "show_divider": false
+              }
+            },
+            "row_settings": {
+              "adv_settings": {
+                "padding_bottom": "25px"
+              }
+            }
+          },
+          "child_css": {},
+          "css": {},
+          "id": 1604328170347,
+          "module_id": 4148708,
+          "order": 5,
+          "styles": {},
+          "type": "module"
+        },
+        {
+          "body": {
+            "col_1": {
+              "content": "<h2><span style=\"color: #ffffff;\">The Solution</span></h2>\n<p><span style=\"color: #ffffff;\">Vixxo quickly assessed the geographic areas involved and developed a detailed plan to support the stores and ensure costs were contained, service levels were optimized, and systems were simplified.</span></p>\n<p><span style=\"color: #ffffff;\">The store\u2019s assets were reviewed, as well as their historical data on repair and maintenance volumes.</span></p>\n<p><span style=\"color: #ffffff;\">A detailed service provider coverage plan was created, aligning experienced providers and multiple levels backup coverage, by trade based on the store\u2019s assets.</span></p>",
+              "settings": {
+                "align_desktop": "left",
+                "align_mobile": "left",
+                "show_divider": false
+              }
+            },
+            "col_2": {
+              "content": "",
+              "settings": {
+                "align_desktop": "left",
+                "align_mobile": "left",
+                "show_divider": true
+              }
+            },
+            "row_settings": {
+              "adv_settings": {
+                "padding_bottom": "25px"
+              },
+              "bg_color": {
+                "color": "#217A81",
+                "opacity": 100
+              }
+            },
+            "start": {
+              "num_cols": "1"
+            }
+          },
+          "child_css": {},
+          "css": {},
+          "id": 1604325024073,
+          "module_id": 4148708,
+          "order": 6,
+          "styles": {},
+          "type": "module"
+        },
+        {
+          "body": {
+            "col_1": {
+              "content": "<h2 style=\"text-align: center;\"><span>Results Delivered</span></h2>",
+              "settings": {
+                "align_desktop": "center",
+                "align_mobile": "center",
+                "show_divider": true
+              }
+            },
+            "row_settings": {
+              "adv_settings": {
+                "padding_bottom": "10px",
+                "padding_top": "10px"
+              }
+            }
+          },
+          "child_css": {},
+          "css": {},
+          "id": 1604328180872,
+          "module_id": 4148708,
+          "order": 7,
+          "styles": {},
+          "type": "module"
+        },
+        {
+          "body": {
+            "content_group": {
+              "column_1": {
+                "content": "<h2>4.3%</h2>\n<p>savings per plumbing work order (on average)</p>",
+                "icon_hs": {
+                  "name": "check",
+                  "set": "fontawesome-5",
+                  "type": "SOLID",
+                  "unicode": "f00c"
+                }
+              },
+              "column_2": {
+                "content": "<h2>80%</h2>\n<p>service calls completed on time</p>",
+                "icon_hs": {
+                  "name": "check",
+                  "set": "fontawesome-5",
+                  "type": "SOLID",
+                  "unicode": "f00c"
+                }
+              },
+              "column_3": {
+                "content": "<h2>84%</h2>\n<p>service calls completed on first visit</p>",
+                "icon_hs": {
+                  "name": "check",
+                  "set": "fontawesome-5",
+                  "type": "SOLID",
+                  "unicode": "f00c"
+                }
+              }
+            },
+            "row_settings": {
+              "adv_settings": {
+                "padding_bottom": "25px",
+                "padding_top": "25px"
+              }
+            }
+          },
+          "child_css": {},
+          "css": {},
+          "id": 1604325448327,
+          "module_id": 4127074,
+          "order": 8,
+          "styles": {},
+          "type": "module"
+        },
+        {
+          "body": {
+            "col_1": {
+              "content": "<p>As a result of the pilot, total R&amp;M spend came in under budget and the average cost of a work order was less than prior years when the company self-performed.</p>\n<p>Vixxo\u2019s focus on cost management and exceptional service in the pilot demonstrated our ability to achieve a reduction in call volume \u2013 and when there were calls, fewer return visits.</p>",
+              "settings": {
+                "align_desktop": "left",
+                "align_mobile": "left",
+                "show_divider": false
+              }
+            },
+            "row_settings": {
+              "adv_settings": {
+                "padding_top": "25px"
+              }
+            }
+          },
+          "child_css": {},
+          "css": {},
+          "id": 1604510283766,
+          "module_id": 4148708,
+          "order": 9,
+          "styles": {},
+          "type": "module"
+        },
+        {
+          "body": {
+            "col_1": {
+              "content": "<h4><span style=\"color: #ffffff;\">\"</span><span style=\"color: #ffffff;\">We ran a highly competitive pilot program against two competitors for several different trades. With a focus on cost management and exceptional service, we were able to show our capabilities to deliver results.\"</span></h4>\n<h4><span style=\"color: #ffffff;\">- VP, Client Relations at Vixxo</span></h4>",
+              "settings": {
+                "show_divider": false
+              }
+            },
+            "col_2": {
+              "content": "<p style=\"padding-top: 30px;\">{{cta('f86565bc-588c-429a-aacb-05b32b19e1e2')}}</p>",
+              "settings": {
+                "show_divider": false
+              }
+            },
+            "row_settings": {
+              "bg_color": {
+                "color": "#A26125",
+                "opacity": 100
+              }
+            },
+            "start": {
+              "num_cols": "2",
+              "two_col_arrangement": "opt3"
+            }
+          },
+          "child_css": {},
+          "css": {},
+          "id": 1604325154737,
+          "module_id": 4148708,
+          "order": 10,
+          "styles": {},
+          "type": "module"
+        },
+        {
+          "body": {
+            "content": {
+              "map": "<div class=\"hs-responsive-embed-wrapper hs-responsive-embed\" style=\"border: 0; width: 100%; height: auto; position: relative; overflow: hidden; padding: 0; max-width: 600px; max-height: 450px; min-width: 256px; margin: 0px auto; display: block;\">\n<div class=\"hs-responsive-embed-inner-wrapper\" style=\"position: relative; overflow: hidden; max-width: 100%; padding-bottom: 75.00%; margin: 0;\"><iframe class=\"hs-responsive-embed-iframe\" style=\"position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;\" tabindex=\"0\" xml=\"lang\" src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d425449.40845169517!2d-112.20995037340067!3d33.58393154971119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872b7493439481f3%3A0x68c184ceedca49e8!2s7000%20E%20Shea%20Blvd%20Suite%20H-1970%2C%20Scottsdale%2C%20AZ%2085254!5e0!3m2!1sen!2sus!4v1596139093616!5m2!1sen!2sus\" width=\"600\" height=\"450\" aria-hidden=\"false\" data-service=\"google-maps\" frameborder=\"0\" allowfullscreen=\"allowfullscreen\"></iframe></div>\n</div>\n<p>&nbsp;</p>",
+              "settings": {
+                "show_divider": false
+              },
+              "text": "<h3>Vixxo Headquarters</h3>\n<p>7000 E. Shea Blvd., Suite H-1970<br>Scottsdale, AZ 85254 USA<br>844-468-4996<br><a href=\"mailto:info@vixxo.com\" rel=\" noopener\">info@vixxo.com</a></p>\n<p><span>Media Inquiries</span> <br><a href=\"mailto:vixxocommunication@vixxo.com\" rel=\" noopener\">vixxocommunication@vixxo.com</a></p>\n<p><a rel=\" noopener\" href=\"/locations\">Other Locations</a></p>"
+            },
+            "extra_wrapper_attrs": {},
+            "field_types": {
+              "content": "group",
+              "row_settings": "group",
+              "start": "group"
+            },
+            "is_widget_block": true,
+            "label": "Vixxo - CLEAN 6-1 - Row - Map and Text",
+            "module_id": 29787244097,
+            "name": "module_159164949334359",
+            "no_marker": true,
+            "no_wrapper": true,
+            "org_tag": "module_block",
+            "overrideable": true,
+            "parent_widget_container": "module_15404233906385300",
+            "path": "/Marketplace/HubSpot_Hero/CLEAN_61_Premium_Pack/Custom_Modules/Vixxo - CLEAN 6-1 - Row - Map and Text",
+            "per_widget_wrapper_html": "",
+            "smart_objects": [],
+            "smart_type": "NOT_SMART",
+            "type": "module",
+            "widget_name": "Vixxo - CLEAN 6-1 - Row - Map and Text",
+            "widget_type": "module",
+            "wrap_field_tag": "div",
+            "wrapping_html": ""
+          },
+          "child_css": {},
+          "css": {},
+          "id": 36984246450,
+          "label": "Vixxo - CLEAN 6-1 - Row - Map and Text",
+          "module_id": 29787244097,
+          "order": 11,
+          "styles": {},
+          "type": "module"
+        },
+        {
+          "id": 36984246451,
+          "module_id": 29675778213,
+          "order": 12,
+          "type": "module"
+        }
+      ]
+    }
+  },
+  "widgets": {}
+}

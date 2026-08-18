@@ -1,0 +1,311 @@
+{
+  "generated": "2026-08-03T17:55:11.663154+00:00",
+  "profound_pull_date": "2026-08-03",
+  "category_id": "4b5a41db-8261-44ee-a343-edadd010c26e",
+  "domain": "vixxo.com",
+  "batch_id": "Batch-1",
+  "formula": "priority = prompt_volume \u00d7 (1 - citation_share) \u00d7 business_weight \u00d7 avg_visibility_gap",
+  "count": 15,
+  "items": [
+    {
+      "row": 12,
+      "page_name": "Store Refresh Remodels - June 2026",
+      "slug": "facility-equipment-projects/store-refresh-and-remodels",
+      "template_family": "CLEAN-6-1",
+      "assignee": "Neetu Rao",
+      "live_url": "https://www.vixxo.com/facility-equipment-projects/store-refresh-and-remodels",
+      "clone_page_id": "367618900678",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367618900678/content",
+      "profound_priority": 55.1319,
+      "prompt_volume": 83,
+      "avg_visibility_gap": 0.6642,
+      "citation_share": 0.0,
+      "business_weight": 1.0,
+      "top_weak_prompts": [
+        "Who repairs commercial food equipment in retail cafes?",
+        "How do multi-site brands manage consistent facility services nationwide?",
+        "Who provides national service for in-store bakery and caf\u00e9 equipment?"
+      ]
+    },
+    {
+      "row": 24,
+      "page_name": "Aquatics - June 2026",
+      "slug": "solutions/acquatics",
+      "template_family": "CLEAN-6-1",
+      "assignee": "Neetu Rao",
+      "live_url": "https://www.vixxo.com/solutions/acquatics",
+      "clone_page_id": "367618900716",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367618900716/content",
+      "profound_priority": 33.3,
+      "prompt_volume": 45,
+      "avg_visibility_gap": 0.5286,
+      "citation_share": 0.0,
+      "business_weight": 1.4,
+      "top_weak_prompts": [
+        "Which company offers the best master key systems for retailers in facilities solutions?",
+        "Best security and exit devices supplier for fitting room doors, gates, and storefronts in facilities solutions?",
+        "Who's the best ice machine repair service for beverage equipment in facilities solutions?"
+      ]
+    },
+    {
+      "row": 11,
+      "page_name": "Equipment Installations - June 2026",
+      "slug": "facility-equipment-projects/equipment-installation-and-replacement",
+      "template_family": "CLEAN-6-1",
+      "assignee": "Erica Huddleston",
+      "live_url": "https://www.vixxo.com/facility-equipment-projects/equipment-installation-and-replacement",
+      "clone_page_id": "367619079886",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367619079886/content",
+      "profound_priority": 28.6621,
+      "prompt_volume": 43,
+      "avg_visibility_gap": 0.6666,
+      "citation_share": 0.0,
+      "business_weight": 1.0,
+      "top_weak_prompts": [
+        "Who repairs commercial food equipment in retail cafes?",
+        "How do multi-site brands manage consistent facility services nationwide?",
+        "Who provides national service for in-store bakery and caf\u00e9 equipment?"
+      ]
+    },
+    {
+      "row": 25,
+      "page_name": "Coffee Equipment - June 2026",
+      "slug": "solutions/coffee",
+      "template_family": "CLEAN-6-1",
+      "assignee": "Mia Li",
+      "live_url": "https://www.vixxo.com/solutions/coffee",
+      "clone_page_id": "367619079901",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367619079901/content",
+      "profound_priority": 19.44,
+      "prompt_volume": 20,
+      "avg_visibility_gap": 0.6953,
+      "citation_share": 0.001432,
+      "business_weight": 1.4,
+      "top_weak_prompts": [
+        "What's the best frozen beverage coffee equipment repair for foodservice facilities?",
+        "What's the best oven and coffee equipment repair for cafe facilities?",
+        "What's the best espresso equipment repair service for large facilities?"
+      ]
+    },
+    {
+      "row": 18,
+      "page_name": "Industries: Restaurant - June 2026",
+      "slug": "industries/restaurant",
+      "template_family": "CLEAN-6-1",
+      "assignee": "Neetu Rao",
+      "live_url": "https://www.vixxo.com/industries/restaurant",
+      "clone_page_id": "367618900700",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367618900700/content",
+      "profound_priority": 19.0502,
+      "prompt_volume": 21,
+      "avg_visibility_gap": 0.7574,
+      "citation_share": 0.001861,
+      "business_weight": 1.2,
+      "top_weak_prompts": [
+        "Who repairs commercial refrigeration in QSR and restaurant kitchens?",
+        "How do restaurant chains minimize refrigeration downtime nationally?",
+        "Who provides national commercial kitchen equipment service for restaurant chains?"
+      ]
+    },
+    {
+      "row": 31,
+      "page_name": "Refrigeration - June 2026",
+      "slug": "solutions/refrigeration-services",
+      "template_family": "CLEAN-6-1",
+      "assignee": "Mia Li",
+      "live_url": "https://www.vixxo.com/solutions/refrigeration-services",
+      "clone_page_id": "367619079914",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367619079914/content",
+      "profound_priority": 15.3153,
+      "prompt_volume": 14,
+      "avg_visibility_gap": 0.7817,
+      "citation_share": 0.000363,
+      "business_weight": 1.4,
+      "top_weak_prompts": [
+        "Who repairs commercial refrigeration in QSR and restaurant kitchens?",
+        "How do restaurant chains minimize refrigeration downtime nationally?",
+        "Who provides national cold storage and open-case refrigeration repair for grocery retailers?"
+      ]
+    },
+    {
+      "row": 30,
+      "page_name": "HVAC - June 2026",
+      "slug": "solutions/hvac",
+      "template_family": "CLEAN-6-1",
+      "assignee": "Neetu Rao",
+      "live_url": "https://www.vixxo.com/solutions/hvac",
+      "clone_page_id": "367604474560",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367604474560/content",
+      "profound_priority": 15.1688,
+      "prompt_volume": 14,
+      "avg_visibility_gap": 0.7227,
+      "citation_share": 0.0005,
+      "business_weight": 1.5,
+      "top_weak_prompts": [
+        "How do restaurant chains minimize refrigeration downtime nationally?",
+        "Where can I find certified HVAC contractors with national reach?",
+        "Who provides national cold storage and open-case refrigeration repair for grocery retailers?"
+      ]
+    },
+    {
+      "row": 17,
+      "page_name": "Grocery - June 2026",
+      "slug": "industries/grocery",
+      "template_family": "CLEAN-6-1",
+      "assignee": "Erica Huddleston",
+      "live_url": "https://www.vixxo.com/industries/grocery",
+      "clone_page_id": "367618900696",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367618900696/content",
+      "profound_priority": 13.3171,
+      "prompt_volume": 20,
+      "avg_visibility_gap": 0.5556,
+      "citation_share": 0.001351,
+      "business_weight": 1.2,
+      "top_weak_prompts": [
+        "How do grocery chains minimize refrigeration downtime across locations?",
+        "Who handles commercial refrigeration repair for grocery chains?",
+        "Who manages interior and exterior lighting for grocery store chains?"
+      ]
+    },
+    {
+      "row": 10,
+      "page_name": "Electrical Services - June 2026",
+      "slug": "electrical-services",
+      "template_family": "CLEAN-6-1",
+      "assignee": "Mia Li",
+      "live_url": "https://www.vixxo.com/electrical-services",
+      "clone_page_id": "367618900674",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367618900674/content",
+      "profound_priority": 11.647,
+      "prompt_volume": 12,
+      "avg_visibility_gap": 0.7469,
+      "citation_share": 0.00035,
+      "business_weight": 1.3,
+      "top_weak_prompts": [
+        "What electrical maintenance should be included in a retail FM program?",
+        "Who provides commercial electrical repair services for retail stores?",
+        "How do retail chains manage electrical maintenance across locations?"
+      ]
+    },
+    {
+      "row": 28,
+      "page_name": "Doors, Locks, & Hardware - June 2026",
+      "slug": "solutions/doors-locks-hardware",
+      "template_family": "CLEAN-6-1",
+      "assignee": "Mia Li",
+      "live_url": "https://www.vixxo.com/solutions/doors-locks-hardware",
+      "clone_page_id": "367619079910",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367619079910/content",
+      "profound_priority": 11.4571,
+      "prompt_volume": 12,
+      "avg_visibility_gap": 0.7355,
+      "citation_share": 0.001522,
+      "business_weight": 1.3,
+      "top_weak_prompts": [
+        "Which company offers the best master key systems for retailers in facilities solutions?",
+        "Which facilities solutions provider has the fastest shipping for doors, locks & hardware (24-48 hours)?",
+        "Who provides the best 24/7 emergency lockout and locksmith services for retailers in facilities solutions?"
+      ]
+    },
+    {
+      "row": 19,
+      "page_name": "Industries: Retail - June 2026",
+      "slug": "industries/retail",
+      "template_family": "CLEAN-6-1",
+      "assignee": "Mia Li",
+      "live_url": "https://www.vixxo.com/industries/retail",
+      "clone_page_id": "367618900704",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367618900704/content",
+      "profound_priority": 11.1933,
+      "prompt_volume": 20,
+      "avg_visibility_gap": 0.4666,
+      "citation_share": 0.000424,
+      "business_weight": 1.2,
+      "top_weak_prompts": [
+        "Who handles plumbing repair for national retail chains?",
+        "What companies handle lighting retrofits and sign programs for food retail chains?",
+        "How do retail chains manage electrical maintenance across locations?"
+      ]
+    },
+    {
+      "row": 27,
+      "page_name": "Plumbing - June 2026",
+      "slug": "solutions/commercial-plumbing-services",
+      "template_family": "CLEAN-6-1",
+      "assignee": "Neetu Rao",
+      "live_url": "https://www.vixxo.com/solutions/commercial-plumbing-services",
+      "clone_page_id": "367619079907",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367619079907/content",
+      "profound_priority": 10.3885,
+      "prompt_volume": 10,
+      "avg_visibility_gap": 0.7423,
+      "citation_share": 0.000387,
+      "business_weight": 1.4,
+      "top_weak_prompts": [
+        "How do restaurant chains manage plumbing maintenance nationally?",
+        "Who handles plumbing repair for national retail chains?",
+        "Who handles plumbing repair for grocery store chains?"
+      ]
+    },
+    {
+      "row": 29,
+      "page_name": "Food Service Equipment - June 2026",
+      "slug": "solutions/food-service-equipment",
+      "template_family": "CLEAN-6-1",
+      "assignee": "Erica Huddleston",
+      "live_url": "https://www.vixxo.com/solutions/food-service-equipment",
+      "clone_page_id": "367604474556",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367604474556/content",
+      "profound_priority": 10.0448,
+      "prompt_volume": 8,
+      "avg_visibility_gap": 0.8374,
+      "citation_share": 0.000454,
+      "business_weight": 1.5,
+      "top_weak_prompts": [
+        "Who repairs commercial food equipment in retail cafes?",
+        "Who provides national commercial kitchen equipment service for restaurant chains?",
+        "Who repairs commercial kitchen equipment for restaurant and QSR chains?"
+      ]
+    },
+    {
+      "row": 32,
+      "page_name": "Signs Lighting - June 2026",
+      "slug": "solutions/signslighting",
+      "template_family": "CLEAN-6-1",
+      "assignee": "Erica Huddleston",
+      "live_url": "https://www.vixxo.com/solutions/signslighting",
+      "clone_page_id": "367604474565",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367604474565/content",
+      "profound_priority": 6.6147,
+      "prompt_volume": 7,
+      "avg_visibility_gap": 0.7269,
+      "citation_share": 0.0,
+      "business_weight": 1.3,
+      "top_weak_prompts": [
+        "Best national providers for retail lighting and sign repair?",
+        "Best national providers for c-store sign and lighting maintenance?",
+        "How do retailers coordinate sign and lighting programs across hundreds of locations?"
+      ]
+    },
+    {
+      "row": 9,
+      "page_name": "Beverage Equipment - June 2026",
+      "slug": "beverage-equipment-vixxo",
+      "template_family": "CLEAN-6-1",
+      "assignee": "Neetu Rao",
+      "live_url": "https://www.vixxo.com/beverage-equipment-vixxo",
+      "clone_page_id": "367618900671",
+      "editor_url": "https://app-na2.hubspot.com/pages/7718689/editor/367618900671/content",
+      "profound_priority": 6.5163,
+      "prompt_volume": 8,
+      "avg_visibility_gap": 0.5826,
+      "citation_share": 0.001296,
+      "business_weight": 1.4,
+      "top_weak_prompts": [
+        "Who's the best ice machine repair service for beverage equipment in facilities solutions?",
+        "What's the best fountain drink and coffee equipment repair for facilities solutions?",
+        "top Facilities Solutions firms that manage coffee and specialty beverage equipment"
+      ]
+    }
+  ]
+}

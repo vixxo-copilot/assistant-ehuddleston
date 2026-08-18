@@ -1,0 +1,15 @@
+{
+  "startedAt": "2026-07-13T13:08:45.697169+00:00",
+  "workbook": "C:\\Users\\ehuddleston\\source\\assistant-ehuddleston\\_pages\\aeo\\Vixxo-AEO-Website-Revamp-Status.xlsx",
+  "dryRun": false,
+  "limit": 1,
+  "processed": [],
+  "failed": [],
+  "summary": {
+    "total": 0,
+    "succeeded": 0,
+    "failed": 0,
+    "workbook": "C:\\Users\\ehuddleston\\source\\assistant-ehuddleston\\_pages\\aeo\\Vixxo-AEO-Website-Revamp-Status.xlsx"
+  },
+  "finishedAt": "2026-07-13T13:08:46.944026+00:00"
+}

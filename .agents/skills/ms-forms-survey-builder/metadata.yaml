@@ -1,0 +1,23 @@
+name: ms-forms-survey-builder
+title: "Microsoft Forms Survey Builder"
+description: "Grills survey goals one question at a time, then creates a configured Microsoft Form via the Forms web API."
+category: productivity
+agents:
+  - cursor
+  - claude-code
+author: vixxo
+version: "1.0.0"
+tags:
+  - microsoft-forms
+  - survey
+  - grill
+  - questionnaire
+  - nps
+status: approved
+requires_mcp: []
+source: vixxo
+provenance: user
+created_by: vixxo-copilot
+created_at: "2026-08-04T00:00:00.000Z"
+last_updated_by: vixxo-copilot
+last_updated_at: "2026-08-04T00:00:00.000Z"
