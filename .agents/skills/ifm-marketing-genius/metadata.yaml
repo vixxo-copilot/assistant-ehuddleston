@@ -1,0 +1,23 @@
+name: ifm-marketing-genius
+title: "IFM Marketing Genius"
+description: "IFM marketing coach for Vixxo: industry best practices, buyer-committee messaging, AEO/ABM routing, and a keep-informed briefing loop."
+category: marketing
+agents:
+  - cursor
+  - claude-code
+author: vixxo
+version: "1.0.0"
+tags:
+  [
+    ifm,
+    facilities,
+    b2b,
+    marketing,
+    abm,
+    aeo,
+    sales-enablement,
+    positioning,
+  ]
+status: approved
+requires_mcp: [profound]
+source: vixxo

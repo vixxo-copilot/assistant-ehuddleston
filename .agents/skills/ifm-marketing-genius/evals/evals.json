@@ -1,0 +1,55 @@
+{
+  "skill_name": "ifm-marketing-genius",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Keep me informed of best practices in marketing in the IFM industry.",
+      "expected_output": "Should enter Brief mode, load weekly-scan.md, and produce the brief template: one thing that matters, max 5 stealable practices each with IFM reason + Vixxo implication + this-week action + source, plus hype to ignore. Should not give generic SaaS/consumer tactics without IFM translation. Should attempt Profound if relevant and say so if not connected. Should not send outbound messages.",
+      "assertions": [
+        "Uses Brief mode / weekly scan template",
+        "Limits practices and includes Vixxo implication plus an action",
+        "Translates or rejects generic marketing hype",
+        "Does not invent Profound numbers",
+        "Does not send outbound messages"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Make me a marketing genius in IFM. Start teaching.",
+      "expected_output": "Should enter Coach mode, start curriculum module 1 (category/shelf), teach briefly with an IFM example and a common failure, then give one drill. Should not dump all 12 modules. Should offer the next module.",
+      "assertions": [
+        "Starts with category/shelf not a random tactics dump",
+        "Includes a drill",
+        "Does not present the entire curriculum at once",
+        "Stays IFM-specific vs generic growth hacking"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Review this LinkedIn ad: 'Vixxo is the one-stop shop for seamless facility solutions. Book a demo today. We care more than the big guys.'",
+      "expected_output": "Should enter Critique mode, score against the IFM copy test, call out clichés (one-stop shop, seamless, we care more), missing alternative/proof/committee, and rewrite the ad for a facilities + procurement pair with a stage-matched CTA. Should flag proof gaps instead of inventing metrics.",
+      "assertions": [
+        "Scores or systematically tests the copy",
+        "Rejects care/seamless/one-stop clichés",
+        "Provides a rewrite",
+        "Does not invent customer metrics or quotes",
+        "Mentions committee or proof gap"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "We need an AEO campaign so ChatGPT recommends us for national restaurant facilities management.",
+      "expected_output": "Should apply IFM laws then route to vixxo-profound-aeo rather than inventing visibility scores. Should name the buyer job and proof required. Should not execute a HubSpot clone workflow inside this skill alone.",
+      "assertions": [
+        "Routes to vixxo-profound-aeo or Profound",
+        "Does not fabricate AI visibility data",
+        "Frames restaurant/multi-site IFM not generic SEO",
+        "Names proof or enablement, not only 'write blogs'"
+      ],
+      "files": []
+    }
+  ]
+}

@@ -31,6 +31,14 @@
 - Map outcomes to acceptance criteria or requested goals.
 - List follow-up risks or TODO items.
 
+## IFM marketing coach
+
+For IFM / facilities / multi-site marketing strategy, coaching, teardowns,
+or “keep me current on industry best practices,” start with
+**`ifm-marketing-genius`**. It applies IFM-specific laws, then routes
+execution to the marketing skills below. AEO/page work still starts at
+`vixxo-profound-aeo`.
+
 ## Marketing skills + Profound AEO
 
 This repo includes **49 marketing skills** (`coreyhaines31/marketingskills` in
