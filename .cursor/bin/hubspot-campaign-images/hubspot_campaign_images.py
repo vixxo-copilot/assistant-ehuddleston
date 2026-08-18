@@ -440,16 +440,23 @@ def resolve_image(prompt: str, placement: str, prefer: str = "auto") -> dict:
             if prefer in ("adobe_stock", "adobe"):
                 raise
 
-    if prefer in ("auto", "shutterstock"):
-        ss = resolve_shutterstock_preview(query)
-        if ss:
+    for prefer_key, resolver, source_name, id_field in (
+        ("shutterstock", resolve_shutterstock_preview, "shutterstock_preview", "shutterstock_image_id"),
+        ("pexels", resolve_pexels_preview, "pexels", "pexels_image_id"),
+        ("wikimedia", resolve_wikimedia_preview, "wikimedia", "wikimedia_image_id"),
+        ("openverse", resolve_openverse_preview, "openverse", "openverse_image_id"),
+    ):
+        if prefer not in ("auto", prefer_key):
+            continue
+        match = resolver(query)
+        if match:
             result.update(
                 {
-                    "source": "shutterstock_preview",
-                    "url": ss["preview_url"],
-                    "alt": ss["description"][:125],
-                    "shutterstock_image_id": ss.get("image_id"),
-                    "license_note": ss.get("license_note"),
+                    "source": source_name,
+                    "url": match["preview_url"],
+                    "alt": match["description"][:125],
+                    id_field: match.get("image_id"),
+                    "license_note": match.get("license_note"),
                     "hubspot_upload_recommended": True,
                 }
             )
